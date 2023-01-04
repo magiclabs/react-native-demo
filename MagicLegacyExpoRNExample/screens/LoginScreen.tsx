@@ -6,7 +6,7 @@ import { Card } from 'react-native-elements';
 
 export default function LoginScreen (props: { magic: any; }) {
 
-  const [email, onChangeEmail] = React.useState('jerry@fortmatic.com');
+  const [email, onChangeEmail] = React.useState('test@demo.app');
   const { magic } = props;
 
   /**
