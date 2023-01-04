@@ -17,7 +17,6 @@ export default function App() {
 
   const magic = new Magic(API_KEY[env], {
     extensions: [new OAuthExtension()],
-    endpoint: MGBOX_ENDPOINT[env],
     locale: "pl_en"
   });
 

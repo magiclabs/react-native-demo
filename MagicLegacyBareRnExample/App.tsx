@@ -10,9 +10,7 @@ export default function App() {
 
   const [env, setEnv] = React.useState(ENV.PROD);
 
-  const magic = new Magic(API_KEY[env], {
-    endpoint: MGBOX_ENDPOINT[env],
-  });
+  const magic = new Magic(API_KEY[env]);
 
   const web3 = new Web3(magic.rpcProvider);
 
