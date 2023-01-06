@@ -17,7 +17,6 @@ export default function App() {
 
   const magic = new Magic(API_KEY[env], {
     extensions: [new OAuthExtension()],
-    locale: "pl_en"
   });
 
   const web3 = new Web3(magic.rpcProvider);

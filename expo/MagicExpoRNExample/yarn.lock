@@ -1696,39 +1696,39 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@magic-ext/expo-react-native-oauth@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@magic-ext/expo-react-native-oauth/-/expo-react-native-oauth-7.0.0.tgz#af8906af20e011896ec596ce4886f3033e370de2"
-  integrity sha512-xCZrZjCSKt6pumZYAqj5cq4s1Us67jA5w1hwe+3CjMYvUPYz124E046ARJJNi5V8BeX+eFpTrTPQdS/NB9Jsbw==
+"@magic-ext/react-native-expo-oauth@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/react-native-expo-oauth/-/react-native-expo-oauth-7.1.0.tgz#6701f51aab1ab47455403d91d854c838263c065c"
+  integrity sha512-lqjBBBXZPOXZ213C2iNhMnQwO1ctIQQ+GzYX25XwCDqgJcYG99Fq90dEWY8HWsWXxnPeeXU2pDz7aVdfSPTjUg==
   dependencies:
     "@magic-sdk/types" "^10.0.0"
     crypto-js "^3.3.0"
     expo-application "^5.0.1"
     expo-web-browser "^11.0.0"
 
-"@magic-sdk/commons@^7.0.1":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/commons/-/commons-7.0.1.tgz#ad084c29607703b82cd93f991054a9e3f2b16c0f"
-  integrity sha512-gO5HyzuQTY6XxAnoIBc+v9mY5JOk6pdc6vpAHrFIK9VfeNREVnkABWupl4W42oX+l2BCk6Ii6XtvURibRbSQeQ==
+"@magic-sdk/commons@^9.1.0":
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/commons/-/commons-9.1.0.tgz#06602d618457cf7573d58aceb02809d56172083d"
+  integrity sha512-hKos9Q1NaAWT8Sm0vKjsrOuKtAXNnLHx7RtLfgGE7MiNxrhw/em+zvnerbWuekUVe1MDcNAIeJU6aGMxOunknw==
 
-"@magic-sdk/provider@^11.1.0":
-  version "11.1.3"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/provider/-/provider-11.1.3.tgz#278a7b26ab1b7ca2d2303ee75e2e5d722dc138b8"
-  integrity sha512-gv2xstAat3D3ws95XN6FtKcVoOZI1SKcOFUIv1rPBQdDEUxwRE54qnEAdO+GFjSpSnGazLt6SIxnyVYQK7OgOg==
+"@magic-sdk/provider@^13.1.0":
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/provider/-/provider-13.1.0.tgz#e9e1c64498ad634aa92f24d2900746ca942c7a88"
+  integrity sha512-WTTY1ygrLlNvxMN0UyhDS4ldyMYbpEXwKEYJRuqcp0FTBNKXFf26D9M2744HiY6cT98nnvhXe4pUafIn7wUBeg==
   dependencies:
-    "@magic-sdk/types" "^10.0.0"
+    "@magic-sdk/types" "^11.1.0"
     eventemitter3 "^4.0.4"
     web3-core "1.5.2"
 
-"@magic-sdk/react-native-expo@^13.0.3":
-  version "13.0.3"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-expo/-/react-native-expo-13.0.3.tgz#70f9d6d461138c06a71934f4edc9e26f0e457704"
-  integrity sha512-t26JFPAAt3AMBqACgD/NjZ+JeZVBdC9M1TVFDS1RfNsdGweUZZmSrf5X74jYLXtN/fozRUmvJyr1pzlcbopc6A==
+"@magic-sdk/react-native-expo@^13.1.0":
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-expo/-/react-native-expo-13.1.0.tgz#3c1208d6811c98370849898809c4e2c23b0b8044"
+  integrity sha512-tTP9IZFzA+UpZB9Y+uAHweq+72MOZpfG+kZ9RrxNksygl+H8Y22gLKtEXGsmSgMkb47dyCPRL1IrVFtrZOklaQ==
   dependencies:
     "@aveq-research/localforage-asyncstorage-driver" "^3.0.1"
-    "@magic-sdk/commons" "^7.0.1"
-    "@magic-sdk/provider" "^11.1.0"
-    "@magic-sdk/types" "^10.0.1"
+    "@magic-sdk/commons" "^9.1.0"
+    "@magic-sdk/provider" "^13.1.0"
+    "@magic-sdk/types" "^11.1.0"
     "@react-native-async-storage/async-storage" "^1.15.5"
     "@types/lodash" "^4.14.158"
     buffer "~5.6.0"
@@ -1740,10 +1740,15 @@
     tslib "^2.0.3"
     whatwg-url "~8.1.0"
 
-"@magic-sdk/types@^10.0.0", "@magic-sdk/types@^10.0.1":
+"@magic-sdk/types@^10.0.0":
   version "10.0.1"
   resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-10.0.1.tgz#59b683670587634bdbc3d632fced4d5fda7c35a4"
   integrity sha512-JNB+sEKdVDZd2MDs4QaPM6vxCNfGuYhWUd14rDLixcbdut2u9g5z6yDxs1rYWYEVaUknNs+zGp2K/NDPo9UfdA==
+
+"@magic-sdk/types@^11.1.0":
+  version "11.1.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-11.1.0.tgz#43bcd666088b5d2294b0ce3663c7798e417e9277"
+  integrity sha512-Cj3tpOO50yuBMqg39DumYF7qIKakQWIE4aGL3y8XeFeV7+fqrWmD8jlNZi5Kib4bsLvWCjxPJqtnhCyYpHnC5w==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
