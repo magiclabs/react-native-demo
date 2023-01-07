@@ -4,7 +4,7 @@ import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 
 import { Magic } from '@magic-sdk/react-native-bare'
-import { OAuthExtension } from "@magic-ext/bare-react-native-oauth";
+import { OAuthExtension } from "@magic-ext/react-native-bare-oauth";
 import Web3 from 'web3'
 import { ENV, API_KEY, MGBOX_ENDPOINT } from './config/env';
 
