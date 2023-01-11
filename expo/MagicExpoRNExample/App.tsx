@@ -7,7 +7,7 @@ import Navigation from './navigation';
 
 import { Magic } from '@magic-sdk/react-native-expo';
 import Web3 from 'web3'
-import { ENV, API_KEY, MGBOX_ENDPOINT } from './config/env';
+import { ENV, API_KEY } from './config/env';
 import {OAuthExtension} from "@magic-ext/react-native-expo-oauth";
 
 export default function App() {
