@@ -32,7 +32,6 @@ export default function App() {
   if (!isLoadingComplete) {
     return null;
   } else {
-    console.log(API_KEY[env]);
     return (
       <SafeAreaProvider>
         <magic.Relayer/>
