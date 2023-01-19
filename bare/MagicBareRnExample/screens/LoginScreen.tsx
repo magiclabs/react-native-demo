@@ -42,7 +42,6 @@ export default function LoginScreen(props: { magic?: any; web3?: any; }) {
   const getAccount = async () => {
     try {
       const account = await props.web3.eth.getAccounts();
-      console.log();
       alert(`Your Public address is: ${account[0]}`);
     } catch (err) {
       alert(err);
