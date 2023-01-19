@@ -1706,6 +1706,11 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@magic-ext/connect@6.2.0-280e018":
+  version "6.2.0-280e018"
+  resolved "https://registry.yarnpkg.com/@magic-ext/connect/-/connect-6.2.0-280e018.tgz#387190f06d7995c03510f656ca0b23b88c44348e"
+  integrity sha512-G5h0PQmn2NjzmxQoNcCNPzWD/eVIURnSbdx7h9GTh2tSFIxuEU66TiBlGbDTcQwp5iBpld4xER9tWUpW4h5rXQ==
+
 "@magic-ext/react-native-expo-oauth@^7.1.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@magic-ext/react-native-expo-oauth/-/react-native-expo-oauth-7.1.0.tgz#6701f51aab1ab47455403d91d854c838263c065c"
@@ -1730,10 +1735,10 @@
     eventemitter3 "^4.0.4"
     web3-core "1.5.2"
 
-"@magic-sdk/react-native-expo@^13.1.0":
-  version "13.1.0"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-expo/-/react-native-expo-13.1.0.tgz#3c1208d6811c98370849898809c4e2c23b0b8044"
-  integrity sha512-tTP9IZFzA+UpZB9Y+uAHweq+72MOZpfG+kZ9RrxNksygl+H8Y22gLKtEXGsmSgMkb47dyCPRL1IrVFtrZOklaQ==
+"@magic-sdk/react-native-expo@^14.0.0":
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-expo/-/react-native-expo-14.0.0.tgz#ffb7606792aa7b4eb0b97c5174e344d345ea864e"
+  integrity sha512-ZcspbT26kcMba+D8xWVA9OWRxltpzklTpSggBkFeA6jkhW/RRSWpg0kvAVT2GyxpjLUDxFTvP/RN6x5j2sT2Fw==
   dependencies:
     "@aveq-research/localforage-asyncstorage-driver" "^3.0.1"
     "@magic-sdk/commons" "^9.1.0"

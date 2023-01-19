@@ -9,6 +9,7 @@ import { Magic } from '@magic-sdk/react-native-expo';
 import Web3 from 'web3'
 import { ENV, API_KEY } from './config/env';
 import {OAuthExtension} from "@magic-ext/react-native-expo-oauth";
+import { ConnectExtension } from '@magic-ext/connect';
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -17,7 +18,7 @@ export default function App() {
   const [env, setEnv] = React.useState(ENV.PROD);
 
   const magic = new Magic(API_KEY[env], {
-    extensions: [new OAuthExtension()],
+    extensions: [new OAuthExtension(), new ConnectExtension()],
   });
 
   const web3 = new Web3(magic.rpcProvider);
