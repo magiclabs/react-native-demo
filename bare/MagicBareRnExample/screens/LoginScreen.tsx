@@ -99,10 +99,12 @@ export default function LoginScreen(props: { magic?: any; web3?: any; }) {
           </View>
           <TouchableButton handler={() => login()} title="Login" />
         </Card>
+        
         {/* Magic Connect Sign-in */}
         <Card>
-          <Card.Title>MC Login</Card.Title>
+          <Card.Title>Magic Connect (MC) Login</Card.Title>
           <TouchableButton handler={() => getAccount()} title="MC Login" />
+          <Text style={styles.subtitle}>MC API Keys Only</Text>
         </Card>
 
         {/* Google Sign in */}

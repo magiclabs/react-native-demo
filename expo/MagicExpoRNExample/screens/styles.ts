@@ -5,6 +5,13 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  subtitle: {
+    fontSize: 14,
+    fontWeight: '800',
+    display: 'flex',
+    alignSelf: 'center',
+    paddingTop: 25
+  },
   TextInputContainer: {
     borderColor: 'black',
     borderWidth: 1,
