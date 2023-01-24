@@ -9,7 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@magic-ext/connect": "6.2.0-280e018",
+    "@magic-ext/connect": "6.2.0",
     "@magic-ext/react-native-expo-oauth": "^7.1.0",
     "@magic-sdk/react-native-expo": "^14.0.0",
     "@react-navigation/bottom-tabs": "^6.5.2",
