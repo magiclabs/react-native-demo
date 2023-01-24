@@ -79,7 +79,7 @@ function BottomTabNavigator(props: { navigation?: any; env?: any; setEnv?: any; 
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         })}
       >
-          {() => TabOneNavigator(header, magic)}
+          {() => TabOneNavigator(header, magic, web3)}
       </BottomTab.Screen>
       <BottomTab.Screen
         name="Web3"
@@ -105,14 +105,14 @@ function TabBarIcon(props: {
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const TabOneStack = createNativeStackNavigator<TabOneParamList>();
 
-function TabOneNavigator(header: () => JSX.Element, magic: any) {
+function TabOneNavigator(header: () => JSX.Element, magic: any, web3: any) {
     return (
         <TabOneStack.Navigator>
             <TabOneStack.Screen
                 name="LoginScreen"
                 options={{ headerTitle: header }}
             >
-                {props => <LoginScreen {...props} magic={magic}/>}
+                {props => <LoginScreen {...props} magic={magic} web3={web3} />}
             </TabOneStack.Screen>
         </TabOneStack.Navigator>
     );
