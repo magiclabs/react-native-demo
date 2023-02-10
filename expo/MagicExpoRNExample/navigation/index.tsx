@@ -86,7 +86,7 @@ function BottomTabNavigator(props: { navigation?: any; env?: any; setEnv?: any; 
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       >
-          {() => TabTwoNavigator(header, web3)}
+          {() => TabTwoNavigator(header, web3, magic)}
       </BottomTab.Screen>
     </BottomTab.Navigator>
   );
@@ -120,14 +120,14 @@ function TabOneNavigator(header: () => JSX.Element, magic: any, web3: any) {
 
 const TabTwoStack = createNativeStackNavigator<TabTwoParamList>();
 
-function TabTwoNavigator(header: () => JSX.Element, web3: any) {
+function TabTwoNavigator(header: () => JSX.Element, web3: any, magic: any) {
     return (
         <TabTwoStack.Navigator>
             <TabTwoStack.Screen
                 name="Web3Screen"
                 options={{ headerTitle: header }}
             >
-                {(props: any) => <Web3Screen {...props} web3={web3}/>}
+                {(props: any) => <Web3Screen {...props} web3={web3} magic={magic} />}
             </TabTwoStack.Screen>
         </TabTwoStack.Navigator>
     );
