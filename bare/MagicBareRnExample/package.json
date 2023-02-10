@@ -10,7 +10,6 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@magic-ext/connect": "6.2.0",
     "@magic-ext/react-native-bare-oauth": "^7.1.0",
     "@magic-sdk/react-native-bare": "^14.1.0",
     "@react-native-community/async-storage": "^1.12.1",

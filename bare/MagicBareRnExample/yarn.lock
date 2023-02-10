@@ -1267,11 +1267,6 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@magic-ext/connect@6.2.0":
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/@magic-ext/connect/-/connect-6.2.0.tgz#07bf7ec9e0f0fc1e4d84f950d233542e3f475a7c"
-  integrity sha512-J4A13lvILys/uA7e4XdNGQ+9ZPx6RycUUey72GOHjYK9Tq7jr9Os576lVPVzvGX7GZs4XL59xDX9nobMfUSksg==
-
 "@magic-ext/react-native-bare-oauth@^7.1.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@magic-ext/react-native-bare-oauth/-/react-native-bare-oauth-7.1.0.tgz#a76a9460c462c93d18727ef16e091f7cc721a107"
