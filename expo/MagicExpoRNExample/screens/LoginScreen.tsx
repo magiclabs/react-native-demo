@@ -39,10 +39,10 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
     }
   };
 
-  /** GetAccount */
-  const getAccount = async () => {
+  /** Magic Connect w/ UI  */
+  const showMCUserInterface = async () => {
     try {
-      const account = await props.web3.eth.getAccounts();
+      const account = await magic.wallet.connectWithUI();
       alert(`Your Public address is: ${account[0]}`);
     } catch (err) {
       alert(err);
@@ -103,7 +103,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
         {/* Magic Connect Sign-in */}
         <Card>
           <Card.Title>Magic Connect (MC) Login</Card.Title>
-          <TouchableButton handler={() => getAccount()} title="MC Login" />
+          <TouchableButton handler={() => showMCUserInterface()} title="MC Login" />
           <Text style={styles.subtitle}>MC API Keys Only</Text>
         </Card>
 
