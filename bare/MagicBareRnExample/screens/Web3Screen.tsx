@@ -4,14 +4,14 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import { Card } from 'react-native-elements';
 
-export default function Web3Screen (props: { web3: any; }) {
+export default function Web3Screen(props: { web3: any; magic: any }) {
   const [publicAddress, updatePublicAddress] = React.useState('');
   const [toAddress, onChangeToAddress] = React.useState('YOUR_PUBLIC_TO_ADDRESS');
   const [transactionHash, updateTransactionHash] = React.useState('');
 
-  const { web3 } = props;
+  const { web3, magic } = props;
 
-  React.useEffect( () => {
+  React.useEffect(() => {
   }, []);
 
   /** GetAccount */
@@ -34,48 +34,114 @@ export default function Web3Screen (props: { web3: any; }) {
     updateTransactionHash(hash.transactionHash);
   };
 
+  /** ShowWallet */
+  const showWallet = async () => {
+    try {
+      await magic.wallet.showUI();
+    } catch (e) {
+      alert(e);
+    }
+  };
+
+  /** getWalletInfo */
+  const getWalletInfo = async () => {
+    try {
+      const walletInfo = await magic.wallet.getInfo();
+      alert(`WalletType: ${walletInfo.walletType}`);
+    } catch (e) {
+      alert(e);
+    }
+  };
+
+  /** requestUserInfo */
+  const requestUserInfo = async () => {
+    try {
+      const email = await magic.wallet.requestUserInfoWithUI();
+      alert(`email: ${email}`);
+    } catch (e) {
+      alert(e);
+    }
+  };
+
+  /** disconnect */
+  const disconnect = async () => {
+    await magic.wallet.disconnect().catch((e) => {
+      alert(`error: ${e}`);
+    });
+    alert("Magic Disconnect Successful");
+  };
+
   return (
-      <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-
-          {/* Get Account */}
-          <Card>
-            <Card.Title>GetAccount</Card.Title>
-            <View style={styles.loginContainer}>
-              <Text style={styles.publicAddress}>
-                Public Address: {publicAddress}
+    <View style={styles.container}>
+      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+        {/* Get Account */}
+        <Card>
+          <Card.Title>Get Account</Card.Title>
+          <View style={styles.loginContainer}>
+            <Text style={styles.publicAddress}>
+              Public Address: {publicAddress}
+            </Text>
+          </View>
+          <View style={styles.actionContainer}>
+            <Button onPress={() => getAccount()} title="Get Account" />
+          </View>
+        </Card>
+        {/* Send Transaction section */}
+        <Card>
+          <Card.Title>Send Transaction</Card.Title>
+          <View style={styles.loginContainer}>
+            <View style={styles.emailContainer}>
+              <Text>
+                To:
               </Text>
+              <TextInput
+                style={styles.TextInputContainer}
+                onChangeText={text => onChangeToAddress(text)}
+                value={toAddress}
+              />
             </View>
-            <View style={styles.actionContainer}>
-              <Button onPress={() => getAccount()}  title="Get Account" />
-            </View>
-          </Card>
-
-
-          {/* Send Transaction section */}
-          <Card>
-            <Card.Title>Send Transaction</Card.Title>
-            <View style={styles.loginContainer}>
-              <View style={styles.emailContainer}>
-                <Text>
-                  To:
-                </Text>
-                <TextInput
-                    style={styles.TextInputContainer}
-                    onChangeText={text => onChangeToAddress(text)}
-                    value={toAddress}
-                />
-              </View>
-              <Text style={styles.publicAddress}>
-                Transaction Hash: {transactionHash}
-              </Text>
-            </View>
-            <View style={styles.actionContainer}>
-              <Button onPress={() => sendTransaction()}  title="Send" />
-            </View>
-          </Card>
-        </ScrollView>
-      </View>
+            <Text style={styles.publicAddress}>
+              Transaction Hash: {transactionHash}
+            </Text>
+          </View>
+          <View style={styles.actionContainer}>
+            <Button onPress={() => sendTransaction()} title="Send" />
+          </View>
+        </Card>
+        {/* Show Wallet */}
+        <Card>
+          <Card.Title>Show Wallet</Card.Title>
+          <View style={styles.actionContainer}>
+            <Button onPress={() => showWallet()} title="Show Wallet" />
+          </View>
+          <Text style={styles.subtitle}>MC API Keys Only</Text>
+        </Card>
+        {/* Show Wallet */}
+        <Card>
+          <Card.Title>Get Wallet Info</Card.Title>
+          <View style={styles.actionContainer}>
+            <Button onPress={() => getWalletInfo()} title="Get Wallet Info" />
+          </View>
+          <Text style={styles.subtitle}>MC API Keys Only</Text>
+        </Card>
+        {/* Request User Info */}
+        <Card>
+          <Card.Title>Request User Info</Card.Title>
+          <View style={styles.actionContainer}>
+            <Button onPress={() => requestUserInfo()} title="Request User Info" />
+          </View>
+          <Text style={styles.subtitle}>MC API Keys Only</Text>
+        </Card>
+        {/* Disconnect Wallet */}
+        <Card>
+          <Card.Title>Disconnect Wallet</Card.Title>
+          <View style={styles.actionContainer}>
+            <Button onPress={() => disconnect()} title="Disconnect Wallet" />
+          </View>
+          <Text style={styles.subtitle}>MC API Keys Only</Text>
+        </Card>
+      </ScrollView>
+    </View>
   );
 }
 
