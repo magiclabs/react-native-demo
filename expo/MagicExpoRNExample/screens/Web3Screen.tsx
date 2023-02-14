@@ -3,6 +3,8 @@ import { Button, TextInput, Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import { Card } from 'react-native-elements';
+import "./shim"; // Required for Bitcoin Blockchain interaction
+import * as bitcoin from 'bitcoinjs-lib';
 
 export default function Web3Screen(props: { web3: any; magic: any }) {
   const [publicAddress, updatePublicAddress] = React.useState('');
@@ -34,6 +36,20 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
     });
     updateTransactionHash(hash.transactionHash);
   };
+
+    /** sendBTCTransaction */
+    const sendBTCTransaction = async () => {
+      const TESTNET = bitcoin.networks.testnet;
+      const tx = new bitcoin.TransactionBuilder(TESTNET);
+
+      tx.addInput('fde789dad13b52e33229baed29b11d3e6f6dd306eb159865957dce13219bf85c', 0);
+      tx.addOutput('mfkv2a593E1TfDVFmf1szjAkyihLowyBaT', 80000);
+
+      const txHex = tx.buildIncomplete().toHex();
+      const signedTransactionHex = await magic.bitcoin.signTransaction(txHex, 0);
+
+      alert(`signed transaction - ${signedTransactionHex}`);
+    };
 
   /** ShowWallet */
   const showWallet = async () => {
@@ -107,6 +123,12 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
           </View>
           <View style={styles.actionContainer}>
             <Button onPress={() => sendTransaction()} title="Send" />
+          </View>
+        </Card>
+        <Card>
+          <Card.Title>Send BTC Transaction</Card.Title>
+          <View style={styles.actionContainer}>
+            <Button onPress={() => sendBTCTransaction()} title="Send BTC Transaction" />
           </View>
         </Card>
         {/* Show Wallet */}
