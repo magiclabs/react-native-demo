@@ -3,7 +3,7 @@ import { Button, TextInput, Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import { Card } from 'react-native-elements';
-import "./shim"; // Required for Bitcoin Blockchain interaction
+import "../shim"; // Required for Bitcoin Blockchain interaction
 import * as bitcoin from 'bitcoinjs-lib';
 
 export default function Web3Screen(props: { web3: any; magic: any }) {
