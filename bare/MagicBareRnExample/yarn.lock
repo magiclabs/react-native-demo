@@ -1267,10 +1267,10 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@magic-ext/bitcoin@^8.2.0":
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/@magic-ext/bitcoin/-/bitcoin-8.2.0.tgz#a5e12bf83e7e5ffb56f7193dc01ed5caa872dac9"
-  integrity sha512-slM6CrdKn0IqQzfdeuEiHDtU1WHcm6yejqd7FoKmXoFtn+ukyzEZMsOepWlqnST6GuMBSnrBpev67zPzfmH2LA==
+"@magic-ext/bitcoin@^8.2.1":
+  version "8.2.1"
+  resolved "https://registry.yarnpkg.com/@magic-ext/bitcoin/-/bitcoin-8.2.1.tgz#4b203441fd738bbfec9067c39fd6f833ead0d93c"
+  integrity sha512-7GZFVix57TYLZ0yDPfBGE4JMT5SnEe7x3lWzPQdKfUkB2OThU9J2bnbvRUG77/SLC9/vGC4XOTSvN8TKVIt+UQ==
 
 "@magic-ext/react-native-bare-oauth@^7.1.0":
   version "7.1.0"

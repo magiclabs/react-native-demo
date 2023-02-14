@@ -10,7 +10,7 @@
     "postinstall": "rn-nodeify --install buffer,stream,assert,events,crypto,vm,process --hack"
   },
   "dependencies": {
-    "@magic-ext/bitcoin": "8.2.1-e2c2b0b",
+    "@magic-ext/bitcoin": "^8.2.1",
     "@magic-ext/react-native-expo-oauth": "^7.1.0",
     "@magic-sdk/react-native-expo": "^14.2.0",
     "@react-navigation/bottom-tabs": "^6.5.2",
