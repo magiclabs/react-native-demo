@@ -11,7 +11,7 @@
     "postinstall": "rn-nodeify --install buffer,stream,assert,events,crypto,vm,process --hack"
   },
   "dependencies": {
-    "@magic-ext/bitcoin": "^8.2.0",
+    "@magic-ext/bitcoin": "^8.2.1",
     "@magic-ext/react-native-bare-oauth": "^7.1.0",
     "@magic-sdk/react-native-bare": "^14.2.0",
     "@react-native-community/async-storage": "^1.12.1",
