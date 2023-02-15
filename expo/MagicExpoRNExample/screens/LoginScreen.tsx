@@ -172,10 +172,10 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
               />
             </View>
           </View>
-          <View style={styles.smsButton}>
+          <View style={styles.margin10}>
             <TouchableButton handler={() => smsLogin()} title="Login with SMS" />
           </View>
-          <View style={styles.smsButton}>
+          <View style={styles.margin10}>
             <TouchableButton handler={() => updateSMS()} title="Update SMS" />
           </View>
         </Card>
