@@ -7,6 +7,7 @@ import { Card } from 'react-native-elements';
 export default function LoginScreen(props: { magic?: any; web3?: any; }) {
 
   const [email, onChangeEmail] = React.useState('test@demo.app');
+  const [phoneNumber, onChangePhoneNumber] = React.useState('+18888888888');
   const { magic } = props;
 
   /**
@@ -33,6 +34,30 @@ export default function LoginScreen(props: { magic?: any; web3?: any; }) {
       await magic.auth.loginWithMagicLink({ email: email });
       const res = await magic.user.getMetadata();
       alert(JSON.stringify(res));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  /**
+   * sms sign in
+  **/
+  const smsLogin = async () => {
+    try {
+      const DID = await magic.auth.loginWithSMS({
+        phoneNumber: phoneNumber,
+      })
+      alert(`Your DID is: ${DID}`);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  /**
+   * Update SMS
+  **/
+  const updateSMS = async () => {
+    try {
+      await magic.user.updatePhoneNumber();
     } catch (err) {
       console.log(err);
     }
@@ -101,6 +126,28 @@ export default function LoginScreen(props: { magic?: any; web3?: any; }) {
               </View>
             </View>
             <TouchableButton handler={() => login()} title="Login" />
+          </Card>
+          {/* Magic Sign-in with SMS */}
+          <Card>
+            <Card.Title>Login with SMS</Card.Title>
+            <View style={styles.loginContainer}>
+              <View style={styles.emailContainer}>
+                <Text>
+                  Number:
+                </Text>
+                <TextInput
+                  style={styles.TextInputContainer}
+                  onChangeText={number => onChangePhoneNumber(number)}
+                  value={phoneNumber}
+                />
+              </View>
+            </View>
+            <View style={styles.smsButton}>
+              <TouchableButton handler={() => smsLogin()} title="Login with SMS" />
+            </View>
+            <View style={styles.smsButton}>
+              <TouchableButton handler={() => updateSMS()} title="Update SMS" />
+            </View>
           </Card>
           {/* Google Sign in */}
           <Card>
