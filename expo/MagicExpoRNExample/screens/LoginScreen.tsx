@@ -3,6 +3,7 @@ import { TextInput, Text, View, Pressable } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import { Card } from 'react-native-elements';
+import * as Linking from 'expo-linking';
 
 export default function LoginScreen(props: { magic: any; web3?: any; }) {
 
@@ -13,7 +14,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
    *Google sign in
    * */
   const magicGoogleSignIn = async () => {
-    const res = await magic.oauth.loginWithPopup({ provider: 'google', redirectURI: 'exp://' });
+    const res = await magic.oauth.loginWithPopup({ provider: 'google', redirectURI: Linking.createURL('exp://') });
     alert(JSON.stringify(res));
   }
 
@@ -21,7 +22,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
    *Apple sign in
    * */
   const magicAppleSignIn = async () => {
-    const res = await magic.oauth.loginWithPopup({ provider: 'apple', redirectURI: 'exp://' });
+    const res = await magic.oauth.loginWithPopup({ provider: 'apple', redirectURI:  Linking.createURL('exp://') });
     alert(JSON.stringify(res));
   }
 
