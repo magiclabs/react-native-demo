@@ -54,7 +54,6 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
       console.log(err);
     }
   };
-
   /**
    * Update SMS
   **/
@@ -66,6 +65,17 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
     }
   };
 
+  /**
+   * Recover Account
+   */
+  const recoverAccount = async () => {
+    try {
+      await magic.user.recoverAccount();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
   /** Magic Connect w/ UI  */
   const showMCUserInterface = async () => {
     try {
@@ -178,14 +188,21 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
             <Card.Title>Logout</Card.Title>
             <TouchableButton handler={() => logout()} title="Logout" />
           </Card>
+          <Card>
+            <Card.Title>Recover Account</Card.Title>
+            <View style={styles.margin10}>
+              <TouchableButton handler={() => recoverAccount()} title="Recover Account" />
+            </View>
+          </Card>
         </Card>
+
         {/* Magic Connect Sign-in */}
         <Card>
           <Card.Title>Magic Connect</Card.Title>
           <TouchableButton handler={() => showMCUserInterface()} title="MC Login" />
         </Card>
-      </ScrollView>
-    </View>
+      </ScrollView >
+    </View >
   );
 }
 
