@@ -22,7 +22,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
    *Apple sign in
    * */
   const magicAppleSignIn = async () => {
-    const res = await magic.oauth.loginWithPopup({ provider: 'apple', redirectURI:  Linking.createURL('exp://') });
+    const res = await magic.oauth.loginWithPopup({ provider: 'apple', redirectURI: Linking.createURL('exp://') });
     alert(JSON.stringify(res));
   }
 
@@ -84,58 +84,57 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer} keyboardShouldPersistTaps="handled">
-        {/* Magic Sign-in */}
+        {/* Magic Auth Sign-in */}
         <Card>
-          <Card.Title>Passwordless Login</Card.Title>
-          <View style={styles.loginContainer}>
-            <View style={styles.emailContainer}>
-              <Text>
-                Email:
-              </Text>
-              <TextInput
-                style={styles.TextInputContainer}
-                onChangeText={text => onChangeEmail(text)}
-                value={email}
-              />
+          <Card.Title>Magic Auth</Card.Title>
+          {/* Email Login */}
+          <Card>
+            <Card.Title>Email Login</Card.Title>
+            <View style={styles.loginContainer}>
+              <View style={styles.emailContainer}>
+                <Text>
+                  Email:
+                </Text>
+                <TextInput
+                  style={styles.TextInputContainer}
+                  onChangeText={text => onChangeEmail(text)}
+                  value={email}
+                />
+              </View>
             </View>
-          </View>
-          <TouchableButton handler={() => login()} title="Login" />
+            <TouchableButton handler={() => login()} title="Login" />
+          </Card>
+          {/* Google Sign in */}
+          <Card>
+            <Card.Title>Google Login</Card.Title>
+            <TouchableButton handler={() => magicGoogleSignIn()} title="Login" />
+          </Card>
+
+          {/* Apple Sign in */}
+          <Card>
+            <Card.Title>Apple Login</Card.Title>
+            <TouchableButton handler={() => magicAppleSignIn()} title="Login" />
+          </Card>
+          {/* Is Logged In */}
+          <Card>
+            <Card.Title>Is Logged In</Card.Title>
+            <TouchableButton handler={() => isLoggedIn()} title="isLoggedIn" />
+          </Card>
+          {/* metaData */}
+          <Card>
+            <Card.Title>Metadata</Card.Title>
+            <TouchableButton handler={() => getMetadata()} title="metadata" />
+          </Card>
+          {/* Logout */}
+          <Card>
+            <Card.Title>Logout</Card.Title>
+            <TouchableButton handler={() => logout()} title="Logout" />
+          </Card>
         </Card>
         {/* Magic Connect Sign-in */}
         <Card>
-          <Card.Title>Magic Connect (MC) Login</Card.Title>
+          <Card.Title>Magic Connect</Card.Title>
           <TouchableButton handler={() => showMCUserInterface()} title="MC Login" />
-          <Text style={styles.subtitle}>MC API Keys Only</Text>
-        </Card>
-
-        {/* Google Sign in */}
-        <Card>
-          <Card.Title>Google Login</Card.Title>
-          <TouchableButton handler={() => magicGoogleSignIn()} title="Login" />
-        </Card>
-
-        {/* Apple Sign in */}
-        <Card>
-          <Card.Title>Apple Login</Card.Title>
-          <TouchableButton handler={() => magicAppleSignIn()} title="Login" />
-        </Card>
-
-        {/* Is Logged In */}
-        <Card>
-          <Card.Title>Is Logged In</Card.Title>
-          <TouchableButton handler={() => isLoggedIn()} title="isLoggedIn" />
-        </Card>
-
-        {/* metaData */}
-        <Card>
-          <Card.Title>Metadata</Card.Title>
-          <TouchableButton handler={() => getMetadata()} title="metadata" />
-        </Card>
-
-        {/* Logout */}
-        <Card>
-          <Card.Title>Logout</Card.Title>
-          <TouchableButton handler={() => logout()} title="Logout" />
         </Card>
       </ScrollView>
     </View>
