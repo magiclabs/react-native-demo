@@ -61,5 +61,5 @@ export const styles = StyleSheet.create({
   },
   margin10: {
     margin: 10
-  },
+  }
 });
