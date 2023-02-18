@@ -59,4 +59,7 @@ export const styles = StyleSheet.create({
     letterSpacing: 0.25,
     color: 'white',
   },
+  margin10: {
+    margin: 10,
+  }
 });
