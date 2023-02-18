@@ -130,6 +130,28 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
             </View>
             <TouchableButton handler={() => login()} title="Login" />
           </Card>
+          {/* Magic Sign-in with SMS */}
+          <Card>
+            <Card.Title>Login with SMS</Card.Title>
+            <View style={styles.loginContainer}>
+              <View style={styles.emailContainer}>
+                <Text>
+                  Number:
+                </Text>
+                <TextInput
+                  style={styles.TextInputContainer}
+                  onChangeText={number => onChangePhoneNumber(number)}
+                  value={phoneNumber}
+                />
+              </View>
+            </View>
+            <View style={styles.margin10}>
+              <TouchableButton handler={() => smsLogin()} title="Login with SMS" />
+            </View>
+            <View style={styles.margin10}>
+              <TouchableButton handler={() => updateSMS()} title="Update SMS" />
+            </View>
+          </Card>
           {/* Google Sign in */}
           <Card>
             <Card.Title>Google Login</Card.Title>
@@ -156,28 +178,6 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
             <Card.Title>Logout</Card.Title>
             <TouchableButton handler={() => logout()} title="Logout" />
           </Card>
-        </Card>
-        {/* Magic Sign-in with SMS */}
-        <Card>
-          <Card.Title>Login with SMS</Card.Title>
-          <View style={styles.loginContainer}>
-            <View style={styles.emailContainer}>
-              <Text>
-                Number:
-              </Text>
-              <TextInput
-                style={styles.TextInputContainer}
-                onChangeText={number => onChangePhoneNumber(number)}
-                value={phoneNumber}
-              />
-            </View>
-          </View>
-          <View style={styles.margin10}>
-            <TouchableButton handler={() => smsLogin()} title="Login with SMS" />
-          </View>
-          <View style={styles.margin10}>
-            <TouchableButton handler={() => updateSMS()} title="Update SMS" />
-          </View>
         </Card>
         {/* Magic Connect Sign-in */}
         <Card>
