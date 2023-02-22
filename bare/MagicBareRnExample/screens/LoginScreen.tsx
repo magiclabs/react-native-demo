@@ -6,7 +6,8 @@ import { Card } from 'react-native-elements';
 
 export default function LoginScreen(props: { magic?: any; web3?: any; }) {
 
-  const [email, onChangeEmail] = React.useState('test@demo.app');
+  const [email, onChangeEmail] = React.useState('hiro@magic.link');
+  const [recoveryEmail, onChangerecoveryEmail] = React.useState('hiro@magic.link');
   const [phoneNumber, onChangePhoneNumber] = React.useState('+18888888888');
   const { magic } = props;
 
@@ -68,11 +69,22 @@ export default function LoginScreen(props: { magic?: any; web3?: any; }) {
    */
   const recoverAccount = async () => {
     try {
-      await magic.user.recoverAccount();
+      await magic.user.recoverAccount({ email: recoveryEmail });
     } catch (err) {
       console.log(err);
     }
   };
+
+    /**
+   * Show Settings
+   */
+    const showSettings = async () => {
+      try {
+        await magic.user.showSettings();
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
 
   /** Magic Connect w/ UI  */
@@ -189,8 +201,21 @@ export default function LoginScreen(props: { magic?: any; web3?: any; }) {
           </Card>
           <Card>
             <Card.Title>Recover Account</Card.Title>
+            <View style={styles.emailContainer}>
+                <Text>
+                  Email:
+                </Text>
+                <TextInput
+                  style={styles.TextInputContainer}
+                  onChangeText={text => onChangerecoveryEmail(text)}
+                  value={recoveryEmail}
+                />
+              </View>
             <View style={styles.margin10}>
               <TouchableButton handler={() => recoverAccount()} title="Recover Account" />
+            </View>
+            <View style={styles.margin10}>
+              <TouchableButton handler={() => showSettings()} title="Show Settings" />
             </View>
           </Card>
         </Card>
