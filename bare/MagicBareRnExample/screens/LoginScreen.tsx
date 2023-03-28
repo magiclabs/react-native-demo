@@ -3,6 +3,7 @@ import { TextInput, Text, View, Pressable } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import { Card } from 'react-native-elements';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function LoginScreen(props: { magic?: any; web3?: any; }) {
 
@@ -10,6 +11,14 @@ export default function LoginScreen(props: { magic?: any; web3?: any; }) {
   const [recoveryEmail, onChangerecoveryEmail] = React.useState('hiro@magic.link');
   const [phoneNumber, onChangePhoneNumber] = React.useState('+18888888888');
   const { magic } = props;
+
+  useFocusEffect(
+    React.useCallback(() => {
+      console.log("******* useFocusEffect called ********");
+
+      return () => isLoggedIn();
+    }, [])
+  );
 
   /**
    *Google sign in
@@ -111,8 +120,20 @@ export default function LoginScreen(props: { magic?: any; web3?: any; }) {
    * IsLoggedIn
    * */
   const isLoggedIn = async () => {
-    const res = await magic.user.isLoggedIn();
-    alert(JSON.stringify(res));
+    try {
+      const isMagicLoggedIn = await magic.user.isLoggedIn()
+      console.log(`isMagicLoggedIn=${isMagicLoggedIn}`)
+      if (isMagicLoggedIn) {
+        const did = await magic.user.getIdToken({ lifespan: 30 })
+        alert(JSON.stringify(did));
+      } else {
+        alert(JSON.stringify(isMagicLoggedIn));
+      }
+    } catch (e: any) {
+      console.log(`[checkMagicLoggedIn] magic error: `, e)
+    }
+    // const res = await magic.user.isLoggedIn();
+    // alert(JSON.stringify(res));
   }
 
   const logout = async () => {
