@@ -1,6 +1,6 @@
 ## ✨ Magic React Native Demo Apps
 
-This repository stores a variety of sample mobile applications utilizing all of Magic's React Native SDKs and extensions. 
+This repository stores two mobile applications utilizing both of Magic's React Native SDKs and extensions. 
 
 ### Setup and Installation
 
@@ -13,7 +13,7 @@ $ git clone git@github.com:magiclabs/react-native-demo.git
 $ git clone https://github.com/magiclabs/react-native-demo.git
 ```
 
-Once you have a local copy of this repository you'll need to navigate to the `config/env.ts` file to add your publishable magic API key.
+Once you have a local copy of this repository you'll need to navigate to the `config/env.ts` file to add your publishable Magic API key.
 
 ```shell
 # Add your Publishable Magic API key here
@@ -27,22 +27,20 @@ Finally, if you'd like to test sending transactions and other general on-chain i
 $ open MagicExpoRnExample/screens/Web3Screen.tsx
 ```
 
-### Expo Tutorial (Managed flow)
-Navigate to the Expo demo you wish to install. 
+### Expo Tutorial (Managed flow) 
 
 ```shell
-$ cd MagicExpoRNExample | MagicLegacyExpoRnExample
+$ cd MagicExpoRNExample
 $ yarn
 $ yarn start
 ```
 
-When the bundler process is done, hit **i** to start an iOS simulator or **a** to start an Android simulator (make sure you have downloaded Android Studio and followed all the instructions on [React Native dev site](https://reactnative.dev/docs/environment-setup)).
+When the bundler process is done, hit **i** to start an iOS simulator or **a** to start an Android simulator (make sure you have downloaded Android Studio and follow all the instructions on [React Native's dev site](https://reactnative.dev/docs/environment-setup)).
 
 ### Bare React Native Tutorial (Standalone flow)
-Navigate to related Bare React Native project you wish to install. 
 
 ```shell
-$ cd MagicBareRNExample | MagicLegacyBareRnExample
+$ cd MagicBareRNExample
 $ yarn
 ```
 
