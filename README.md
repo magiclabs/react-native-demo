@@ -60,3 +60,14 @@ $ yarn ios --simulator="YOUR_PREFERRED_SIMULATOR_DEVICE" # run `xcrun simctl lis
 $ yarn android
 ```
 
+## 🙌🏾 Troubleshooting
+
+### Error code 65 w/ Bare React Native Tutorial
+In the case that you run `yarn ios` and see an `Error code 65` with the standalone flow here are some possible ways to troubleshoot this common error:
+
+- Clean up your iOS build by following [these steps](https://github.com/react-native-maps/react-native-maps/issues/2853#issuecomment-516760615). 
+
+
+- Otherwise, in the case that you are attempting to update your local copy the demo app with the latest version of React Native, you might need to manually update the `AppDelegate.mm` file in Xcode as [suggested here](https://github.com/facebook/react-native/issues/36293#issuecomment-1445377662). 
+
+	
