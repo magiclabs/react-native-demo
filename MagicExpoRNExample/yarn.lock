@@ -1868,10 +1868,10 @@
     eventemitter3 "^4.0.4"
     web3-core "1.5.2"
 
-"@magic-sdk/react-native-expo@^18.1.2":
-  version "18.1.2"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-expo/-/react-native-expo-18.1.2.tgz#d4536e1841aa19af0b9d09cb253e8fad415f6a83"
-  integrity sha512-WwyN6gUjiMvBeBwFV9IgRxnjgw7vTMdAHDv1K3ySheiz33Ef6ytIoAHe8NG0OroA2tJkGRqz8ikXH7/HctjUJg==
+"@magic-sdk/react-native-expo@^18.2.0":
+  version "18.2.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-expo/-/react-native-expo-18.2.0.tgz#f410a0200199cfd650bee48d557717f036ddb8fe"
+  integrity sha512-qCTGmKwMLi9IEaofdYbhLrr3bGSPMDmVi/eiflIY2dxb0lcBHpC/iC7+uecSaW6ys6bwP6epMh6zTPuw2Pl27Q==
   dependencies:
     "@aveq-research/localforage-asyncstorage-driver" "^3.0.1"
     "@magic-sdk/commons" "^13.1.2"

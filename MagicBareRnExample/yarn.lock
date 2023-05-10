@@ -1936,10 +1936,10 @@
     eventemitter3 "^4.0.4"
     web3-core "1.5.2"
 
-"@magic-sdk/react-native-bare@^18.1.2":
-  version "18.1.2"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-bare/-/react-native-bare-18.1.2.tgz#b5c1ae5f6c1f294fbe5f3813acd965e1e3fb0ace"
-  integrity sha512-P1+EVB2sYhP+4Yx9Ym5WTxI73ty5GOzhnlYWQC/AQAOQMqWeEN0gd3z5sJHJ8cdst5034/zMhohDlTubsu3nkA==
+"@magic-sdk/react-native-bare@^18.2.0":
+  version "18.2.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-bare/-/react-native-bare-18.2.0.tgz#975a4967a3c3616976c0871fc7e233fccc45a5c5"
+  integrity sha512-reAhnN8iLpvTINBhPpquKi4DWZ+x43GmUDSutDW/53ElgMJxoKWbh1RvK2frPRa/Irppw/jJh+PqHcJQHmping==
   dependencies:
     "@aveq-research/localforage-asyncstorage-driver" "^3.0.1"
     "@magic-sdk/commons" "^13.1.2"
