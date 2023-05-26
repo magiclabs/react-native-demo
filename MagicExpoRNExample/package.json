@@ -12,7 +12,7 @@
   "dependencies": {
     "@magic-ext/bitcoin": "^8.2.1",
     "@magic-ext/connect": "6.2.0",
-    "@magic-ext/gdkms": "^0.1.0",
+    "@magic-ext/gdkms": "^0.2.0",
     "@magic-ext/react-native-expo-oauth": "^12.3.0",
     "@magic-sdk/react-native-expo": "^18.3.1",
     "@react-native-picker/picker": "^2.4.10",

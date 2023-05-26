@@ -1844,10 +1844,10 @@
   resolved "https://registry.yarnpkg.com/@magic-ext/connect/-/connect-6.2.0.tgz#07bf7ec9e0f0fc1e4d84f950d233542e3f475a7c"
   integrity sha512-J4A13lvILys/uA7e4XdNGQ+9ZPx6RycUUey72GOHjYK9Tq7jr9Os576lVPVzvGX7GZs4XL59xDX9nobMfUSksg==
 
-"@magic-ext/gdkms@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@magic-ext/gdkms/-/gdkms-0.1.0.tgz#b43c4c9035bc839e71f5a632bf5f4aaf857e0131"
-  integrity sha512-+5yVHuSGaskRhqi5yb1GeW/AOitpkZarG96ni5lRM41AEbbtuaXPnce9+Xk8Xwd0w+gwrfxVsPhap1fNcusoFQ==
+"@magic-ext/gdkms@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/gdkms/-/gdkms-0.2.0.tgz#09bcd71ea5c0fcd8455b45181e1866390ad52356"
+  integrity sha512-NHAapsAEqM118OVfNCoU8ejeHZddHUKQhIMEgEHXOucW4asiNcB99BvagFZFObb8Mhz7ATJO/pN26y8zcieWKg==
 
 "@magic-ext/react-native-expo-oauth@^12.3.0":
   version "12.3.0"
