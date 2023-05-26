@@ -1,15 +1,18 @@
-import React from 'react';
-import { TextInput, Text, View, Pressable } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { styles } from './styles';
-import { Card } from 'react-native-elements';
+import React, {useState} from 'react';
+import {Pressable, Text, TextInput, View} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
+import {styles} from './styles';
+import {Card} from 'react-native-elements';
+import {Picker} from '@react-native-picker/picker';
 import * as Linking from 'expo-linking';
+import {DeepLinkPage} from "@magic-sdk/react-native-expo";
 
 export default function LoginScreen(props: { magic: any; web3?: any; }) {
 
-  const [email, onChangeEmail] = React.useState('hiro@magic.link');
-  const [recoveryEmail, onChangerecoveryEmail] = React.useState('hiro@magic.link');
-  const [phoneNumber, onChangePhoneNumber] = React.useState('+18888888888');
+  const [email, onChangeEmail] = useState('hiro@magic.link');
+  const [recoveryEmail, onChangeRecoveryEmail] = useState('hiro@magic.link');
+  const [phoneNumber, onChangePhoneNumber] = useState('+18888888888');
+  const [deepLinkPage, setDeepLinkPage] = useState(DeepLinkPage.MFA);
   const { magic } = props;
 
   /**
@@ -82,12 +85,12 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
    */
     const showSettings = async () => {
       try {
-        await magic.user.showSettings();
+        await magic.user.showSettings({ page: deepLinkPage });
       } catch (err) {
         console.log(err);
       }
     };
-  
+
   /** Magic Connect w/ UI  */
   const showMCUserInterface = async () => {
     try {
@@ -208,7 +211,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
                 </Text>
                 <TextInput
                   style={styles.TextInputContainer}
-                  onChangeText={text => onChangerecoveryEmail(text)}
+                  onChangeText={text => onChangeRecoveryEmail(text)}
                   value={recoveryEmail}
                 />
               </View>
@@ -216,6 +219,15 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
               <TouchableButton handler={() => recoverAccount()} title="Recover Account" />
             </View>
             <View style={styles.margin10}>
+              <View>
+                <Picker
+                    selectedValue={deepLinkPage}
+                    onValueChange={(itemValue, itemIndex) => setDeepLinkPage(itemValue)}
+                >
+                  <Picker.Item label="Recovery" value={DeepLinkPage.Recovery} />
+                  <Picker.Item label="MFA" value={DeepLinkPage.MFA} />
+                </Picker>
+              </View>
               <TouchableButton handler={() => showSettings()} title="Show Settings" />
             </View>
           </Card>

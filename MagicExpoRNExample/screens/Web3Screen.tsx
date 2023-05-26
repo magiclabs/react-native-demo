@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Button, TextInput, Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { styles } from './styles';
@@ -11,6 +11,7 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
 
   const [toAddress, onChangeToAddress] = React.useState('YOUR_PUBLIC_TO_ADDRESS');
   const [transactionHash, updateTransactionHash] = React.useState('');
+  const [cipherText, setCipherText] = React.useState('');
 
   const { web3, magic } = props;
 
@@ -79,6 +80,28 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
       alert(e);
     }
   };
+
+  /** encryptV1 */
+  const encryptV1 = async () => {
+    try {
+      const message = await magic.gdkms.encryptWithPrivateKey('hello world');
+      setCipherText(message);
+      alert(message);
+    } catch (e) {
+      alert(e);
+    }
+  };
+
+  /** decryptV1 */
+  const decryptV1 = async () => {
+    try {
+      const message = await magic.gdkms.decryptWithPrivateKey(cipherText);
+      alert(message);
+    } catch (e) {
+      alert(e);
+    }
+  };
+
 
   /** disconnect */
   const disconnect = async () => {
@@ -165,6 +188,20 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
             <Card.Title>Disconnect Wallet</Card.Title>
             <View style={styles.actionContainer}>
               <Button onPress={() => disconnect()} title="Disconnect Wallet" />
+            </View>
+          </Card>
+          {/* Disconnect Wallet */}
+          <Card>
+            <Card.Title>Encrypt</Card.Title>
+            <View style={styles.actionContainer}>
+              <Button onPress={() => encryptV1()} title="Encrypt" />
+            </View>
+          </Card>
+          {/* Disconnect Wallet */}
+          <Card>
+            <Card.Title>Decrypt</Card.Title>
+            <View style={styles.actionContainer}>
+              <Button onPress={() => decryptV1()} title="Decrypt" />
             </View>
           </Card>
         </Card>

@@ -8,6 +8,7 @@ import { Magic } from '@magic-sdk/react-native-expo';
 import Web3 from 'web3'
 import { ENV, API_KEY } from './config/env';
 import { OAuthExtension } from "@magic-ext/react-native-expo-oauth";
+// import { GDKMSExtension } from "@magic-ext/gdkms";
 import { BitcoinExtension } from "@magic-ext/bitcoin";
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
   const magic = new Magic(API_KEY[env], {
     extensions: [
         new OAuthExtension(),
+        // new GDKMSExtension(),
         new BitcoinExtension({
         rpcUrl: 'BTC_RPC_NODE_URL',
         network: 'testnet' // testnet or mainnet
