@@ -1903,6 +1903,11 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@magic-ext/algorand@^12.3.0":
+  version "12.3.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/algorand/-/algorand-12.3.0.tgz#a8e1a6b44592210e44427f0dcf8bda54a9da2e0b"
+  integrity sha512-I2gwOl3qi6Rx8D4JGNzh5IOLfsDn0yxvGq0vVPtg6dhZjUHUH1VYpnDeWhpXfIrHLNo6SFA/seuF+N5UPUuUjw==
+
 "@magic-ext/bitcoin@^8.2.1":
   version "8.2.1"
   resolved "https://registry.yarnpkg.com/@magic-ext/bitcoin/-/bitcoin-8.2.1.tgz#4b203441fd738bbfec9067c39fd6f833ead0d93c"
@@ -1921,6 +1926,11 @@
     "@magic-sdk/types" "^10.0.1"
     crypto-js "^3.3.0"
     react-native-device-info "^10.3.0"
+
+"@magic-ext/solana@^13.3.0":
+  version "13.3.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/solana/-/solana-13.3.0.tgz#8fa6965fd05eb6a0e03ef078094c059fde487dbb"
+  integrity sha512-zerbXSJ9TDHY2nzo00G1lkIuMvyY0ZUvJyD8t77u/G1PWpKecYrqpmYzTNS5P5hjCqKLmqsja2BHWlDIXMXOTA==
 
 "@magic-sdk/commons@^13.1.2":
   version "13.1.2"

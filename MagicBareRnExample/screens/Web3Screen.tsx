@@ -26,6 +26,15 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
     }
   };
 
+  /** getInfo */
+  const getInfo = async () => {
+    try {
+      magic.user.getInfo();
+    } catch {
+      console.log("Error with getInfo()");
+    }
+  };
+
   /** sendTransaction */
   const sendTransaction = async () => {
     const hash = await web3.eth.sendTransaction({
@@ -125,6 +134,13 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
             </View>
             <View style={styles.actionContainer}>
               <Button onPress={() => getAccount()} title="Get Account" />
+            </View>
+          </Card>
+          {/* Get get Info */}
+          <Card>
+            <Card.Title>Get Info</Card.Title>
+            <View style={styles.actionContainer}>
+              <Button onPress={() => getInfo()} title="Get Info" />
             </View>
           </Card>
           {/* Sign BTC Transaction */}

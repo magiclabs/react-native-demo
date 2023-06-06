@@ -3,6 +3,7 @@ import { TouchableOpacity, View, Text, StyleSheet, Alert } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import * as _ from 'lodash';
 import { ENV } from '../config/env';
+import { MAGICS } from "../App";
 
 Ionicons.loadFont();
 
@@ -12,7 +13,7 @@ export default function HeaderDropdown (props: { setEnv: (arg0: string) => void;
         Alert.alert(
             'Change Env',
             '',
-            _.map(_.keys(ENV),
+            _.map(_.keys(MAGICS),
                 (env) => ({
                     text: env,
                     style: 'default',
