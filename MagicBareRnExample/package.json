@@ -14,7 +14,7 @@
     "@magic-ext/bitcoin": "^8.2.1",
     "@magic-ext/connect": "6.2.0",
     "@magic-ext/react-native-bare-oauth": "^12.1.2",
-    "@magic-sdk/react-native-bare": "^18.2.0",
+    "@magic-sdk/react-native-bare": "^19.0.0",
     "@react-native-async-storage/async-storage": "^1.18.1",
     "@react-navigation/bottom-tabs": "^6.5.1",
     "@react-navigation/native": "^6.1.1",
