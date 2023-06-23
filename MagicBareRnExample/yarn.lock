@@ -1913,38 +1913,43 @@
   resolved "https://registry.yarnpkg.com/@magic-ext/connect/-/connect-6.2.0.tgz#07bf7ec9e0f0fc1e4d84f950d233542e3f475a7c"
   integrity sha512-J4A13lvILys/uA7e4XdNGQ+9ZPx6RycUUey72GOHjYK9Tq7jr9Os576lVPVzvGX7GZs4XL59xDX9nobMfUSksg==
 
-"@magic-ext/react-native-bare-oauth@^12.1.2":
-  version "12.1.2"
-  resolved "https://registry.yarnpkg.com/@magic-ext/react-native-bare-oauth/-/react-native-bare-oauth-12.1.2.tgz#65fae71d54a60744c041f0e5c32fc4f489e1ceb8"
-  integrity sha512-eItcgcHEh7i1hCPPPe5P6XhX1ucPr9HLrpeB4ML3vu1vzXyzaRPgvaUsHnJKJBVTr19RVvYKvOCNppVQPKBqpw==
+"@magic-ext/gdkms@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/gdkms/-/gdkms-1.1.0.tgz#4f1c67cb66e44560fde890c6fc4b77aa18d153a9"
+  integrity sha512-ZzFMbOkfTXfwMOuNZTy0S4bSKg9nGYiBREuLBkt/cz+zPxB4YANcdyFo5LYMJwQjW+Nt1TjRfQRLrONi76biDA==
+
+"@magic-ext/react-native-bare-oauth@^12.5.0":
+  version "12.5.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/react-native-bare-oauth/-/react-native-bare-oauth-12.5.0.tgz#6ef885b3faea8b5d2e4f6637102a2937c441cfdb"
+  integrity sha512-8hhjnbgG1CXBDEq3GeuZJARXTj9qfV4/nvZ7n66uNAKdJH0PLcFQRlFKmDvg0rSX4OYuj1+0C+db6pSJcLRh0Q==
   dependencies:
     "@magic-sdk/types" "^10.0.1"
     crypto-js "^3.3.0"
     react-native-device-info "^10.3.0"
 
-"@magic-sdk/commons@^13.1.2":
-  version "13.1.2"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/commons/-/commons-13.1.2.tgz#b9d7f2678c30340c00a317e1e27af755baf6b749"
-  integrity sha512-r96xA8QUcPO2uihhfbhef1JzBF1HEbYr61ZWcj1sS6SZIS4libEUstJUyf0WK+K2JVFHBfU6ONhZfa1DBlK2uA==
+"@magic-sdk/commons@^13.4.0":
+  version "13.4.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/commons/-/commons-13.4.0.tgz#6217fd8e7346f5029c7c584d98578c36d26ec3db"
+  integrity sha512-F6XG0r0XEZmGB8OTPNFrRz6IgDhb39YxUrG2n/4hajb0vJuA28QjoexG/d7f6Rklvxq9oIBR1wMuqUzGs3oSnA==
 
-"@magic-sdk/provider@^17.1.2":
-  version "17.1.2"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/provider/-/provider-17.1.2.tgz#27b8f0b2a6779712ac2ec9e25400a9f51cd24158"
-  integrity sha512-801EF92VEFm3f0BzkQZqF9qvP+l4Ky0p09kGSFYI9O60wT6G7IbUK0DC/CFcgFrrebGZHPCoAECDSc3uH/JaLA==
+"@magic-sdk/provider@^17.4.0":
+  version "17.4.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/provider/-/provider-17.4.0.tgz#f22174899f36664fcebd47781b3c497479abe671"
+  integrity sha512-DvroR5qCumGtS8TY8wr/4bI9bvkUD222ghbNTsu9MFAgybksc6/ARUX8ttjFZVQXMIIe07PpZroxnxI+ih5mlA==
   dependencies:
-    "@magic-sdk/types" "^15.1.2"
+    "@magic-sdk/types" "^15.4.0"
     eventemitter3 "^4.0.4"
     web3-core "1.5.2"
 
-"@magic-sdk/react-native-bare@^18.2.0":
-  version "18.2.0"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-bare/-/react-native-bare-18.2.0.tgz#975a4967a3c3616976c0871fc7e233fccc45a5c5"
-  integrity sha512-reAhnN8iLpvTINBhPpquKi4DWZ+x43GmUDSutDW/53ElgMJxoKWbh1RvK2frPRa/Irppw/jJh+PqHcJQHmping==
+"@magic-sdk/react-native-bare@^18.5.0":
+  version "18.5.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-bare/-/react-native-bare-18.5.0.tgz#dda3821a60c25cf6f9650dfb50da734ac264211e"
+  integrity sha512-DyG6/lkfjD3EXVzOoW3InJkd52mTyIWzDcKb7YU+RXXPGVxJda3W/RTe5OWXB8R48Tm3/elxoUD05+i0v7zXSg==
   dependencies:
     "@aveq-research/localforage-asyncstorage-driver" "^3.0.1"
-    "@magic-sdk/commons" "^13.1.2"
-    "@magic-sdk/provider" "^17.1.2"
-    "@magic-sdk/types" "^15.1.2"
+    "@magic-sdk/commons" "^13.4.0"
+    "@magic-sdk/provider" "^17.4.0"
+    "@magic-sdk/types" "^15.4.0"
     "@react-native-async-storage/async-storage" "^1.15.5"
     "@types/lodash" "^4.14.158"
     buffer "~5.6.0"
@@ -1961,10 +1966,10 @@
   resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-10.0.1.tgz#59b683670587634bdbc3d632fced4d5fda7c35a4"
   integrity sha512-JNB+sEKdVDZd2MDs4QaPM6vxCNfGuYhWUd14rDLixcbdut2u9g5z6yDxs1rYWYEVaUknNs+zGp2K/NDPo9UfdA==
 
-"@magic-sdk/types@^15.1.2":
-  version "15.1.2"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-15.1.2.tgz#15107c29d44e99616c500bc86fb3be7a23987804"
-  integrity sha512-CeNC7I9O5bTeObKXAuInMYDvAkxagiu+n0IcvTo23ZsmA9NZDqfmw2r5OhJTuW7XMyTt+VjH1CJORHraoC26qA==
+"@magic-sdk/types@^15.4.0":
+  version "15.4.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-15.4.0.tgz#ce9bdca28f414344075b3e2e0a1b05b15cd98867"
+  integrity sha512-gnkSCOrVcZ1vPbB5wdCKAbfe1EGWPfMFW9PpjwJet9B9EGkcksv+/irknBcSMBqx8tDJU/+nXt1B8AE4Iq+2RQ==
 
 "@react-native-async-storage/async-storage@^1.15.5":
   version "1.17.11"
@@ -8700,10 +8705,10 @@ react-native-vector-icons@^9.2.0:
     prop-types "^15.7.2"
     yargs "^16.1.1"
 
-react-native-webview@^11.25.1:
-  version "11.26.0"
-  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-11.26.0.tgz#e524992876fe4a79e69905f0fab8949b470e9f16"
-  integrity sha512-4T4CKRm8xlaQDz9h/bCMPGAvtkesrhkRWqCX9FDJEzBToaVUIsV0ZOqtC4w/JSnCtFKKYiaC1ReJtCGv+4mFeQ==
+react-native-webview@^12.4.0:
+  version "12.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-12.4.0.tgz#421db8e5601b4851c5796c5d4736b6b8439d1469"
+  integrity sha512-wYzTfNADidmqv6bY+x6NUfX8+uBR9mmF1CO1NOvY4oD2vv+D4rA0XwcwAe2D7RevXUy3fmuTT93kFQcgo8fEhg==
   dependencies:
     escape-string-regexp "2.0.0"
     invariant "2.2.4"
