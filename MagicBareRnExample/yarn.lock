@@ -1927,28 +1927,28 @@
     crypto-js "^3.3.0"
     react-native-device-info "^10.3.0"
 
-"@magic-sdk/commons@^13.4.0":
-  version "13.4.0"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/commons/-/commons-13.4.0.tgz#6217fd8e7346f5029c7c584d98578c36d26ec3db"
-  integrity sha512-F6XG0r0XEZmGB8OTPNFrRz6IgDhb39YxUrG2n/4hajb0vJuA28QjoexG/d7f6Rklvxq9oIBR1wMuqUzGs3oSnA==
+"@magic-sdk/commons@^14.0.0":
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/commons/-/commons-14.0.0.tgz#c570193e7e60acb7c4b4ba47c355e99e49f522c2"
+  integrity sha512-F79bB2aJnb7Hoz4F6rk785NwAePF/vRhOHwxRmQ5BXvh/QBTnbLf8eRwVNEimhSiWJSQyjv+RfqHXufP0mX5vg==
 
-"@magic-sdk/provider@^17.4.0":
-  version "17.4.0"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/provider/-/provider-17.4.0.tgz#f22174899f36664fcebd47781b3c497479abe671"
-  integrity sha512-DvroR5qCumGtS8TY8wr/4bI9bvkUD222ghbNTsu9MFAgybksc6/ARUX8ttjFZVQXMIIe07PpZroxnxI+ih5mlA==
+"@magic-sdk/provider@^18.0.0":
+  version "18.0.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/provider/-/provider-18.0.0.tgz#3e4ff990bf000ef82f1185a25f279dc8ff4ba582"
+  integrity sha512-+4Q/3fALV6UpHXkuIYNAkKLXbLeqA0yXmBf0KVXq9bvUkOBCbGyIg/imjvqpEa2GJoeD2ZjFyTazdqT/IJlXDw==
   dependencies:
     "@magic-sdk/types" "^15.4.0"
     eventemitter3 "^4.0.4"
     web3-core "1.5.2"
 
-"@magic-sdk/react-native-bare@^18.5.0":
-  version "18.5.0"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-bare/-/react-native-bare-18.5.0.tgz#dda3821a60c25cf6f9650dfb50da734ac264211e"
-  integrity sha512-DyG6/lkfjD3EXVzOoW3InJkd52mTyIWzDcKb7YU+RXXPGVxJda3W/RTe5OWXB8R48Tm3/elxoUD05+i0v7zXSg==
+"@magic-sdk/react-native-bare@^19.0.0":
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-bare/-/react-native-bare-19.0.0.tgz#420424c97a413f14cdc94c00b8e16554aa34b591"
+  integrity sha512-fqftoaQz+I1X8IRIl7LA9s5g5aL5iG6/g1Cpco5aaL4Q4anMkp/MY/PN+lp0qjyVvrogdAv/NrgnFfoeq0YZ3w==
   dependencies:
     "@aveq-research/localforage-asyncstorage-driver" "^3.0.1"
-    "@magic-sdk/commons" "^13.4.0"
-    "@magic-sdk/provider" "^17.4.0"
+    "@magic-sdk/commons" "^14.0.0"
+    "@magic-sdk/provider" "^18.0.0"
     "@magic-sdk/types" "^15.4.0"
     "@react-native-async-storage/async-storage" "^1.15.5"
     "@types/lodash" "^4.14.158"

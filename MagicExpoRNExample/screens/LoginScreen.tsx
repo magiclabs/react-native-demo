@@ -28,11 +28,11 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
   }
 
   /**
-   * regular sign in
+   * email otp sign in
    * */
-  const login = async () => {
+  const loginEmailOTP = async () => {
     try {
-      await magic.auth.loginWithMagicLink({ email: email });
+      await magic.auth.loginWithEmailOTP({ email: email });
 
       const res = await magic.user.getMetadata();
       alert(JSON.stringify(res));
@@ -136,7 +136,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
             <Card.Title>Magic Auth</Card.Title>
             {/* Email Login */}
             <Card>
-              <Card.Title>Email Login</Card.Title>
+              <Card.Title>Email OTP Login</Card.Title>
               <View style={styles.loginContainer}>
                 <View style={styles.emailContainer}>
                   <Text>
@@ -149,7 +149,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
                   />
                 </View>
               </View>
-              <TouchableButton handler={() => login()} title="Login" />
+              <TouchableButton handler={() => loginEmailOTP()} title="Login" />
             </Card>
             {/* Magic Sign-in with SMS */}
             <Card>

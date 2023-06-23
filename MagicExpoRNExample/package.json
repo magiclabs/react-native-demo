@@ -14,7 +14,7 @@
     "@magic-ext/connect": "6.2.0",
     "@magic-ext/gdkms": "^1.1.0",
     "@magic-ext/react-native-expo-oauth": "^12.3.0",
-    "@magic-sdk/react-native-expo": "^18.4.0",
+    "@magic-sdk/react-native-expo": "^19.0.0",
     "@react-native-picker/picker": "^2.4.10",
     "@react-navigation/bottom-tabs": "^6.5.2",
     "@react-navigation/native": "^6.1.1",
