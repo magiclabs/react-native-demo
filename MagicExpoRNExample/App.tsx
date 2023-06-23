@@ -15,7 +15,6 @@ export default function App() {
 
   const [env, setEnv] = React.useState(ENV.PROD);
 
-  console.log(API_KEY[env]);
 
   const magic = new Magic(API_KEY[env], {
     extensions: [
