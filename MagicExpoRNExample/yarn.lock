@@ -1844,10 +1844,10 @@
   resolved "https://registry.yarnpkg.com/@magic-ext/connect/-/connect-6.2.0.tgz#07bf7ec9e0f0fc1e4d84f950d233542e3f475a7c"
   integrity sha512-J4A13lvILys/uA7e4XdNGQ+9ZPx6RycUUey72GOHjYK9Tq7jr9Os576lVPVzvGX7GZs4XL59xDX9nobMfUSksg==
 
-"@magic-ext/gdkms@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@magic-ext/gdkms/-/gdkms-0.2.0.tgz#09bcd71ea5c0fcd8455b45181e1866390ad52356"
-  integrity sha512-NHAapsAEqM118OVfNCoU8ejeHZddHUKQhIMEgEHXOucW4asiNcB99BvagFZFObb8Mhz7ATJO/pN26y8zcieWKg==
+"@magic-ext/gdkms@^1.1.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/gdkms/-/gdkms-1.2.0.tgz#de637b4481834f099b6f4c81aedb003227d07e94"
+  integrity sha512-nnJY8ChreszjW4Cb1RVVMa3ZgLT6yUM7Sv0VrLl2Trkq66Y2RVV01CpajpgF5PnafhTkunWITMh80VRNuxH+3g==
 
 "@magic-ext/react-native-expo-oauth@^12.3.0":
   version "12.4.0"
@@ -4626,9 +4626,9 @@ fast-json-stable-stringify@^2.0.0:
   integrity sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==
 
 fast-xml-parser@^4.0.12:
-  version "4.2.4"
-  resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-4.2.4.tgz#6e846ede1e56ad9e5ef07d8720809edf0ed07e9b"
-  integrity sha512-fbfMDvgBNIdDJLdLOwacjFAPYt67tr31H9ZhWSm45CDAxvd0I6WTlSOUo7K2P/K5sA5JgMKG64PI3DMcaFdWpQ==
+  version "4.2.5"
+  resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-4.2.5.tgz#a6747a09296a6cb34f2ae634019bf1738f3b421f"
+  integrity sha512-B9/wizE4WngqQftFPmdaMYlXoJlJOYxGQOanC77fq9k8+Z0v5dDSVh+3glErdIROP//s/jgb7ZuxKfB8nVyo0g==
   dependencies:
     strnum "^1.0.5"
 
