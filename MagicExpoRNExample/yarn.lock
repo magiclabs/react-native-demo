@@ -1844,10 +1844,15 @@
   resolved "https://registry.yarnpkg.com/@magic-ext/connect/-/connect-6.2.0.tgz#07bf7ec9e0f0fc1e4d84f950d233542e3f475a7c"
   integrity sha512-J4A13lvILys/uA7e4XdNGQ+9ZPx6RycUUey72GOHjYK9Tq7jr9Os576lVPVzvGX7GZs4XL59xDX9nobMfUSksg==
 
-"@magic-ext/react-native-expo-oauth@^12.1.2":
-  version "12.1.2"
-  resolved "https://registry.yarnpkg.com/@magic-ext/react-native-expo-oauth/-/react-native-expo-oauth-12.1.2.tgz#0357d0dea489ba728b3d468d388efcdc698b937b"
-  integrity sha512-G8aIwM+nLfDhcHXooeL3R6pOmClNS2j9PfJLUToXgvzxmiiRR5I10GlP1w+ch8bMiJ+MCMqlrDvZxx6Q2oTncQ==
+"@magic-ext/gdkms@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/gdkms/-/gdkms-0.2.0.tgz#09bcd71ea5c0fcd8455b45181e1866390ad52356"
+  integrity sha512-NHAapsAEqM118OVfNCoU8ejeHZddHUKQhIMEgEHXOucW4asiNcB99BvagFZFObb8Mhz7ATJO/pN26y8zcieWKg==
+
+"@magic-ext/react-native-expo-oauth@^12.3.0":
+  version "12.4.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/react-native-expo-oauth/-/react-native-expo-oauth-12.4.0.tgz#3eeab54d3b87e4442a3772356eb2f9dc507ea1ba"
+  integrity sha512-G4qxj0hHYe3n7Kwy1e//nwFTE8mE3ut+P+iWzT4+N/JEHSltOM5fzlHw1lXq4YTlKRNPKgbB8UiuqoeQ+F8jIg==
   dependencies:
     "@magic-sdk/types" "^10.0.0"
     crypto-js "^3.3.0"
@@ -2125,6 +2130,11 @@
     graceful-fs "^4.1.3"
     prompts "^2.4.0"
     semver "^6.3.0"
+
+"@react-native-picker/picker@^2.4.10":
+  version "2.4.10"
+  resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.4.10.tgz#339c7bfc6e1d9a5e934122eaaa7767dc1c5fb725"
+  integrity sha512-EvAlHmPEPOwvbP6Pjg/gtDV3XJzIjIxr10fXFNlX5r9HeHw582G1Zt2o8FLyB718nOttgj8HYUTGxvhu4N65sQ==
 
 "@react-native/assets@1.0.0":
   version "1.0.0"

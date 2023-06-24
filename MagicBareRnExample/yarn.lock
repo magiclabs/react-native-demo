@@ -1913,10 +1913,15 @@
   resolved "https://registry.yarnpkg.com/@magic-ext/connect/-/connect-6.2.0.tgz#07bf7ec9e0f0fc1e4d84f950d233542e3f475a7c"
   integrity sha512-J4A13lvILys/uA7e4XdNGQ+9ZPx6RycUUey72GOHjYK9Tq7jr9Os576lVPVzvGX7GZs4XL59xDX9nobMfUSksg==
 
-"@magic-ext/react-native-bare-oauth@^12.1.2":
-  version "12.1.2"
-  resolved "https://registry.yarnpkg.com/@magic-ext/react-native-bare-oauth/-/react-native-bare-oauth-12.1.2.tgz#65fae71d54a60744c041f0e5c32fc4f489e1ceb8"
-  integrity sha512-eItcgcHEh7i1hCPPPe5P6XhX1ucPr9HLrpeB4ML3vu1vzXyzaRPgvaUsHnJKJBVTr19RVvYKvOCNppVQPKBqpw==
+"@magic-ext/gdkms@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/gdkms/-/gdkms-1.1.0.tgz#4f1c67cb66e44560fde890c6fc4b77aa18d153a9"
+  integrity sha512-ZzFMbOkfTXfwMOuNZTy0S4bSKg9nGYiBREuLBkt/cz+zPxB4YANcdyFo5LYMJwQjW+Nt1TjRfQRLrONi76biDA==
+
+"@magic-ext/react-native-bare-oauth@^12.5.0":
+  version "12.5.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/react-native-bare-oauth/-/react-native-bare-oauth-12.5.0.tgz#6ef885b3faea8b5d2e4f6637102a2937c441cfdb"
+  integrity sha512-8hhjnbgG1CXBDEq3GeuZJARXTj9qfV4/nvZ7n66uNAKdJH0PLcFQRlFKmDvg0rSX4OYuj1+0C+db6pSJcLRh0Q==
   dependencies:
     "@magic-sdk/types" "^10.0.1"
     crypto-js "^3.3.0"
@@ -8700,10 +8705,10 @@ react-native-vector-icons@^9.2.0:
     prop-types "^15.7.2"
     yargs "^16.1.1"
 
-react-native-webview@^11.25.1:
-  version "11.26.0"
-  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-11.26.0.tgz#e524992876fe4a79e69905f0fab8949b470e9f16"
-  integrity sha512-4T4CKRm8xlaQDz9h/bCMPGAvtkesrhkRWqCX9FDJEzBToaVUIsV0ZOqtC4w/JSnCtFKKYiaC1ReJtCGv+4mFeQ==
+react-native-webview@^12.4.0:
+  version "12.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-12.4.0.tgz#421db8e5601b4851c5796c5d4736b6b8439d1469"
+  integrity sha512-wYzTfNADidmqv6bY+x6NUfX8+uBR9mmF1CO1NOvY4oD2vv+D4rA0XwcwAe2D7RevXUy3fmuTT93kFQcgo8fEhg==
   dependencies:
     escape-string-regexp "2.0.0"
     invariant "2.2.4"
