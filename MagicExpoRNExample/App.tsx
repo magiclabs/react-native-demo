@@ -3,8 +3,8 @@ import React from 'react';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 
-import { Magic } from '@magic-sdk/react-native-bare'
-import { OAuthExtension } from "@magic-ext/react-native-bare-oauth";
+import { Magic } from '@magic-sdk/react-native-expo';
+import { OAuthExtension } from "@magic-ext/react-native-expo-oauth";
 import Web3 from 'web3'
 import { ENV, API_KEY } from './config/env';
 import { BitcoinExtension } from "@magic-ext/bitcoin";
