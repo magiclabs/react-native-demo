@@ -9,10 +9,11 @@ import { LinkingOptions } from '@react-navigation/native';
 import { RootStackParamList } from '../types';
 
 const linking: LinkingOptions<RootStackParamList> = {
-  prefixes: ['/'],
+  prefixes: ['magicbarernexample://'],
   config: {
     screens: {
       Root: {
+        path: '',
         screens: {
           Login: {
             screens: {
