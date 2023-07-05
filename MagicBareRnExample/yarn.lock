@@ -1918,38 +1918,38 @@
   resolved "https://registry.yarnpkg.com/@magic-ext/gdkms/-/gdkms-1.1.0.tgz#4f1c67cb66e44560fde890c6fc4b77aa18d153a9"
   integrity sha512-ZzFMbOkfTXfwMOuNZTy0S4bSKg9nGYiBREuLBkt/cz+zPxB4YANcdyFo5LYMJwQjW+Nt1TjRfQRLrONi76biDA==
 
-"@magic-ext/react-native-bare-oauth@^12.5.0":
-  version "12.5.0"
-  resolved "https://registry.yarnpkg.com/@magic-ext/react-native-bare-oauth/-/react-native-bare-oauth-12.5.0.tgz#6ef885b3faea8b5d2e4f6637102a2937c441cfdb"
-  integrity sha512-8hhjnbgG1CXBDEq3GeuZJARXTj9qfV4/nvZ7n66uNAKdJH0PLcFQRlFKmDvg0rSX4OYuj1+0C+db6pSJcLRh0Q==
+"@magic-ext/react-native-bare-oauth@^13.2.1":
+  version "13.2.1"
+  resolved "https://registry.yarnpkg.com/@magic-ext/react-native-bare-oauth/-/react-native-bare-oauth-13.2.1.tgz#6a91a284a8118f02dd4cac66ca199b4f2be8d471"
+  integrity sha512-IMK/K4pBAGhFNRMIXyM6NGbxGqlJV1pdeVx5CLmaeICiXZxaBF6jTIm8WHjqwG6aU25vy1+TMRMuxi/4F612RA==
   dependencies:
     "@magic-sdk/types" "^10.0.1"
     crypto-js "^3.3.0"
     react-native-device-info "^10.3.0"
 
-"@magic-sdk/commons@^14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/commons/-/commons-14.0.0.tgz#c570193e7e60acb7c4b4ba47c355e99e49f522c2"
-  integrity sha512-F79bB2aJnb7Hoz4F6rk785NwAePF/vRhOHwxRmQ5BXvh/QBTnbLf8eRwVNEimhSiWJSQyjv+RfqHXufP0mX5vg==
+"@magic-sdk/commons@^14.2.1":
+  version "14.2.1"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/commons/-/commons-14.2.1.tgz#5bf89b91fe28f71c05a87cf9e2c54a7c32534461"
+  integrity sha512-k2fUkjMxYgZdO/duka5i+ET4tVSdhuud82jcz/M+FAwxkS7De73d9s6frjYdBheejc6lNni+RgIeHsxmtky5zQ==
 
-"@magic-sdk/provider@^18.0.0":
-  version "18.0.0"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/provider/-/provider-18.0.0.tgz#3e4ff990bf000ef82f1185a25f279dc8ff4ba582"
-  integrity sha512-+4Q/3fALV6UpHXkuIYNAkKLXbLeqA0yXmBf0KVXq9bvUkOBCbGyIg/imjvqpEa2GJoeD2ZjFyTazdqT/IJlXDw==
+"@magic-sdk/provider@^18.2.1":
+  version "18.2.1"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/provider/-/provider-18.2.1.tgz#0ce37886a7c7bad2315632a873201803087473ca"
+  integrity sha512-TSpaHHrKtlY27YXj6hVynuQ7hJjzflepibwsdCGsjQief+eTXiBYk3GY0wTj2f8aUmFXmm8qECVD9zsRSotM0Q==
   dependencies:
-    "@magic-sdk/types" "^15.4.0"
+    "@magic-sdk/types" "^15.6.0"
     eventemitter3 "^4.0.4"
     web3-core "1.5.2"
 
-"@magic-sdk/react-native-bare@^19.0.0":
-  version "19.0.0"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-bare/-/react-native-bare-19.0.0.tgz#420424c97a413f14cdc94c00b8e16554aa34b591"
-  integrity sha512-fqftoaQz+I1X8IRIl7LA9s5g5aL5iG6/g1Cpco5aaL4Q4anMkp/MY/PN+lp0qjyVvrogdAv/NrgnFfoeq0YZ3w==
+"@magic-sdk/react-native-bare@^19.2.1":
+  version "19.2.1"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-bare/-/react-native-bare-19.2.1.tgz#4cefa06bc7db63a9c308f637959eae2698df1663"
+  integrity sha512-3GNfyB1zcFf1oihq0/Bz0sBVGphpKH9Hg/U5zKtk8Gr9hSWxnWcBj+tAQzyA6/8v5Rwiy5hkTrIdo+YKsF05Fg==
   dependencies:
     "@aveq-research/localforage-asyncstorage-driver" "^3.0.1"
-    "@magic-sdk/commons" "^14.0.0"
-    "@magic-sdk/provider" "^18.0.0"
-    "@magic-sdk/types" "^15.4.0"
+    "@magic-sdk/commons" "^14.2.1"
+    "@magic-sdk/provider" "^18.2.1"
+    "@magic-sdk/types" "^15.6.0"
     "@react-native-async-storage/async-storage" "^1.15.5"
     "@types/lodash" "^4.14.158"
     buffer "~5.6.0"
@@ -1966,10 +1966,10 @@
   resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-10.0.1.tgz#59b683670587634bdbc3d632fced4d5fda7c35a4"
   integrity sha512-JNB+sEKdVDZd2MDs4QaPM6vxCNfGuYhWUd14rDLixcbdut2u9g5z6yDxs1rYWYEVaUknNs+zGp2K/NDPo9UfdA==
 
-"@magic-sdk/types@^15.4.0":
-  version "15.4.0"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-15.4.0.tgz#ce9bdca28f414344075b3e2e0a1b05b15cd98867"
-  integrity sha512-gnkSCOrVcZ1vPbB5wdCKAbfe1EGWPfMFW9PpjwJet9B9EGkcksv+/irknBcSMBqx8tDJU/+nXt1B8AE4Iq+2RQ==
+"@magic-sdk/types@^15.6.0":
+  version "15.6.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-15.6.0.tgz#cd583cc3ba9d7f3eaf6ab235da40cd6baa2975a9"
+  integrity sha512-Ca2Qf/C/zi0CW/S7kTxwKCPd/BaaTRpp65gF2r+FdnNY0Ut7bu3ImfkJLo6qxa/f2HZtrewijBcekoxK5KtTdQ==
 
 "@react-native-async-storage/async-storage@^1.15.5":
   version "1.17.11"
