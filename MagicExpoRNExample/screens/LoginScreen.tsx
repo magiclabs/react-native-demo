@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextInput, Text, View, Pressable } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, GestureHandlerRootView  } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import { Card } from 'react-native-elements';
 import * as Linking from 'expo-linking';
@@ -131,6 +131,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
 
   return (
       <View style={styles.container}>
+        <GestureHandlerRootView style={{ flex: 1 }}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer} keyboardShouldPersistTaps="handled">
           {/* Magic Auth Sign-in */}
           <Card>
@@ -227,6 +228,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
             <TouchableButton handler={() => showMCUserInterface()} title="MC Login" />
           </Card>
         </ScrollView >
+        </GestureHandlerRootView>
       </View >
   );
 }
