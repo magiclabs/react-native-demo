@@ -10,6 +10,7 @@ import Web3 from 'web3'
 import { ENV, API_KEY } from './config/env';
 import { BitcoinExtension } from "@magic-ext/bitcoin";
 import { GDKMSExtension } from "@magic-ext/gdkms";
+import {GestureHandlerRootView} from "react-native-gesture-handler";
 
 export default function App() {
   const colorScheme = useColorScheme();
@@ -38,9 +39,11 @@ export default function App() {
   }
 
   return (
-      <SafeAreaProvider>
-        <magic.Relayer />
-        <Navigation colorScheme={colorScheme} magicProps={magicProps} />
-      </SafeAreaProvider>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <SafeAreaProvider>
+          <magic.Relayer />
+          <Navigation colorScheme={colorScheme} magicProps={magicProps} />
+        </SafeAreaProvider>
+      </GestureHandlerRootView>
   )
 }

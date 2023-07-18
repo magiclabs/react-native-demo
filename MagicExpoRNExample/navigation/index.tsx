@@ -15,9 +15,10 @@ import NotFoundScreen from '../screens/NotFoundScreen';
 import useColorScheme from '../hooks/useColorScheme';
 import LoginScreen from '../screens/LoginScreen';
 import Web3Screen from '../screens/Web3Screen';
-import { RootStackParamList, RootTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import {RootStackParamList, RootTabParamList, TabOneParamList, TabThreeParamList, TabTwoParamList} from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import HeaderDropdown from "./HeaderDropdown";
+import WebviewScreen from "../screens/WebviewScreen";
 
 export default function Navigation({ colorScheme, magicProps }: { colorScheme: ColorSchemeName, magicProps: any  }) {
   return (
@@ -88,6 +89,16 @@ function BottomTabNavigator(props: { navigation?: any; env?: any; setEnv?: any; 
       >
           {() => TabTwoNavigator(header, web3, magic)}
       </BottomTab.Screen>
+        <BottomTab.Screen
+            name="Webview"
+            options={{
+                title: 'Webview',
+                headerShown: false,
+                tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+            }}
+        >
+            {() => TabThreeNavigator(header, web3, magic)}
+        </BottomTab.Screen>
     </BottomTab.Navigator>
   );
 }
@@ -132,3 +143,19 @@ function TabTwoNavigator(header: () => JSX.Element, web3: any, magic: any) {
         </TabTwoStack.Navigator>
     );
 }
+
+
+function TabThreeNavigator(header: () => JSX.Element, web3: any, magic: any) {
+    return (
+        <TabTwoStack.Navigator>
+            <TabTwoStack.Screen
+                name="WebviewScreen"
+                options={{ headerTitle: header }}
+            >
+                {(props: any) => <WebviewScreen {...props} web3={web3} magic={magic} />}
+            </TabTwoStack.Screen>
+        </TabTwoStack.Navigator>
+    );
+}
+
+const TabThreeStack = createNativeStackNavigator<TabThreeParamList>();

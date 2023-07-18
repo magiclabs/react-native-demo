@@ -42,3 +42,7 @@ export type TabOneParamList = {
 export type TabTwoParamList = {
   Web3Screen: undefined;
 };
+
+export type TabThreeParamList = {
+  WebviewScreen: undefined;
+};

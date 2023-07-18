@@ -4,6 +4,7 @@ import { ScrollView, GestureHandlerRootView  } from 'react-native-gesture-handle
 import { styles } from './styles';
 import { Card } from 'react-native-elements';
 import * as Linking from 'expo-linking';
+import { DeepLinkPage } from "@magic-sdk/react-native-expo";
 
 export default function LoginScreen(props: { magic: any; web3?: any; }) {
 
