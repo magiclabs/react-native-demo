@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import { Button, TextInput, Text, View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import { Card } from 'react-native-elements';
 import "../shim"; // Required for Bitcoin Blockchain interaction
@@ -136,106 +136,108 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
 
   return (
       <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <Card>
-            {/* Magic Auth */}
-            <Card.Title>Magic Auth</Card.Title>
-            {/* Send Transaction */}
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
             <Card>
-              <Card.Title>Send Transaction</Card.Title>
-              <View style={styles.loginContainer}>
-                <View style={styles.emailContainer}>
-                  <Text>
-                    To:
+              {/* Magic Auth */}
+              <Card.Title>Magic Auth</Card.Title>
+              {/* Send Transaction */}
+              <Card>
+                <Card.Title>Send Transaction</Card.Title>
+                <View style={styles.loginContainer}>
+                  <View style={styles.emailContainer}>
+                    <Text>
+                      To:
+                    </Text>
+                    <TextInput
+                        style={styles.TextInputContainer}
+                        onChangeText={text => onChangeToAddress(text)}
+                        value={toAddress}
+                    />
+                  </View>
+                  <Text style={styles.publicAddress}>
+                    Transaction Hash: {transactionHash}
                   </Text>
-                  <TextInput
-                      style={styles.TextInputContainer}
-                      onChangeText={text => onChangeToAddress(text)}
-                      value={toAddress}
-                  />
                 </View>
-                <Text style={styles.publicAddress}>
-                  Transaction Hash: {transactionHash}
-                </Text>
-              </View>
-              <View style={styles.actionContainer}>
-                <Button onPress={() => sendTransaction()} title="Send" />
-              </View>
+                <View style={styles.actionContainer}>
+                  <Button onPress={() => sendTransaction()} title="Send" />
+                </View>
+              </Card>
+              {/* Get Account */}
+              <Card>
+                <Card.Title>Get Account</Card.Title>
+                <View style={styles.loginContainer}>
+                  <Text style={styles.publicAddress}>
+                    Public Address: {publicAddress}
+                  </Text>
+                </View>
+                <View style={styles.actionContainer}>
+                  <Button onPress={() => getAccount()} title="Get Account" />
+                </View>
+              </Card>
+              {/* Personal Sign */}
+              <Card>
+                <Card.Title>Personal Sign</Card.Title>
+                <View style={styles.actionContainer}>
+                  <Button onPress={() => personalSign()} title="Personal Sign" />
+                </View>
+              </Card>
+              {/* Sign BTC Transaction */}
+              <Card>
+                <Card.Title>Sign BTC Transaction</Card.Title>
+                <View style={styles.actionContainer}>
+                  <Button onPress={() => signBTCTransaction()} title="Sign BTC Transaction" />
+                </View>
+              </Card>
             </Card>
-            {/* Get Account */}
             <Card>
-              <Card.Title>Get Account</Card.Title>
-              <View style={styles.loginContainer}>
-                <Text style={styles.publicAddress}>
-                  Public Address: {publicAddress}
-                </Text>
-              </View>
-              <View style={styles.actionContainer}>
-                <Button onPress={() => getAccount()} title="Get Account" />
-              </View>
-            </Card>
-            {/* Personal Sign */}
-            <Card>
-              <Card.Title>Personal Sign</Card.Title>
-              <View style={styles.actionContainer}>
-                <Button onPress={() => personalSign()} title="Personal Sign" />
-              </View>
-            </Card>
-            {/* Sign BTC Transaction */}
-            <Card>
-              <Card.Title>Sign BTC Transaction</Card.Title>
-              <View style={styles.actionContainer}>
-                <Button onPress={() => signBTCTransaction()} title="Sign BTC Transaction" />
-              </View>
-            </Card>
-          </Card>
-          <Card>
-            {/* Magic Connect */}
-            <Card.Title>Magic Connect</Card.Title>
-            {/* Show Wallet */}
-            <Card>
-              <Card.Title>Show Wallet</Card.Title>
-              <View style={styles.actionContainer}>
-                <Button onPress={() => showWallet()} title="Show Wallet" />
-              </View>
-            </Card>
-            {/* Get Wallet Info */}
-            <Card>
-              <Card.Title>Get Wallet Info</Card.Title>
-              <View style={styles.actionContainer}>
-                <Button onPress={() => getWalletInfo()} title="Get Wallet Info" />
-              </View>
-            </Card>
-            {/* Request User Info */}
-            <Card>
-              <Card.Title>Request User Info</Card.Title>
-              <View style={styles.actionContainer}>
-                <Button onPress={() => requestUserInfo()} title="Request User Info" />
-              </View>
-            </Card>
-            {/* Disconnect Wallet */}
-            <Card>
-              <Card.Title>Disconnect Wallet</Card.Title>
-              <View style={styles.actionContainer}>
-                <Button onPress={() => disconnect()} title="Disconnect Wallet" />
-              </View>
-            </Card>
+              {/* Magic Connect */}
+              <Card.Title>Magic Connect</Card.Title>
+              {/* Show Wallet */}
+              <Card>
+                <Card.Title>Show Wallet</Card.Title>
+                <View style={styles.actionContainer}>
+                  <Button onPress={() => showWallet()} title="Show Wallet" />
+                </View>
+              </Card>
+              {/* Get Wallet Info */}
+              <Card>
+                <Card.Title>Get Wallet Info</Card.Title>
+                <View style={styles.actionContainer}>
+                  <Button onPress={() => getWalletInfo()} title="Get Wallet Info" />
+                </View>
+              </Card>
+              {/* Request User Info */}
+              <Card>
+                <Card.Title>Request User Info</Card.Title>
+                <View style={styles.actionContainer}>
+                  <Button onPress={() => requestUserInfo()} title="Request User Info" />
+                </View>
+              </Card>
+              {/* Disconnect Wallet */}
+              <Card>
+                <Card.Title>Disconnect Wallet</Card.Title>
+                <View style={styles.actionContainer}>
+                  <Button onPress={() => disconnect()} title="Disconnect Wallet" />
+                </View>
+              </Card>
 
-            {/* GDKMS */}
-            <Card>
-              <Card.Title>Encrypt</Card.Title>
-              <View style={styles.actionContainer}>
-                <Button onPress={() => encrypt()} title="Encrypt" />
-              </View>
+              {/* GDKMS */}
+              <Card>
+                <Card.Title>Encrypt</Card.Title>
+                <View style={styles.actionContainer}>
+                  <Button onPress={() => encrypt()} title="Encrypt" />
+                </View>
+              </Card>
+              <Card>
+                <Card.Title>Decrypt</Card.Title>
+                <View style={styles.actionContainer}>
+                  <Button onPress={() => decrypt()} title="Decrypt" />
+                </View>
+              </Card>
             </Card>
-            <Card>
-              <Card.Title>Decrypt</Card.Title>
-              <View style={styles.actionContainer}>
-                <Button onPress={() => decrypt()} title="Decrypt" />
-              </View>
-            </Card>
-          </Card>
-        </ScrollView>
+          </ScrollView>
+        </GestureHandlerRootView>
       </View>
   );
 }
