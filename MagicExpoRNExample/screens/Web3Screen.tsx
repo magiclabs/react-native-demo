@@ -3,6 +3,7 @@ import { Button, TextInput, Text, View } from 'react-native';
 import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import { Card } from 'react-native-elements';
+import 'react-native-get-random-values';
 import "../shim"; // Required for Bitcoin Blockchain interaction
 import * as bitcoin from 'bitcoinjs-lib';
 
