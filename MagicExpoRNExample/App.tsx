@@ -2,6 +2,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import React from 'react';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
+import 'text-encoding'
 
 import { Magic } from '@magic-sdk/react-native-expo';
 import { OAuthExtension } from "@magic-ext/react-native-expo-oauth";
