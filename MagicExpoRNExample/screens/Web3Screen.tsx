@@ -190,6 +190,19 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
                   <Button onPress={() => signBTCTransaction()} title="Sign BTC Transaction" />
                 </View>
               </Card>
+              {/* GDKMS */}
+              <Card>
+                <Card.Title>Encrypt</Card.Title>
+                <View style={styles.actionContainer}>
+                  <Button onPress={() => encrypt()} title="Encrypt" />
+                </View>
+              </Card>
+              <Card>
+                <Card.Title>Decrypt</Card.Title>
+                <View style={styles.actionContainer}>
+                  <Button onPress={() => decrypt()} title="Decrypt" />
+                </View>
+              </Card>
             </Card>
             <Card>
               {/* Magic Connect */}
@@ -220,20 +233,6 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
                 <Card.Title>Disconnect Wallet</Card.Title>
                 <View style={styles.actionContainer}>
                   <Button onPress={() => disconnect()} title="Disconnect Wallet" />
-                </View>
-              </Card>
-
-              {/* GDKMS */}
-              <Card>
-                <Card.Title>Encrypt</Card.Title>
-                <View style={styles.actionContainer}>
-                  <Button onPress={() => encrypt()} title="Encrypt" />
-                </View>
-              </Card>
-              <Card>
-                <Card.Title>Decrypt</Card.Title>
-                <View style={styles.actionContainer}>
-                  <Button onPress={() => decrypt()} title="Decrypt" />
                 </View>
               </Card>
             </Card>
