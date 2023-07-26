@@ -3,6 +3,7 @@ import { TextInput, Text, View, Pressable } from 'react-native';
 import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import { Card } from 'react-native-elements';
+import { DeepLinkPage } from '@magic-sdk/react-native-bare';
 
 export default function LoginScreen(props: { magic: any; web3?: any; }) {
 
@@ -33,7 +34,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
   const loginEmailOTP = async () => {
     try {
       await magic.auth.loginWithEmailOTP({ email: email });
-      const res = await magic.user.getMetadata();
+      const res = await magic.user.getInfo();
       alert(JSON.stringify(res));
     } catch (err) {
       console.log(err);
@@ -58,7 +59,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
    **/
   const updateSMS = async () => {
     try {
-      await magic.user.updatePhoneNumber();
+      await magic.auth.updatePhoneNumberWithUI();
     } catch (err) {
       console.log(err);
     }
@@ -98,10 +99,10 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
 
 
   /**
-   * getMetadata()
+   * getInfo()
    * */
-  const getMetadata = async () => {
-    const res = await magic.user.getMetadata();
+  const getInfo = async () => {
+    const res = await magic.user.getInfo();
     alert(JSON.stringify(res));
   }
 
@@ -191,8 +192,8 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
               </Card>
               {/* metaData */}
               <Card>
-                <Card.Title>Metadata</Card.Title>
-                <TouchableButton handler={() => getMetadata()} title="metadata" />
+                <Card.Title>Metadata (getInfo)</Card.Title>
+                <TouchableButton handler={() => getInfo()} title="metadata" />
               </Card>
               {/* Logout */}
               <Card>

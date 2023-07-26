@@ -10,11 +10,12 @@
     "postinstall": "rn-nodeify --install buffer,stream,assert,events,crypto,vm,process --hack"
   },
   "dependencies": {
+    "@magic-ext/auth": "^1.6.0",
     "@magic-ext/bitcoin": "^8.2.1",
     "@magic-ext/connect": "6.2.0",
     "@magic-ext/gdkms": "^1.2.1",
-    "@magic-ext/react-native-expo-oauth": "^13.4.7",
-    "@magic-sdk/react-native-expo": "^19.4.1",
+    "@magic-ext/react-native-expo-oauth": "^13.6.0",
+    "@magic-sdk/react-native-expo": "^19.6.0",
     "@react-native-picker/picker": "2.4.10",
     "@react-navigation/bottom-tabs": "^6.5.2",
     "@react-navigation/native": "^6.1.1",

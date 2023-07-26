@@ -11,6 +11,7 @@
     "postinstall": "rn-nodeify --install buffer,stream,assert,events,crypto,vm,process --hack"
   },
   "dependencies": {
+    "@magic-ext/auth": "^1.6.0",
     "@magic-ext/bitcoin": "^8.2.1",
     "@magic-ext/connect": "6.2.0",
     "@magic-ext/gdkms": "^1.1.0",
