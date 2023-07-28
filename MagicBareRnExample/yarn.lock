@@ -2073,6 +2073,11 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@magic-ext/auth@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/auth/-/auth-1.6.0.tgz#84c8954ce73e8b66eb42ee1c48901646070caf80"
+  integrity sha512-j+WnlAcdILp2q5sAV2PjDxzeLFQYLXuVuRllZpiSL/jlDH2WfbwljRHUY4iOUyUTho5ZksQ2xpx5xOwuOSKFPQ==
+
 "@magic-ext/bitcoin@^8.2.1":
   version "8.2.1"
   resolved "https://registry.yarnpkg.com/@magic-ext/bitcoin/-/bitcoin-8.2.1.tgz#4b203441fd738bbfec9067c39fd6f833ead0d93c"
