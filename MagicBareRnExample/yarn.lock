@@ -2093,38 +2093,38 @@
   resolved "https://registry.yarnpkg.com/@magic-ext/gdkms/-/gdkms-1.1.0.tgz#4f1c67cb66e44560fde890c6fc4b77aa18d153a9"
   integrity sha512-ZzFMbOkfTXfwMOuNZTy0S4bSKg9nGYiBREuLBkt/cz+zPxB4YANcdyFo5LYMJwQjW+Nt1TjRfQRLrONi76biDA==
 
-"@magic-ext/react-native-bare-oauth@^13.4.6":
-  version "13.4.6"
-  resolved "https://registry.yarnpkg.com/@magic-ext/react-native-bare-oauth/-/react-native-bare-oauth-13.4.6.tgz#d49b326b938b62bd7e70d41e9eec4797f5e5ebf8"
-  integrity sha512-NiyEOwqYDGT8JoJaszUcc0Za1g3YGzaBMyDSQ056XiTt/ubkukaBeG8sOAqtdd9LaFSIHK05miEhTMAd1AZ5Bg==
+"@magic-ext/react-native-bare-oauth@latest":
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/react-native-bare-oauth/-/react-native-bare-oauth-17.0.0.tgz#39658ba77011ef25043061a576ab66a42faf463d"
+  integrity sha512-C9T1b/pZcSa5gAVPewtTTJfjVyxxv4yBhY8u2pZ9JBL73gbbfppL7T+VnxASUdeOFU9xbFl8+SJ/wOybYk9rGA==
   dependencies:
     "@magic-sdk/types" "^10.0.1"
     crypto-js "^3.3.0"
     react-native-device-info "^10.3.0"
 
-"@magic-sdk/commons@^14.4.1":
-  version "14.4.1"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/commons/-/commons-14.4.1.tgz#37ed9beb8d2be3ce0aadfeefcf5b1d17a6fe63fc"
-  integrity sha512-95TKL37p4NW4C6krJk3iQr5wXZW8vCjuFgFoYqqMuutl8MenQ0BSvL1lwA74sR9DM3MsDqYaDvwE4dsT0EgzZA==
+"@magic-sdk/commons@^17.2.0":
+  version "17.2.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/commons/-/commons-17.2.0.tgz#b125d15e4d096ad9e94171635b6b6c408314105f"
+  integrity sha512-+NkPL9r1twzgaPp94+ykF0T3pU2GHVCJup4YjdOiGWMngqqJ50aLKi0dgaNjV77VA9svxWI5NnKgaiwWkNSUyQ==
 
-"@magic-sdk/provider@^18.4.1":
-  version "18.4.1"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/provider/-/provider-18.4.1.tgz#3cf2514ff48dcf3f79008f30f8f6be258e9ac90a"
-  integrity sha512-IWqvYmZ4KFse38eS0uPy8cu8zlSO/F5ipM0GNJ2iuakkiFocS6RPvgs70+CBrbWdL9aCSx/j6Ar9b9q4Jv7pcQ==
+"@magic-sdk/provider@^21.2.0":
+  version "21.2.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/provider/-/provider-21.2.0.tgz#29c8c828bab689f4cb2220cffc241a8b3d1e601b"
+  integrity sha512-zrQKYXra9eCfdRagA7hoXs99gYV/OmtdXm1PNy1dkq8iVY+Hltlk4zCkkFr2qMcroRrMId4Ajbtuar65xxb+GA==
   dependencies:
-    "@magic-sdk/types" "^15.6.1"
+    "@magic-sdk/types" "^17.2.0"
     eventemitter3 "^4.0.4"
     web3-core "1.5.2"
 
-"@magic-sdk/react-native-bare@^19.4.1":
-  version "19.4.1"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-bare/-/react-native-bare-19.4.1.tgz#6849317d564279ea9fe36273c5bd1be88117dcb8"
-  integrity sha512-TeoD2oxk1MmiOc2cLAlv4BRoK7NRl9Z6thlyDWiRO2AAugLqBAPDjKFCdm1qCT/QMUXu6a0nQRDLbOQWBuAlGw==
+"@magic-sdk/react-native-bare@latest":
+  version "22.2.1"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-bare/-/react-native-bare-22.2.1.tgz#2821e2e394a63408c1506e16cd5576cede61fd55"
+  integrity sha512-gFR76+U8rrmOpe1fCaqUtzX+00CQv4eaATX7+vxvAkmoFVsPv25GfAjhdOJZxFvR27NpX1B3AelSXxt+J1mpvQ==
   dependencies:
     "@aveq-research/localforage-asyncstorage-driver" "^3.0.1"
-    "@magic-sdk/commons" "^14.4.1"
-    "@magic-sdk/provider" "^18.4.1"
-    "@magic-sdk/types" "^15.6.1"
+    "@magic-sdk/commons" "^17.2.0"
+    "@magic-sdk/provider" "^21.2.0"
+    "@magic-sdk/types" "^17.2.0"
     "@react-native-async-storage/async-storage" "^1.15.5"
     "@types/lodash" "^4.14.158"
     buffer "~5.6.0"
@@ -2141,10 +2141,10 @@
   resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-10.0.1.tgz#59b683670587634bdbc3d632fced4d5fda7c35a4"
   integrity sha512-JNB+sEKdVDZd2MDs4QaPM6vxCNfGuYhWUd14rDLixcbdut2u9g5z6yDxs1rYWYEVaUknNs+zGp2K/NDPo9UfdA==
 
-"@magic-sdk/types@^15.6.1":
-  version "15.6.1"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-15.6.1.tgz#c1ece39c24409488ad86c5ce73f1fc75bc2a4d94"
-  integrity sha512-lYcUzRqp5NFE9VgXPFXmlC14Iq8+6AodikKHhi16XyPteMoO3dCwKevdFNw3uSX3/aPjMLh2LKJ0qwqsCPgocQ==
+"@magic-sdk/types@^17.2.0":
+  version "17.2.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-17.2.0.tgz#3e554748808e2f35ca5bb9ceda0cdf88d2ce6d35"
+  integrity sha512-VJmGP+DwMnuIuMLb+IDHNAkYLcHH+XqPwHb6mcLNI9e30CDMXoFN60hmdhDRZLjI9JF/NPS3eEsd40Xz6Iih2A==
 
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   version "5.1.1-v1"
