@@ -18,6 +18,7 @@
     "@magic-ext/react-native-bare-oauth": "latest",
     "@magic-sdk/react-native-bare": "latest",
     "@react-native-async-storage/async-storage": "^1.18.1",
+    "@react-native-community/netinfo": "^11.1.1",
     "@react-navigation/bottom-tabs": "^6.5.1",
     "@react-navigation/native": "^6.1.1",
     "@react-navigation/native-stack": "^6.9.6",

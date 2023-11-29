@@ -2352,6 +2352,11 @@
     prompts "^2.4.0"
     semver "^6.3.0"
 
+"@react-native-community/netinfo@^11.1.1":
+  version "11.1.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-11.1.1.tgz#b25cb1547a0067460c48c5973ac280c531e59c3b"
+  integrity sha512-AoIcGL7WeXobSxMUz0ukXXCaQgIReR3xLfZJ/GTd3HN/iceuN6UvqAddfjxgqQWMcb6t2SfrjQnbUPfvattp/A==
+
 "@react-native/assets-registry@^0.72.0":
   version "0.72.0"
   resolved "https://registry.yarnpkg.com/@react-native/assets-registry/-/assets-registry-0.72.0.tgz#c82a76a1d86ec0c3907be76f7faf97a32bbed05d"
