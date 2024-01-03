@@ -375,7 +375,7 @@ PODS:
   - React-jsinspector (0.72.3)
   - React-logger (0.72.3):
     - glog
-  - react-native-netinfo (11.1.1):
+  - react-native-netinfo (11.2.1):
     - React-Core
   - react-native-randombytes (3.6.1):
     - React-Core
@@ -385,7 +385,8 @@ PODS:
     - RCTTypeSafety
     - React-Core
     - ReactCommon/turbomodule/core
-  - react-native-webview (13.2.2):
+  - react-native-webview (13.6.4):
+    - RCT-Folly (= 2021.07.22.00)
     - React-Core
   - React-NativeModulesApple (0.72.3):
     - hermes-engine
@@ -497,18 +498,18 @@ PODS:
     - React-jsi (= 0.72.3)
     - React-logger (= 0.72.3)
     - React-perflogger (= 0.72.3)
-  - RNCAsyncStorage (1.18.1):
+  - RNCAsyncStorage (1.21.0):
     - React-Core
-  - RNDeviceInfo (10.6.0):
+  - RNDeviceInfo (10.12.0):
     - React-Core
-  - RNGestureHandler (2.12.0):
+  - RNGestureHandler (2.12.1):
     - React-Core
   - RNInAppBrowser (3.7.0):
     - React-Core
   - RNScreens (3.22.1):
     - React-Core
     - React-RCTImage
-  - RNSVG (13.6.0):
+  - RNSVG (13.14.0):
     - React-Core
   - RNVectorIcons (9.2.0):
     - React-Core
@@ -747,10 +748,10 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 59d1eb03af7d30b7d66589c410f13151271e8006
   React-jsinspector: b511447170f561157547bc0bef3f169663860be7
   React-logger: c5b527272d5f22eaa09bb3c3a690fee8f237ae95
-  react-native-netinfo: b0ae7d0f76302eaf249de7b2b7add297e155b1d0
+  react-native-netinfo: 8a7fd3f7130ef4ad2fb4276d5c9f8d3f28d2df3d
   react-native-randombytes: 421f1c7d48c0af8dbcd471b0324393ebf8fe7846
   react-native-safe-area-context: 36cc67648134e89465663b8172336a19eeda493d
-  react-native-webview: b8ec89966713985111a14d6e4bf98d8b54bced0d
+  react-native-webview: 107961c73db53d66549c867a3b64eaa20d34c41f
   React-NativeModulesApple: c57f3efe0df288a6532b726ad2d0322a9bf38472
   React-perflogger: 6bd153e776e6beed54c56b0847e1220a3ff92ba5
   React-RCTActionSheet: c0b62af44e610e69d9a2049a682f5dba4e9dff17
@@ -768,12 +769,12 @@ SPEC CHECKSUMS:
   React-runtimescheduler: 837c1bebd2f84572db17698cd702ceaf585b0d9a
   React-utils: bcb57da67eec2711f8b353f6e3d33bd8e4b2efa3
   ReactCommon: 3ccb8fb14e6b3277e38c73b0ff5e4a1b8db017a9
-  RNCAsyncStorage: b90b71f45b8b97be43bc4284e71a6af48ac9f547
-  RNDeviceInfo: 475a4c447168d0ad4c807e48ef5e0963a0f4eb1b
-  RNGestureHandler: dec4645026e7401a0899f2846d864403478ff6a5
+  RNCAsyncStorage: 618d03a5f52fbccb3d7010076bc54712844c18ef
+  RNDeviceInfo: db5c64a060e66e5db3102d041ebe3ef307a85120
+  RNGestureHandler: c0d04458598fcb26052494ae23dda8f8f5162b13
   RNInAppBrowser: e36d6935517101ccba0e875bac8ad7b0cb655364
   RNScreens: 50ffe2fa2342eabb2d0afbe19f7c1af286bc7fb3
-  RNSVG: 3a79c0c4992213e4f06c08e62730c5e7b9e4dc17
+  RNSVG: d00c8f91c3cbf6d476451313a18f04d220d4f396
   RNVectorIcons: fcc2f6cb32f5735b586e66d14103a74ce6ad61f8
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 8796b55dba14d7004f980b54bcc9833ee45b28ce
@@ -781,4 +782,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 9b7dc484be0e7146fb2fe7a9a68c406c55832e20
 
-COCOAPODS: 1.14.2
+COCOAPODS: 1.14.3
