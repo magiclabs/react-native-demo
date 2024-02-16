@@ -17,7 +17,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
    *Google sign in
    * */
   const magicGoogleSignIn = async () => {
-    const res = await magic.oauth.loginWithRedirect({ provider: 'google', redirectURI: Linking.createURL('exp://') });
+    const res = await magic.oauth.loginWithPopup({ provider: 'google', redirectURI: Linking.createURL('exp://') });
     alert(JSON.stringify(res));
   }
 
@@ -25,7 +25,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
    *Apple sign in
    * */
   const magicAppleSignIn = async () => {
-    const res = await magic.oauth.loginWithRedirect({ provider: 'apple', redirectURI: Linking.createURL('exp://') });
+    const res = await magic.oauth.loginWithPopup({ provider: 'apple', redirectURI: Linking.createURL('exp://') });
     alert(JSON.stringify(res));
   }
 
