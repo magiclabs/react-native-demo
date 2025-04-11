@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInput, Text, View, Pressable } from 'react-native';
+import {TextInput, Text, View, Pressable, Alert} from 'react-native';
 import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import { Card } from 'react-native-elements';
@@ -17,7 +17,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
    * */
   const magicGoogleSignIn = async () => {
     const res = await magic.oauth.loginWithPopup({ provider: 'google', redirectURI: 'magicbarernexample://' });
-    alert(JSON.stringify(res));
+    Alert.alert(JSON.stringify(res));
   }
 
   /**
@@ -25,17 +25,18 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
    * */
   const magicAppleSignIn = async () => {
     const res = await magic.oauth.loginWithPopup({ provider: 'apple', redirectURI: 'magicbarernexample://' });
-    alert(JSON.stringify(res));
+    Alert.alert(JSON.stringify(res));
   }
 
   /**
    * email otp sign in
    * */
   const loginEmailOTP = async () => {
+    Alert.alert('clicked')
     try {
       await magic.auth.loginWithEmailOTP({ email: email });
       const res = await magic.user.getInfo();
-      alert(JSON.stringify(res));
+      Alert.alert(JSON.stringify(res));
     } catch (err) {
       console.log(err);
     }
@@ -49,7 +50,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
       const DID = await magic.auth.loginWithSMS({
         phoneNumber: phoneNumber,
       })
-      alert(`Your DID is: ${DID}`);
+      Alert.alert(`Your DID is: ${DID}`);
     } catch (err) {
       console.log(err);
     }
@@ -91,9 +92,9 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
   const showMCUserInterface = async () => {
     try {
       const account = await magic.wallet.connectWithUI();
-      alert(`Your Public address is: ${account[0]}`);
+      Alert.alert(`Your Public address is: ${account[0]}`);
     } catch (err) {
-      alert(err);
+      Alert.alert(err);
     }
   };
 
@@ -103,7 +104,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
    * */
   const getInfo = async () => {
     const res = await magic.user.getInfo();
-    alert(JSON.stringify(res));
+    Alert.alert(JSON.stringify(res));
   }
 
 
@@ -112,12 +113,12 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
    * */
   const isLoggedIn = async () => {
     const res = await magic.user.isLoggedIn();
-    alert(JSON.stringify(res));
+    Alert.alert(JSON.stringify(res));
   }
 
   const logout = async () => {
     const isLoggedOut = await magic.user.logout();
-    alert(isLoggedOut);
+    Alert.alert(isLoggedOut);
   };
 
   const TouchableButton = (props: { handler: () => void, title: String }) => (

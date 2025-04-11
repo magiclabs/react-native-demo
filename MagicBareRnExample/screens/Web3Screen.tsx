@@ -1,10 +1,9 @@
 import React, {useCallback} from 'react';
-import { Button, TextInput, Text, View } from 'react-native';
+import {Button, TextInput, Text, View, Alert} from 'react-native';
 import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import { Card } from 'react-native-elements';
 import "../shim"; // Required for Bitcoin Blockchain interaction
-import * as bitcoin from 'bitcoinjs-lib';
 
 export default function Web3Screen(props: { web3: any; magic: any }) {
   const [publicAddress, updatePublicAddress] = React.useState('');
@@ -48,7 +47,7 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
       console.log(magic.rpcProvider);
 
       magic.rpcProvider.sendAsync(payload, (err, response) => {
-        alert(response.result);
+        Alert.alert(response.result);
         if (err) {
           console.error(err);
           return;
@@ -69,26 +68,12 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
     updateTransactionHash(hash.transactionHash);
   };
 
-  /** signBTCTransaction */
-  const signBTCTransaction = async () => {
-    const TESTNET = bitcoin.networks.testnet;
-    const tx = new bitcoin.TransactionBuilder(TESTNET);
-
-    tx.addInput('fde789dad13b52e33229baed29b11d3e6f6dd306eb159865957dce13219bf85c', 0);
-    tx.addOutput('mfkv2a593E1TfDVFmf1szjAkyihLowyBaT', 80000);
-
-    const txHex = tx.buildIncomplete().toHex();
-    const signedTransactionHex = await magic.bitcoin.signTransaction(txHex, 0);
-
-    alert(`signed transaction - ${signedTransactionHex}`);
-  };
-
   /** ShowWallet */
   const showWallet = async () => {
     try {
       await magic.wallet.showUI();
     } catch (e) {
-      alert(e);
+      Alert.alert(e);
     }
   };
 
@@ -96,9 +81,9 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
   const getWalletInfo = async () => {
     try {
       const walletInfo = await magic.wallet.getInfo();
-      alert(`WalletType: ${walletInfo.walletType}`);
+      Alert.alert(`WalletType: ${walletInfo.walletType}`);
     } catch (e) {
-      alert(e);
+      Alert.alert(e);
     }
   };
 
@@ -106,18 +91,18 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
   const requestUserInfo = async () => {
     try {
       const email = await magic.wallet.requestUserInfoWithUI();
-      alert(`email: ${email}`);
+      Alert.alert(`email: ${email}`);
     } catch (e) {
-      alert(e);
+      Alert.alert(e);
     }
   };
 
   /** disconnect */
   const disconnect = async () => {
     await magic.wallet.disconnect().catch((e) => {
-      alert(`error: ${e}`);
+      Alert.alert(`error: ${e}`);
     });
-    alert("Magic Disconnect Successful");
+    Alert.alert("Magic Disconnect Successful");
   };
 
   /**
@@ -125,13 +110,13 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
    */
   const encrypt = async () => {
     const ciphertexts = await magic.gdkms.encryptWithPrivateKey('asdf');
-    alert(ciphertexts);
+    Alert.alert(ciphertexts);
     setCiphertexts(ciphertexts);
   }
 
   const decrypt = useCallback(async () => {
     const message = await magic.gdkms.decryptWithPrivateKey(ciphertexts);
-    alert(message);
+    Alert.alert(message);
   }, [ciphertexts]);
 
   return (
@@ -180,13 +165,6 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
                 <Card.Title>Personal Sign</Card.Title>
                 <View style={styles.actionContainer}>
                   <Button onPress={() => personalSign()} title="Personal Sign" />
-                </View>
-              </Card>
-              {/* Sign BTC Transaction */}
-              <Card>
-                <Card.Title>Sign BTC Transaction</Card.Title>
-                <View style={styles.actionContainer}>
-                  <Button onPress={() => signBTCTransaction()} title="Sign BTC Transaction" />
                 </View>
               </Card>
               {/* GDKMS */}

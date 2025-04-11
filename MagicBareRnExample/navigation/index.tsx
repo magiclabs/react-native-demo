@@ -6,13 +6,10 @@
 import * as React from 'react';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ColorSchemeName } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Colors from '../constants/Colors';
 import NotFoundScreen from '../screens/NotFoundScreen';
-import useColorScheme from '../hooks/useColorScheme';
 import LoginScreen from '../screens/LoginScreen';
 import Web3Screen from '../screens/Web3Screen';
 import { RootStackParamList, RootTabParamList, TabOneParamList, TabTwoParamList } from '../types';
@@ -21,12 +18,11 @@ import HeaderDropdown from "./HeaderDropdown";
 
 Icon.loadFont();
 
-export default function Navigation({ colorScheme, magicProps }: { colorScheme: ColorSchemeName, magicProps: any  }) {
+export default function Navigation({ magicProps }: { magicProps: any  }) {
 
   return (
     <NavigationContainer
-      linking={LinkingConfiguration}
-      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      linking={LinkingConfiguration}>
       <RootNavigator magicProps={magicProps}/>
     </NavigationContainer>
   );
@@ -56,7 +52,6 @@ function RootNavigator({ magicProps }: any) {
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator(props: { navigation?: any; env?: any; setEnv?: any; magic?: any; web3?: any; }) {
-  const colorScheme = useColorScheme();
 
     const { env, setEnv, magic, web3 } = props;
 
@@ -67,10 +62,7 @@ function BottomTabNavigator(props: { navigation?: any; env?: any; setEnv?: any; 
 
   return (
     <BottomTab.Navigator
-      initialRouteName="Login"
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme].tint,
-      }}>
+      initialRouteName="Login">
       <BottomTab.Screen
         name="Login"
         options={() => ({
