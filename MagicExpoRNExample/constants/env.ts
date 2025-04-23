@@ -3,4 +3,4 @@ export const ENV = {
   PROD: 'PROD'
 }
 
-export const API_KEY = 'pk_live_667E736A88BC7612';
+export const API_KEY = 'YOUR_PUBLISHABLE_KEY';
