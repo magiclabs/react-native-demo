@@ -2,7 +2,7 @@ import React, {useCallback} from 'react';
 import {Button, TextInput, Text, View, Alert} from 'react-native';
 import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
 import { styles } from './styles';
-import { Card } from 'react-native-elements';
+import { Card } from 'react-native-paper';
 import "../shim"; // Required for Bitcoin Blockchain interaction
 
 export default function Web3Screen(props: { web3: any; magic: any }) {
@@ -125,10 +125,10 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
           <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
             <Card>
               {/* Magic Auth */}
-              <Card.Title>Magic Auth</Card.Title>
+              <Card.Title title="Magic Auth" />
               {/* Send Transaction */}
               <Card>
-                <Card.Title>Send Transaction</Card.Title>
+                <Card.Title title="Send Transaction" />
                 <View style={styles.loginContainer}>
                   <View style={styles.emailContainer}>
                     <Text>
@@ -150,7 +150,7 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
               </Card>
               {/* Get Account */}
               <Card>
-                <Card.Title>Get Account</Card.Title>
+                <Card.Title title="Get Account" />
                 <View style={styles.loginContainer}>
                   <Text style={styles.publicAddress}>
                     Public Address: {publicAddress}
@@ -162,20 +162,20 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
               </Card>
               {/* Personal Sign */}
               <Card>
-                <Card.Title>Personal Sign</Card.Title>
+                <Card.Title title="Personal Sign" />
                 <View style={styles.actionContainer}>
                   <Button onPress={() => personalSign()} title="Personal Sign" />
                 </View>
               </Card>
               {/* GDKMS */}
               <Card>
-                <Card.Title>Encrypt</Card.Title>
+                <Card.Title title="Encrypt" />
                 <View style={styles.actionContainer}>
                   <Button onPress={() => encrypt()} title="Encrypt" />
                 </View>
               </Card>
               <Card>
-                <Card.Title>Decrypt</Card.Title>
+                <Card.Title title="Decrypt" />
                 <View style={styles.actionContainer}>
                   <Button onPress={() => decrypt()} title="Decrypt" />
                 </View>
@@ -183,31 +183,31 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
             </Card>
             <Card>
               {/* Magic Connect */}
-              <Card.Title>Magic Connect</Card.Title>
+              <Card.Title title="Magic Connect" />
               {/* Show Wallet */}
               <Card>
-                <Card.Title>Show Wallet</Card.Title>
+                <Card.Title title="Show Wallet" />
                 <View style={styles.actionContainer}>
                   <Button onPress={() => showWallet()} title="Show Wallet" />
                 </View>
               </Card>
               {/* Get Wallet Info */}
               <Card>
-                <Card.Title>Get Wallet Info</Card.Title>
+                <Card.Title title="Get Wallet Info" />
                 <View style={styles.actionContainer}>
                   <Button onPress={() => getWalletInfo()} title="Get Wallet Info" />
                 </View>
               </Card>
               {/* Request User Info */}
               <Card>
-                <Card.Title>Request User Info</Card.Title>
+                <Card.Title title="Request User Info" />
                 <View style={styles.actionContainer}>
                   <Button onPress={() => requestUserInfo()} title="Request User Info" />
                 </View>
               </Card>
               {/* Disconnect Wallet */}
               <Card>
-                <Card.Title>Disconnect Wallet</Card.Title>
+                <Card.Title title="Disconnect Wallet" />
                 <View style={styles.actionContainer}>
                   <Button onPress={() => disconnect()} title="Disconnect Wallet" />
                 </View>

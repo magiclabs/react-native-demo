@@ -2,7 +2,7 @@ import React from 'react';
 import {TextInput, Text, View, Pressable, Alert} from 'react-native';
 import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
 import { styles } from './styles';
-import { Card } from 'react-native-elements';
+import { Card } from 'react-native-paper';
 import { DeepLinkPage } from '@magic-sdk/react-native-bare';
 
 export default function LoginScreen(props: { magic: any; web3?: any; }) {
@@ -135,10 +135,10 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
           <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer} keyboardShouldPersistTaps="handled">
             {/* Magic Auth Sign-in */}
             <Card>
-              <Card.Title>Magic Auth</Card.Title>
+              <Card.Title title="Magic Auth" />
               {/* Email Login */}
               <Card>
-                <Card.Title>Email OTP Login</Card.Title>
+                <Card.Title title="Email OTP Login" />
                 <View style={styles.loginContainer}>
                   <View style={styles.emailContainer}>
                     <Text>
@@ -155,7 +155,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
               </Card>
               {/* Magic Sign-in with SMS */}
               <Card>
-                <Card.Title>Login with SMS</Card.Title>
+                <Card.Title title="Login with SMS" />
                 <View style={styles.loginContainer}>
                   <View style={styles.emailContainer}>
                     <Text>
@@ -177,32 +177,32 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
               </Card>
               {/* Google Sign in */}
               <Card>
-                <Card.Title>Google Login</Card.Title>
+                <Card.Title title="Google Login" />
                 <TouchableButton handler={() => magicGoogleSignIn()} title="Login" />
               </Card>
 
               {/* Apple Sign in */}
               <Card>
-                <Card.Title>Apple Login</Card.Title>
+                <Card.Title title="Apple Login" />
                 <TouchableButton handler={() => magicAppleSignIn()} title="Login" />
               </Card>
               {/* Is Logged In */}
               <Card>
-                <Card.Title>Is Logged In</Card.Title>
+                <Card.Title title="Is Logged In" />
                 <TouchableButton handler={() => isLoggedIn()} title="isLoggedIn" />
               </Card>
               {/* metaData */}
               <Card>
-                <Card.Title>Metadata (getInfo)</Card.Title>
+                <Card.Title title="Metadata (getInfo)" />
                 <TouchableButton handler={() => getInfo()} title="metadata" />
               </Card>
               {/* Logout */}
               <Card>
-                <Card.Title>Logout</Card.Title>
+                <Card.Title title="Logout" />
                 <TouchableButton handler={() => logout()} title="Logout" />
               </Card>
               <Card>
-                <Card.Title>Recover Account</Card.Title>
+                <Card.Title title="Recover Account" />
                 <View style={styles.emailContainer}>
                   <Text>
                     Email:
@@ -224,7 +224,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
 
             {/* Magic Connect Sign-in */}
             <Card>
-              <Card.Title>Magic Connect</Card.Title>
+              <Card.Title title="Magic Connect" />
               <TouchableButton handler={() => showMCUserInterface()} title="MC Login" />
             </Card>
           </ScrollView >
