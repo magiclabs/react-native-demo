@@ -1,17 +1,18 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { Button, TextInput, Text, View, Alert } from 'react-native';
 import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
 import { Card } from 'react-native-paper';
 import { ethers } from 'ethers';
 import { styles } from '../../styles/styles';
-import { useMagic } from '@/hooks/useMagic';
+import {MagicService} from "@/hooks/magic";
 
 export default function Web3Screen() {
     const [publicAddress, updatePublicAddress] = React.useState('');
     const [toAddress, onChangeToAddress] = React.useState('YOUR_PUBLIC_TO_ADDRESS');
     const [transactionHash, updateTransactionHash] = React.useState('');
     const [ciphertexts, setCiphertexts] = React.useState('');
-    const { magic, provider } = useMagic(); // provider is an ethers Web3Provider
+    const magic = MagicService.magic;
+    const provider = MagicService.provider;
 
     /** GetAccount */
     const getAccount = async () => {

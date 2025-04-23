@@ -9,11 +9,12 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
-import {useMagic} from "@/hooks/useMagic";
+import {MagicService} from "@/hooks/magic";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-  const { magic } = useMagic();
+
+  const magic = MagicService.magic;
 
   return (
       <View style={{flex: 1}}>

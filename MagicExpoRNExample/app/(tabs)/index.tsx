@@ -4,14 +4,15 @@ import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler
 import { styles } from '../../styles/styles';
 import { Card } from 'react-native-paper';
 import { DeepLinkPage } from '@magic-sdk/react-native-expo';
-import {useMagic} from "@/hooks/useMagic";
+import {MagicService} from "@/hooks/magic";
 
 export default function LoginScreen() {
 
     const [email, onChangeEmail] = React.useState('hiro@magic.link');
     const [recoveryEmail, onChangerecoveryEmail] = React.useState('hiro@magic.link');
     const [phoneNumber, onChangePhoneNumber] = React.useState('+18888888888');
-    const { magic, provider } = useMagic();
+
+    const magic = MagicService.magic;
 
     /**
      *Google sign in
