@@ -115,17 +115,6 @@ export default function Web3Screen() {
                     </Card>
                 </ScrollView>
             </GestureHandlerRootView>
-
-            {/* Magic Connect */}
-            <Card>
-                <Card.Title title="Magic Connect" />
-                <View style={styles.actionContainer}>
-                    <Button onPress={showWallet} title="Show Wallet" />
-                </View>
-                <View style={styles.actionContainer}>
-                    <Button onPress={getWalletInfo} title="Get Wallet Info" />
-                </View>
-            </Card>
         </View>
     );
 }
