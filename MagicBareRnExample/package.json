@@ -31,7 +31,7 @@
     "react-native-safe-area-context": "5.3.0",
     "react-native-screens": "~4.10.0",
     "react-native-vector-icons": "^10.2.0",
-    "react-native-webview": "^13.3.0",
+    "react-native-webview": "13.13.0",
     "readable-stream": "^4.3.0",
     "stream-browserify": "^1.0.0",
     "vm-browserify": "0.0.4",
@@ -59,5 +59,6 @@
   },
   "engines": {
     "node": ">=18"
-  }
+  },
+  "packageManager": "yarn@4.5.1+sha512.341db9396b6e289fecc30cd7ab3af65060e05ebff4b3b47547b278b9e67b08f485ecd8c79006b405446262142c7a38154445ef7f17c1d5d1de7d90bf9ce7054d"
 }

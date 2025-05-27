@@ -18,8 +18,14 @@ export default function LoginScreen() {
      *Google sign in
      * */
     const magicGoogleSignIn = async () => {
+        Alert.alert('V2 clicked')
+        try {
         const res = await magic.oauth.loginWithPopup({ provider: 'google', redirectURI: 'magicbarernexample://' });
-        Alert.alert(JSON.stringify(res));
+            Alert.alert(JSON.stringify(res));
+        } catch(e: any){
+            Alert.alert(e.toString());
+        }
+
     }
 
     /**
@@ -70,7 +76,7 @@ export default function LoginScreen() {
     };
 
     /** Magic Connect w/ UI  */
-    const showMCUserInterface = async () => {
+    const ConnectWithUI = async () => {
         try {
             const account = await magic.wallet.connectWithUI();
             Alert.alert(`Your Public address is: ${account[0]}`);
@@ -115,9 +121,6 @@ export default function LoginScreen() {
         <View style={styles.container}>
             <GestureHandlerRootView style={{ flex: 1 }}>
                 <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer} keyboardShouldPersistTaps="handled">
-                    {/* Magic Auth Sign-in */}
-                    <Card>
-                        <Card.Title title="Magic Auth" />
                         {/* Email Login */}
                         <Card>
                             <Card.Title title="Email OTP Login" />
@@ -196,12 +199,9 @@ export default function LoginScreen() {
                                 <TouchableButton handler={() => showSettings()} title="Show Settings" />
                             </View>
                         </Card>
-                    </Card>
-
-                    {/* Magic Connect Sign-in */}
                     <Card>
-                        <Card.Title title="Magic Connect" />
-                        <TouchableButton handler={() => showMCUserInterface()} title="MC Login" />
+                        <Card.Title title="Connect With UI" />
+                        <TouchableButton handler={() => ConnectWithUI()} title="Connect With UI" />
                     </Card>
                 </ScrollView >
             </GestureHandlerRootView>
