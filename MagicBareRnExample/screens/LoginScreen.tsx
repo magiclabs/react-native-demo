@@ -6,8 +6,8 @@ import { Card } from 'react-native-paper';
 import { DeepLinkPage } from '@magic-sdk/react-native-bare';
 
 export default function LoginScreen(props: { magic: any; web3?: any; }) {
-
   const [email, onChangeEmail] = React.useState('hiro@magic.link');
+  const [chainId, onChangeChainId] = React.useState('137');
   const [recoveryEmail, onChangerecoveryEmail] = React.useState('hiro@magic.link');
   const [phoneNumber, onChangePhoneNumber] = React.useState('+18888888888');
   const { magic } = props;
@@ -107,6 +107,21 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
     Alert.alert(JSON.stringify(res));
   }
 
+    /**
+   * switchEVMChain
+   * */
+    const switchNetwork = async (chainId: number) => {
+      const res = await magic.evm.switchEVMChain(chainId);
+      Alert.alert(JSON.stringify(res));
+    };
+  
+    /**
+     * getSolanaPublicAddress
+     * */
+    const getSolanaPublicAddress = async () => {
+      const res = await magic.solana.getPublicAddress();
+      Alert.alert(JSON.stringify(res));
+    };
 
   /**
    * IsLoggedIn
@@ -190,6 +205,34 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
               <Card>
                 <Card.Title title="Is Logged In" />
                 <TouchableButton handler={() => isLoggedIn()} title="isLoggedIn" />
+              </Card>
+              {/* Solana Address */}
+              <Card>
+                <Card.Title title="Solana Address" />
+                <TouchableButton
+                  handler={() => getSolanaPublicAddress()}
+                  title="get Solana address"
+                />
+              </Card>
+              {/* Switch EVM Chain */}
+              <Card>
+                <Card.Title title="Switch EVM Chain" />
+                <View style={styles.loginContainer}>
+                  <View style={styles.emailContainer}>
+                    <Text>Chain ID:</Text>
+                    <TextInput
+                      style={styles.TextInputContainer}
+                      onChangeText={(chainId) => onChangeChainId(chainId)}
+                      value={chainId}
+                    />
+                  </View>
+                </View>
+                <View style={styles.margin10}>
+                  <TouchableButton
+                    handler={() => switchNetwork(Number(chainId))}
+                    title="switchEVMChain"
+                  />
+                </View>
               </Card>
               {/* metaData */}
               <Card>
