@@ -11,7 +11,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import LoginScreen from '../screens/LoginScreen';
-import Web3Screen from '../screens/Web3Screen';
+import Web3Screen from '../screens/CryptoScreen';
 import { RootStackParamList, RootTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import HeaderDropdown from './HeaderDropdown';
