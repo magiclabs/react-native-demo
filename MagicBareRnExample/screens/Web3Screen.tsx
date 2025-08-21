@@ -3,28 +3,34 @@ import {Button, TextInput, Text, View, Alert} from 'react-native';
 import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import { Card } from 'react-native-paper';
-import "../shim"; // Required for Bitcoin Blockchain interaction
+import { ethers } from 'ethers';
+import '../shim'; // Required for Bitcoin Blockchain interaction
 
-export default function Web3Screen(props: { web3: any; magic: any }) {
-  const [publicAddress, updatePublicAddress] = React.useState('');
-  const [toAddress, onChangeToAddress] = React.useState('YOUR_PUBLIC_TO_ADDRESS');
+// Type error: Incorrect prop types - should be more specific
+export default function Web3Screen(props: { provider: any; magic: any }) {
+  const [publicAddress, updatePublicAddress] = React.useState<string>('');
+  const [toAddress, onChangeToAddress] = React.useState<string>('');
   const [transactionHash, updateTransactionHash] = React.useState('');
   const [ciphertexts, setCiphertexts] = React.useState('');
+  const [chainId, onChangeChainId] = React.useState('137');
 
-
-  const { web3, magic } = props;
+  // Type error: Destructuring with wrong types
+  const { provider, magic } = props;
 
   React.useEffect(() => {
   }, []);
 
   /** GetAccount */
-  const getAccount = async () => {
+  const getAccount = async (): Promise<number> => {
     try {
-      const account = await web3.eth.getAccounts();
-      updatePublicAddress(account[0]);
+      const signer = await provider.getSigner();
+      const account = await signer.getAddress();
+      updatePublicAddress(account);
+      return account; 
     } catch(e) {
-      console.log(e)
+      console.log(e);
       updatePublicAddress('');
+      return 0;
     }
   };
 
@@ -33,92 +39,67 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
    * */
   const personalSign = async () => {
     try {
-      const accounts = await web3.eth.getAccounts();
+      // Type error: provider is typed as string but used as object
+      const signer = await provider.getSigner();
       const text = 'hello world';
 
-      console.log('accounts', accounts);
-
-      const payload = {
-        id: 1,
-        method: 'personal_sign',
-        params: [text, accounts[0]],
-      };
-
-      console.log(magic.rpcProvider);
-
-      magic.rpcProvider.sendAsync(payload, (err, response) => {
-        Alert.alert(response.result);
-        if (err) {
-          console.error(err);
-          return;
-        }
-      })
+      const signature = await signer.signMessage(text);
+      Alert.alert(signature);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   /** sendTransaction */
-  const sendTransaction = async () => {
-    const hash = await web3.eth.sendTransaction({
-      from: publicAddress,
-      to: publicAddress,
-      value: web3.utils.toWei('0.1', 'ether')
-    });
-    updateTransactionHash(hash.transactionHash);
-  };
-
-  /** ShowWallet */
-  const showWallet = async () => {
+  // Type error: Wrong parameter type
+  const sendTransaction = async (amount: string) => {
     try {
-      await magic.wallet.showUI();
-    } catch (e) {
-      Alert.alert(e);
+      // Type error: provider is typed as string but used as object
+      const signer = await provider.getSigner();
+      const tx = await signer.sendTransaction({
+        to: toAddress, // Type error: toAddress is boolean but should be string
+        value: ethers.parseEther(amount),
+      });
+      updateTransactionHash(tx.hash);
+    } catch (err) {
+      console.log(err);
     }
-  };
-
-  /** getWalletInfo */
-  const getWalletInfo = async () => {
-    try {
-      const walletInfo = await magic.wallet.getInfo();
-      Alert.alert(`WalletType: ${walletInfo.walletType}`);
-    } catch (e) {
-      Alert.alert(e);
-    }
-  };
-
-  /** requestUserInfo */
-  const requestUserInfo = async () => {
-    try {
-      const email = await magic.wallet.requestUserInfoWithUI();
-      Alert.alert(`email: ${email}`);
-    } catch (e) {
-      Alert.alert(e);
-    }
-  };
-
-  /** disconnect */
-  const disconnect = async () => {
-    await magic.wallet.disconnect().catch((e) => {
-      Alert.alert(`error: ${e}`);
-    });
-    Alert.alert("Magic Disconnect Successful");
   };
 
   /**
    * GDKMS
    */
   const encrypt = async () => {
-    const ciphertexts = await magic.gdkms.encryptWithPrivateKey('asdf');
-    Alert.alert(ciphertexts);
-    setCiphertexts(ciphertexts);
-  }
+    // Type error: magic is typed as number but used as object
+    const res = await magic.gdkms.encryptWithPrivateKey('asdf');
+    Alert.alert(res);
+    setCiphertexts(res);
+  };
 
+  // Type error: Wrong parameter type in useCallback
   const decrypt = useCallback(async () => {
+    // Type error: magic is typed as number but used as object
     const message = await magic.gdkms.decryptWithPrivateKey(ciphertexts);
     Alert.alert(message);
-  }, [ciphertexts]);
+  }, [ciphertexts, magic.gdkms]);
 
+  /**
+   * switchEVMChain
+   * */
+  const switchNetwork = async (chainId: number) => {
+    const res = await magic.evm.switchEVMChain(chainId);
+    Alert.alert(JSON.stringify(res));
+  };
+
+  /**
+   * getSolanaPublicAddress
+   * */
+  const getSolanaPublicAddress = async () => {
+    const res = await magic.solana.getPublicAddress();
+    Alert.alert(JSON.stringify(res));
+  };
+
+  // Type error: Wrong type for style prop
   return (
       <View style={styles.container}>
         <GestureHandlerRootView style={{ flex: 1 }}>
@@ -145,7 +126,8 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
                   </Text>
                 </View>
                 <View style={styles.actionContainer}>
-                  <Button onPress={() => sendTransaction()} title="Send" />
+                  {/* Type error: Wrong parameter type */}
+                  <Button onPress={() => sendTransaction('wrong')} title="Send" />
                 </View>
               </Card>
               {/* Get Account */}
@@ -153,7 +135,7 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
                 <Card.Title title="Get Account" />
                 <View style={styles.loginContainer}>
                   <Text style={styles.publicAddress}>
-                    Public Address: {publicAddress}
+                    Public Address: {publicAddress} {/* Type error: publicAddress is number but displayed as string */}
                   </Text>
                 </View>
                 <View style={styles.actionContainer}>
@@ -167,6 +149,30 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
                   <Button onPress={() => personalSign()} title="Personal Sign" />
                 </View>
               </Card>
+              {/* Switch EVM Chain */}
+              <Card>
+                <Card.Title title="Switch EVM Chain" />
+                <View style={styles.loginContainer}>
+                  <View style={styles.emailContainer}>
+                    <Text>Chain ID:</Text>
+                    <TextInput
+                      style={styles.TextInputContainer}
+                      onChangeText={(chainId) => onChangeChainId(chainId)}
+                      value={chainId}
+                    />
+                  </View>
+                </View>
+                <View style={styles.actionContainer}>
+                  <Button onPress={() => switchNetwork(Number(chainId))} title="switchEVMChain" />
+                </View>
+              </Card>
+              {/* Solana Address */}
+              <Card>
+                <Card.Title title="Solana Address" />
+                <View style={styles.actionContainer}>
+                  <Button onPress={() => getSolanaPublicAddress()} title="get Solana address" />
+                </View>
+              </Card>
               {/* GDKMS */}
               <Card>
                 <Card.Title title="Encrypt" />
@@ -177,39 +183,8 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
               <Card>
                 <Card.Title title="Decrypt" />
                 <View style={styles.actionContainer}>
+                  {/* Type error: Wrong parameter type */}
                   <Button onPress={() => decrypt()} title="Decrypt" />
-                </View>
-              </Card>
-            </Card>
-            <Card>
-              {/* Magic Connect */}
-              <Card.Title title="Magic Connect" />
-              {/* Show Wallet */}
-              <Card>
-                <Card.Title title="Show Wallet" />
-                <View style={styles.actionContainer}>
-                  <Button onPress={() => showWallet()} title="Show Wallet" />
-                </View>
-              </Card>
-              {/* Get Wallet Info */}
-              <Card>
-                <Card.Title title="Get Wallet Info" />
-                <View style={styles.actionContainer}>
-                  <Button onPress={() => getWalletInfo()} title="Get Wallet Info" />
-                </View>
-              </Card>
-              {/* Request User Info */}
-              <Card>
-                <Card.Title title="Request User Info" />
-                <View style={styles.actionContainer}>
-                  <Button onPress={() => requestUserInfo()} title="Request User Info" />
-                </View>
-              </Card>
-              {/* Disconnect Wallet */}
-              <Card>
-                <Card.Title title="Disconnect Wallet" />
-                <View style={styles.actionContainer}>
-                  <Button onPress={() => disconnect()} title="Disconnect Wallet" />
                 </View>
               </Card>
             </Card>
@@ -219,10 +194,9 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
   );
 }
 
-
-
+// Type error: Wrong type for navigationOptions
 Web3Screen.navigationOptions = {
-  header: null,
+  header: 'wrong_type',
 };
 
 

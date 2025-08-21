@@ -14,7 +14,8 @@ import LoginScreen from '../screens/LoginScreen';
 import Web3Screen from '../screens/Web3Screen';
 import { RootStackParamList, RootTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
-import HeaderDropdown from "./HeaderDropdown";
+import HeaderDropdown from './HeaderDropdown';
+import { JSX } from 'react';
 
 Icon.loadFont();
 
@@ -51,14 +52,14 @@ function RootNavigator({ magicProps }: any) {
  */
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
-function BottomTabNavigator(props: { navigation?: any; env?: any; setEnv?: any; magic?: any; web3?: any; }) {
+function BottomTabNavigator(props: { navigation?: any; env?: any; setEnv?: any; magic?: any; provider?: any; }) {
 
-    const { env, setEnv, magic, web3 } = props;
+    const { env, setEnv, magic, provider } = props;
 
     const header = () => <HeaderDropdown
         env={env}
         setEnv={setEnv}
-    />
+    />;
 
   return (
     <BottomTab.Navigator
@@ -71,7 +72,7 @@ function BottomTabNavigator(props: { navigation?: any; env?: any; setEnv?: any; 
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         })}
       >
-          {() => TabOneNavigator(header, magic, web3)}
+          {() => TabOneNavigator(header, magic, provider)}
       </BottomTab.Screen>
       <BottomTab.Screen
         name="Web3"
@@ -81,7 +82,7 @@ function BottomTabNavigator(props: { navigation?: any; env?: any; setEnv?: any; 
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       >
-          {() => TabTwoNavigator(header, web3, magic)}
+          {() => TabTwoNavigator(header, provider, magic)}
       </BottomTab.Screen>
     </BottomTab.Navigator>
   );
@@ -97,14 +98,14 @@ function TabBarIcon(props: {
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const TabOneStack = createNativeStackNavigator<TabOneParamList>();
 
-function TabOneNavigator(header: () => JSX.Element, magic: any, web3: any) {
+function TabOneNavigator(header: () => JSX.Element, magic: any, provider: any) {
     return (
         <TabOneStack.Navigator>
             <TabOneStack.Screen
                 name="LoginScreen"
                 options={{ headerTitle: header }}
             >
-                {props => <LoginScreen {...props} magic={magic} web3={web3} />}
+                {props => <LoginScreen {...props} magic={magic} provider={provider} />}
             </TabOneStack.Screen>
         </TabOneStack.Navigator>
     );
@@ -112,14 +113,14 @@ function TabOneNavigator(header: () => JSX.Element, magic: any, web3: any) {
 
 const TabTwoStack = createNativeStackNavigator<TabTwoParamList>();
 
-function TabTwoNavigator(header: () => JSX.Element, web3: any, magic: any) {
+function TabTwoNavigator(header: () => JSX.Element, provider: any, magic: any) {
     return (
         <TabTwoStack.Navigator>
             <TabTwoStack.Screen
                 name="Web3Screen"
                 options={{ headerTitle: header }}
             >
-                {(props: any) => <Web3Screen {...props} web3={web3} magic={magic}/>}
+                {(props: any) => <Web3Screen {...props} provider={provider} magic={magic}/>}
             </TabTwoStack.Screen>
         </TabTwoStack.Navigator>
     );
