@@ -33,5 +33,5 @@ export type TabOneParamList = {
 };
 
 export type TabTwoParamList = {
-  Web3Screen: undefined;
+  CryptoScreen: undefined;
 };

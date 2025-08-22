@@ -11,7 +11,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import LoginScreen from '../screens/LoginScreen';
-import Web3Screen from '../screens/CryptoScreen';
+import CryptoScreen from '../screens/CryptoScreen';
 import { RootStackParamList, RootTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import HeaderDropdown from './HeaderDropdown';
@@ -117,10 +117,10 @@ function TabTwoNavigator(header: () => JSX.Element, provider: any, magic: any) {
     return (
         <TabTwoStack.Navigator>
             <TabTwoStack.Screen
-                name="Web3Screen"
+                name="CryptoScreen"
                 options={{ headerTitle: header }}
             >
-                {(props: any) => <Web3Screen {...props} provider={provider} magic={magic}/>}
+                {(props: any) => <CryptoScreen {...props} provider={provider} magic={magic}/>}
             </TabTwoStack.Screen>
         </TabTwoStack.Navigator>
     );

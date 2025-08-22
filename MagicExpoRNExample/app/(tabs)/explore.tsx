@@ -6,7 +6,7 @@ import { ethers } from 'ethers';
 import { styles } from '../../styles/styles';
 import {MagicService} from "@/hooks/magic";
 
-export default function Web3Screen() {
+export default function CryptoScreen() {
     const [publicAddress, updatePublicAddress] = React.useState('');
     const [toAddress, onChangeToAddress] = React.useState('YOUR_PUBLIC_TO_ADDRESS');
     const [transactionHash, updateTransactionHash] = React.useState('');

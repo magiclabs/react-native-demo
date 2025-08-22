@@ -7,7 +7,7 @@ import { ethers } from 'ethers';
 import '../shim'; // Required for Bitcoin Blockchain interaction
 
 // Type error: Incorrect prop types - should be more specific
-export default function Web3Screen(props: { provider: any; magic: any }) {
+export default function CryptoScreen(props: { provider: any; magic: any }) {
   const [publicAddress, updatePublicAddress] = React.useState<string>('');
   const [toAddress, onChangeToAddress] = React.useState<string>('');
   const [transactionHash, updateTransactionHash] = React.useState('');
@@ -195,7 +195,7 @@ export default function Web3Screen(props: { provider: any; magic: any }) {
 }
 
 // Type error: Wrong type for navigationOptions
-Web3Screen.navigationOptions = {
+CryptoScreen.navigationOptions = {
   header: 'wrong_type',
 };
 
