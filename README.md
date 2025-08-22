@@ -1,11 +1,13 @@
 ## ✨ Magic React Native Demo Apps
 
-This repository stores two mobile applications utilizing both of Magic's React Native SDKs and extensions. 
+This repository contains two mobile applications demonstrating Magic's React Native SDKs and extensions for both Bare React Native and Expo managed workflows.
 
-### Setup and Installation
 
-Sign up or login to the [developer dashboard](https://dashboard.magic.link) to receive API keys that will allow your application to interact with Magic's authentication APIs.
+### 🔑 Setup and Installation
 
+1. **Get Magic API Keys**: Sign up or login to the [developer dashboard](https://dashboard.magic.link) to receive API keys.
+
+2. **Clone the Repository**:
 ```shell
 # SSH
 $ git clone git@github.com:magiclabs/react-native-demo.git
@@ -13,61 +15,84 @@ $ git clone git@github.com:magiclabs/react-native-demo.git
 $ git clone https://github.com/magiclabs/react-native-demo.git
 ```
 
-Once you have a local copy of this repository you'll need to navigate to the `config/env.ts` file to add your publishable Magic API key.
+3. **Configure API Keys**: Update the Magic publishable API key in both projects:
 
-```shell
-# Add your Publishable Magic API key here
-$ open MagicBareRnExample/config/env.ts
-```
+- Bare React Native Example: `MagicBareRnExample/hooks/magic.ts`
+- Expo Example: `MagicExpoRNExample/hooks/magic.ts`
 
-Finally, if you'd like to test sending transactions and other general on-chain interactions with these demo apps you'll need to navigate to `screens/Web3Screen.tsx` and include an address to a test wallet of your choosing.
+Replace `'YOUR_PUBLISHABLE_KEY'` with your actual Magic publishable API key.
 
-```shell
-# Add your test wallet address here
-$ open MagicExpoRnExample/screens/Web3Screen.tsx
-```
+### 📱 Expo Tutorial (Managed Workflow)
 
-### Expo Tutorial (Managed flow) 
+The Expo example uses Expo Router for navigation and includes modern React Native features.
 
 ```shell
 $ cd MagicExpoRNExample
-$ yarn
+$ yarn install
 $ yarn start
 ```
 
-When the bundler process is done, hit **i** to start an iOS simulator or **a** to start an Android simulator (make sure you have downloaded Android Studio and follow all the instructions on [React Native's dev site](https://reactnative.dev/docs/environment-setup)).
+When the bundler starts:
+- Press **i** to open iOS simulator
+- Press **a** to open Android emulator
+- Press **w** to open in web browser
 
-### Bare React Native Tutorial (Standalone flow)
+### 🔧 Bare React Native Tutorial (Standalone Workflow)
+
+The Bare React Native example provides full native control and custom configurations.
 
 ```shell
 $ cd MagicBareRNExample
-$ yarn
+$ yarn install
 ```
 
-After node modules are installed and linked, for iOS you will need to install the linked dependencies to native.
-
+#### iOS Setup
 ```shell
-# iOS
 $ cd ios
 $ pod install
+$ cd ..
+$ yarn ios
 ```
-After a successful installation, you may run `yarn ios` or `yarn android` to get started. 
 
+#### Android Setup
 ```shell
-######### iOS ############
-$ yarn ios --simulator="YOUR_PREFERRED_SIMULATOR_DEVICE" # run `xcrun simctl list devices` for a list of devices
-######### Android ########
 $ yarn android
 ```
 
-## 🙌🏾 Troubleshooting
+### 🚨 Troubleshooting
 
-### Error code 65 w/ Bare React Native Tutorial
-In the case that you run `yarn ios` and see an `Error code 65` with the standalone flow here are some possible ways to troubleshoot this common error:
+#### Error code 65 (iOS Build Issues)
+If you encounter `Error code 65` when running `yarn ios`:
 
-- Clean up your iOS build by following [these steps](https://github.com/react-native-maps/react-native-maps/issues/2853#issuecomment-516760615). 
+1. **Clean Build**: Follow [these steps](https://github.com/react-native-maps/react-native-maps/issues/2853#issuecomment-516760615) to clean your iOS build.
+
+2. **Update AppDelegate**: If updating React Native versions, manually update the `AppDelegate.mm` file in Xcode as [suggested here](https://github.com/facebook/react-native/issues/36293#issuecomment-1445377662).
+
+#### Pod Install Issues
+If you encounter issues with `pod install`:
+```shell
+$ cd ios
+$ pod install
+```
+
+#### Metro Cache Issues
+Clear Metro cache if you encounter bundling issues:
+```shell
+$ yarn start --reset-cache
+```
+
+### 📚 Additional Resources
+
+- [Magic Documentation](https://magic.link/docs)
+- [Magic Developer Dashboard](https://dashboard.magic.link)
+
+- [React Native Documentation](https://reactnative.dev/docs/getting-started)
+- [Expo Documentation](https://docs.expo.dev)
 
 
-- Otherwise, in the case that you are attempting to update your local copy the demo app with the latest version of React Native, you might need to manually update the `AppDelegate.mm` file in Xcode as [suggested here](https://github.com/facebook/react-native/issues/36293#issuecomment-1445377662). 
+
+### 📄 License
+
+This project is licensed under the MIT License. 
 
 	
