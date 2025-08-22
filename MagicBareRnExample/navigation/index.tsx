@@ -14,17 +14,15 @@ import LoginScreen from '../screens/LoginScreen';
 import CryptoScreen from '../screens/CryptoScreen';
 import { RootStackParamList, RootTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
-import HeaderDropdown from './HeaderDropdown';
-import { JSX } from 'react';
 
 Icon.loadFont();
 
-export default function Navigation({ magicProps }: { magicProps: any  }) {
+export default function Navigation() {
 
   return (
     <NavigationContainer
       linking={LinkingConfiguration}>
-      <RootNavigator magicProps={magicProps}/>
+      <RootNavigator/>
     </NavigationContainer>
   );
 }
@@ -35,11 +33,11 @@ export default function Navigation({ magicProps }: { magicProps: any  }) {
  */
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-function RootNavigator({ magicProps }: any) {
+function RootNavigator() {
   return (
     <Stack.Navigator>
         <Stack.Screen name="Root" options={{ headerShown: false }} >
-            {() => BottomTabNavigator(magicProps)}
+            {() => BottomTabNavigator()}
         </Stack.Screen>
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
@@ -52,14 +50,7 @@ function RootNavigator({ magicProps }: any) {
  */
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
-function BottomTabNavigator(props: { navigation?: any; env?: any; setEnv?: any; magic?: any; provider?: any; }) {
-
-    const { env, setEnv, magic, provider } = props;
-
-    const header = () => <HeaderDropdown
-        env={env}
-        setEnv={setEnv}
-    />;
+function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
@@ -72,7 +63,7 @@ function BottomTabNavigator(props: { navigation?: any; env?: any; setEnv?: any; 
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         })}
       >
-          {() => TabOneNavigator(header, magic, provider)}
+          {() => TabOneNavigator()}
       </BottomTab.Screen>
       <BottomTab.Screen
         name="Web3"
@@ -82,7 +73,7 @@ function BottomTabNavigator(props: { navigation?: any; env?: any; setEnv?: any; 
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       >
-          {() => TabTwoNavigator(header, provider, magic)}
+          {() => TabTwoNavigator()}
       </BottomTab.Screen>
     </BottomTab.Navigator>
   );
@@ -98,14 +89,14 @@ function TabBarIcon(props: {
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const TabOneStack = createNativeStackNavigator<TabOneParamList>();
 
-function TabOneNavigator(header: () => JSX.Element, magic: any, provider: any) {
+function TabOneNavigator() {
     return (
         <TabOneStack.Navigator>
             <TabOneStack.Screen
                 name="LoginScreen"
-                options={{ headerTitle: header }}
+                options={{ headerTitle: 'Login' }}
             >
-                {props => <LoginScreen {...props} magic={magic} provider={provider} />}
+                {() => <LoginScreen />}
             </TabOneStack.Screen>
         </TabOneStack.Navigator>
     );
@@ -113,14 +104,14 @@ function TabOneNavigator(header: () => JSX.Element, magic: any, provider: any) {
 
 const TabTwoStack = createNativeStackNavigator<TabTwoParamList>();
 
-function TabTwoNavigator(header: () => JSX.Element, provider: any, magic: any) {
+function TabTwoNavigator() {
     return (
         <TabTwoStack.Navigator>
             <TabTwoStack.Screen
                 name="CryptoScreen"
-                options={{ headerTitle: header }}
+                options={{ headerTitle: 'Crypto' }}
             >
-                {(props: any) => <CryptoScreen {...props} provider={provider} magic={magic}/>}
+                {() => <CryptoScreen />}
             </TabTwoStack.Screen>
         </TabTwoStack.Navigator>
     );

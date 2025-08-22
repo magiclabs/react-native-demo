@@ -4,12 +4,13 @@ import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler
 import { styles } from './styles';
 import { Card } from 'react-native-paper';
 import { DeepLinkPage } from '@magic-sdk/react-native-bare';
+import { useMagic } from '../hooks/magic';
 
-export default function LoginScreen(props: { magic: any; provider?: any; }) {
+export default function LoginScreen() {
   const [email, onChangeEmail] = React.useState('hiro@magic.link');
   const [recoveryEmail, onChangerecoveryEmail] = React.useState('hiro@magic.link');
   const [phoneNumber, onChangePhoneNumber] = React.useState('+18888888888');
-  const { magic } = props;
+  const { magic } = useMagic();
 
   /**
    *Google sign in
@@ -17,7 +18,7 @@ export default function LoginScreen(props: { magic: any; provider?: any; }) {
   const magicGoogleSignIn = async () => {
     const res = await magic.oauth.loginWithPopup({ provider: 'google', redirectURI: 'magicbarernexample://' });
     Alert.alert(JSON.stringify(res));
-  }
+  };
 
   /**
    *Apple sign in
@@ -25,13 +26,13 @@ export default function LoginScreen(props: { magic: any; provider?: any; }) {
   const magicAppleSignIn = async () => {
     const res = await magic.oauth.loginWithPopup({ provider: 'apple', redirectURI: 'magicbarernexample://' });
     Alert.alert(JSON.stringify(res));
-  }
+  };
 
   /**
    * email otp sign in
    * */
   const loginEmailOTP = async () => {
-    Alert.alert('clicked')
+    Alert.alert('clicked');
     try {
       await magic.auth.loginWithEmailOTP({ email: email });
       const res = await magic.user.getInfo();
@@ -48,7 +49,7 @@ export default function LoginScreen(props: { magic: any; provider?: any; }) {
     try {
       const DID = await magic.auth.loginWithSMS({
         phoneNumber: phoneNumber,
-      })
+      });
       Alert.alert(`Your DID is: ${DID}`);
     } catch (err) {
       console.log(err);
@@ -93,7 +94,7 @@ export default function LoginScreen(props: { magic: any; provider?: any; }) {
   const getInfo = async () => {
     const res = await magic.user.getInfo();
     Alert.alert(JSON.stringify(res));
-  }
+  };
 
 
 
@@ -103,7 +104,7 @@ export default function LoginScreen(props: { magic: any; provider?: any; }) {
   const isLoggedIn = async () => {
     const res = await magic.user.isLoggedIn();
     Alert.alert(JSON.stringify(res));
-  }
+  };
 
   const logout = async () => {
     const isLoggedOut = await magic.user.logout();
@@ -116,7 +117,7 @@ export default function LoginScreen(props: { magic: any; provider?: any; }) {
           <Text style={styles.text}>{props.title}</Text>
         </Pressable>
       </View>
-  )
+  );
 
   return (
       <View style={styles.container}>

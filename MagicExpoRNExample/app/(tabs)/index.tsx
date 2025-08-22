@@ -7,7 +7,7 @@ import {
 import { styles } from "../../styles/styles";
 import { Card } from "react-native-paper";
 import { DeepLinkPage } from "@magic-sdk/react-native-expo";
-import { MagicService } from "@/hooks/magic";
+import { useMagic } from "@/hooks/magic";
 
 export default function LoginScreen() {
   const [email, onChangeEmail] = React.useState("hiro@magic.link");
@@ -15,7 +15,7 @@ export default function LoginScreen() {
     React.useState("hiro@magic.link");
   const [phoneNumber, onChangePhoneNumber] = React.useState("+18888888888");
 
-  const magic = MagicService.magic;
+  const { magic } = useMagic();
 
   /**
    *Google sign in

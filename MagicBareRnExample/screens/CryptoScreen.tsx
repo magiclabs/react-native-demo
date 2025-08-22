@@ -5,9 +5,10 @@ import { styles } from './styles';
 import { Card } from 'react-native-paper';
 import { ethers } from 'ethers';
 import '../shim'; // Required for Bitcoin Blockchain interaction
+import { useMagic } from '../hooks/magic';
 
 // Type error: Incorrect prop types - should be more specific
-export default function CryptoScreen(props: { provider: any; magic: any }) {
+export default function CryptoScreen() {
   const [publicAddress, updatePublicAddress] = React.useState<string>('');
   const [toAddress, onChangeToAddress] = React.useState<string>('');
   const [transactionHash, updateTransactionHash] = React.useState('');
@@ -15,13 +16,13 @@ export default function CryptoScreen(props: { provider: any; magic: any }) {
   const [chainId, onChangeChainId] = React.useState('137');
 
   // Type error: Destructuring with wrong types
-  const { provider, magic } = props;
+  const { provider, magic } = useMagic();
 
   React.useEffect(() => {
   }, []);
 
   /** GetAccount */
-  const getAccount = async (): Promise<number> => {
+  const getAccount = async (): Promise<string> => {
     try {
       const signer = await provider.getSigner();
       const account = await signer.getAddress();
@@ -30,7 +31,7 @@ export default function CryptoScreen(props: { provider: any; magic: any }) {
     } catch(e) {
       console.log(e);
       updatePublicAddress('');
-      return 0;
+      return '';
     }
   };
 
