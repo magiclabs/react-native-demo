@@ -7,16 +7,15 @@ import {
 import { styles } from "../../styles/styles";
 import { Card } from "react-native-paper";
 import { DeepLinkPage } from "@magic-sdk/react-native-expo";
-import { MagicService } from "@/hooks/magic";
+import { useMagic } from "@/hooks/magic";
 
 export default function LoginScreen() {
   const [email, onChangeEmail] = React.useState("hiro@magic.link");
-  const [chainId, onChangeChainId] = React.useState("137");
   const [recoveryEmail, onChangerecoveryEmail] =
     React.useState("hiro@magic.link");
   const [phoneNumber, onChangePhoneNumber] = React.useState("+18888888888");
 
-  const magic = MagicService.magic;
+  const { magic } = useMagic();
 
   /**
    *Google sign in
@@ -84,38 +83,11 @@ export default function LoginScreen() {
     }
   };
 
-  /** Magic Connect w/ UI  */
-  const ConnectWithUI = async () => {
-    try {
-      const account = await magic.wallet.connectWithUI();
-      Alert.alert(`Your Public address is: ${account[0]}`);
-    } catch (err) {
-      const e = err as Error;
-      Alert.alert(e.message);
-    }
-  };
-
   /**
    * getInfo()
    * */
   const getInfo = async () => {
     const res = await magic.user.getInfo();
-    Alert.alert(JSON.stringify(res));
-  };
-
-  /**
-   * switchEVMChain
-   * */
-  const switchNetwork = async (chainId: number) => {
-    const res = await magic.evm.switchEVMChain(chainId);
-    Alert.alert(JSON.stringify(res));
-  };
-
-  /**
-   * getSolanaPublicAddress
-   * */
-  const getSolanaPublicAddress = async () => {
-    const res = await magic.solana.getPublicAddress();
     Alert.alert(JSON.stringify(res));
   };
 
@@ -202,34 +174,7 @@ export default function LoginScreen() {
             <Card.Title title="Is Logged In" />
             <TouchableButton handler={() => isLoggedIn()} title="isLoggedIn" />
           </Card>
-          {/* Solana Address */}
-          <Card>
-            <Card.Title title="Solana Address" />
-            <TouchableButton
-              handler={() => getSolanaPublicAddress()}
-              title="get Solana address"
-            />
-          </Card>
-          {/* Switch EVM Chain */}
-          <Card>
-            <Card.Title title="Switch EVM Chain" />
-            <View style={styles.loginContainer}>
-              <View style={styles.emailContainer}>
-                <Text>Chain ID:</Text>
-                <TextInput
-                  style={styles.TextInputContainer}
-                  onChangeText={(chainId) => onChangeChainId(chainId)}
-                  value={chainId}
-                />
-              </View>
-            </View>
-            <View style={styles.margin10}>
-              <TouchableButton
-                handler={() => switchNetwork(Number(chainId))}
-                title="switchEVMChain"
-              />
-            </View>
-          </Card>
+
           {/* metaData */}
           <Card>
             <Card.Title title="Metadata (getInfo)" />
@@ -257,13 +202,7 @@ export default function LoginScreen() {
               />
             </View>
           </Card>
-          <Card>
-            <Card.Title title="Connect With UI" />
-            <TouchableButton
-              handler={() => ConnectWithUI()}
-              title="Connect With UI"
-            />
-          </Card>
+
         </ScrollView>
       </GestureHandlerRootView>
     </View>
