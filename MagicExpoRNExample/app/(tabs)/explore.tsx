@@ -4,15 +4,16 @@ import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler
 import { Card } from 'react-native-paper';
 import { ethers } from 'ethers';
 import { styles } from '../../styles/styles';
-import {MagicService} from "@/hooks/magic";
+import { useMagic } from "@/hooks/magic";
 
 export default function CryptoScreen() {
     const [publicAddress, updatePublicAddress] = React.useState('');
-    const [toAddress, onChangeToAddress] = React.useState('YOUR_PUBLIC_TO_ADDRESS');
+    const [toAddress, onChangeToAddress] = React.useState('');
     const [transactionHash, updateTransactionHash] = React.useState('');
     const [ciphertexts, setCiphertexts] = React.useState('');
-    const magic = MagicService.magic;
-    const provider = MagicService.provider;
+    const [chainId, setChainId] = React.useState('137');
+    const [solanaAddress, setSolanaAddress] = React.useState('');
+    const { magic, provider } = useMagic();
 
     /** GetAccount */
     const getAccount = async () => {
@@ -42,13 +43,18 @@ export default function CryptoScreen() {
     /** sendTransaction */
     const sendTransaction = async () => {
         try {
+            if (!toAddress) {
+                Alert.alert('Error', 'Please enter a recipient address');
+                return;
+            }
+            
             const signer = await provider.getSigner();
             const tx = await signer.sendTransaction({
-                from: publicAddress,
                 to: toAddress,
-                value: ethers.parseEther('0.1'),
+                value: ethers.parseEther('0.001'),
             });
             updateTransactionHash(tx.hash);
+            Alert.alert('Success', `Transaction sent: ${tx.hash}`);
         } catch (err) {
             console.error(err);
             Alert.alert('Transaction Error', (err as Error).message);
@@ -74,6 +80,85 @@ export default function CryptoScreen() {
         }
     };
 
+    /**
+     * switchEVMChain
+     * */
+    const switchNetwork = async (chainId: number) => {
+        try {
+            const res = await magic.evm.switchEVMChain(chainId);
+            if (typeof res.network === 'string') {
+                Alert.alert('Success', `Switched to ${res.network}`);
+            } else {
+                Alert.alert('Success', `Switched to chain ${res.network.chainId} and rpc url ${res.network.rpcUrl}`);
+            }
+            console.log('Switch result:', res);
+        } catch (err) {
+            console.log(err);
+            Alert.alert('Error', `Failed to switch to chain ${chainId}`);
+        }
+    };
+
+    /**
+     * getSolanaPublicAddress
+     * */
+    const getSolanaPublicAddress = async () => {
+        try {
+            const res = await magic.solana.getPublicAddress();
+            setSolanaAddress(res);
+            Alert.alert('Solana Address', res);
+        } catch (err) {
+            console.log(err);
+            Alert.alert('Error', 'Failed to get Solana address');
+        }
+    };
+
+    /**
+     * Solana Transaction
+     */
+    const sendSolanaTransaction = async () => {
+        try {
+            // Example Solana transaction
+            const transaction = await magic.solana.createTransaction({
+                to: solanaAddress || '11111111111111111111111111111111', // Default to system program
+                value: '0.001', // SOL amount
+            });
+            
+            const signature = await magic.solana.signTransaction(transaction);
+            Alert.alert('Solana Transaction', `Signed: ${signature}`);
+        } catch (err) {
+            console.log(err);
+            Alert.alert('Error', 'Failed to send Solana transaction');
+        }
+    };
+
+    /**
+     * GDKMS
+     */
+    const encrypt = async () => {
+        try {
+            const res = await magic.gdkms.encryptWithPrivateKey('asdf');
+            Alert.alert('Encrypted', res);
+            setCiphertexts(res);
+        } catch (err) {
+            console.log(err);
+            Alert.alert('Error', 'Failed to encrypt');
+        }
+    };
+
+    const decrypt = React.useCallback(async () => {
+        try {
+            if (!ciphertexts) {
+                Alert.alert('Error', 'No ciphertext to decrypt');
+                return;
+            }
+            const message = await magic.gdkms.decryptWithPrivateKey(ciphertexts);
+            Alert.alert('Decrypted', message);
+        } catch (err) {
+            console.log(err);
+            Alert.alert('Error', 'Failed to decrypt');
+        }
+    }, [ciphertexts, magic.gdkms]);
+
     return (
         <View style={styles.container}>
             <GestureHandlerRootView style={{ flex: 1 }}>
@@ -87,6 +172,7 @@ export default function CryptoScreen() {
                                 style={styles.TextInputContainer}
                                 onChangeText={onChangeToAddress}
                                 value={toAddress}
+                                placeholder="Enter recipient address"
                             />
                             <Text style={styles.publicAddress}>Transaction Hash: {transactionHash}</Text>
                         </View>
@@ -111,6 +197,55 @@ export default function CryptoScreen() {
                         <Card.Title title="Personal Sign" />
                         <View style={styles.actionContainer}>
                             <Button onPress={personalSign} title="Personal Sign" />
+                        </View>
+                    </Card>
+
+                    {/* Switch EVM Chain */}
+                    <Card>
+                        <Card.Title title="Switch EVM Chain" />
+                        <View style={styles.loginContainer}>
+                            <View style={styles.emailContainer}>
+                                <Text>Chain ID:</Text>
+                                <TextInput
+                                    style={styles.TextInputContainer}
+                                    onChangeText={(chainId) => setChainId(chainId)}
+                                    value={chainId}
+                                    placeholder="Enter chain ID"
+                                    keyboardType="numeric"
+                                />
+                            </View>
+                        </View>
+                        <View style={styles.actionContainer}>
+                            <Button onPress={() => switchNetwork(Number(chainId))} title="Switch Chain" />
+                        </View>
+                    </Card>
+
+                    {/* Solana */}
+                    <Card>
+                        <Card.Title title="Solana" />
+                        <View style={styles.loginContainer}>
+                            <Text style={styles.publicAddress}>
+                                Solana Address: {solanaAddress}
+                            </Text>
+                        </View>
+                        <View style={styles.actionContainer}>
+                            <Button onPress={getSolanaPublicAddress} title="Get Solana Address" />
+                            <Button onPress={sendSolanaTransaction} title="Send Solana Transaction" />
+                        </View>
+                    </Card>
+
+                    {/* GDKMS */}
+                    <Card>
+                        <Card.Title title="Encrypt" />
+                        <View style={styles.actionContainer}>
+                            <Button onPress={encrypt} title="Encrypt" />
+                        </View>
+                    </Card>
+
+                    <Card>
+                        <Card.Title title="Decrypt" />
+                        <View style={styles.actionContainer}>
+                            <Button onPress={decrypt} title="Decrypt" />
                         </View>
                     </Card>
                 </ScrollView>

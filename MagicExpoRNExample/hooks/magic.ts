@@ -17,10 +17,10 @@ const customOptimismOptions = {
 };
 
 export class MagicService {
-  private static _magic: Magic | null = null;
+  private static _magic: any = null;
   private static _provider: ethers.BrowserProvider | null = null;
 
-  public static get magic(): Magic {
+  public static get magic(): any {
     if (!this._magic) {
       this._magic = new Magic(API_KEY, {
         extensions: [
@@ -38,10 +38,17 @@ export class MagicService {
   public static get provider(): ethers.BrowserProvider {
     if (!this._provider) {
       this._provider = new ethers.BrowserProvider(
-        // cast as any if necessary; Magic’s rpcProvider type is slightly different
         MagicService.magic.rpcProvider as any
       );
     }
     return this._provider;
   }
+}
+
+// React hook to use Magic service
+export function useMagic() {
+  return {
+    magic: MagicService.magic,
+    provider: MagicService.provider,
+  };
 }
