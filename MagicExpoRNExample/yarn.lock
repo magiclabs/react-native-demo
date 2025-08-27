@@ -1386,10 +1386,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@magic-ext/evm@1.0.0-canary.915.17083196045.0":
-  version "1.0.0-canary.915.17083196045.0"
-  resolved "https://registry.yarnpkg.com/@magic-ext/evm/-/evm-1.0.0-canary.915.17083196045.0.tgz#3ea7c7e394f253ecea8a57d11042f96d8b640dcb"
-  integrity sha512-fuf08OqZsEI3xs9rX70HJIv25S9cynsT3xkb4Nb37rfajfVX1D7DDrxmUqlMXsia1rMOpZTt7QaKYov56mYqQg==
+"@magic-ext/evm@1.0.0-canary.915.17279636506.0":
+  version "1.0.0-canary.915.17279636506.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/evm/-/evm-1.0.0-canary.915.17279636506.0.tgz#6e4bd680561f4778646bd19c439777cbede5b95c"
+  integrity sha512-mkCEhZg2ZiK3GRdeg9i2Rzrty+3RPwPsMPbgPcWxrI/U36nAf8UeMhfK4xz3xvN/yJsHyLDgRRSGfGYytP6YsQ==
 
 "@magic-ext/react-native-expo-oauth@latest":
   version "26.0.7"
@@ -1401,35 +1401,29 @@
     expo-application "^5.0.1"
     expo-web-browser ">=12.0.0"
 
-"@magic-ext/solana@27.0.0-canary.915.17083196045.0":
-  version "27.0.0-canary.915.17083196045.0"
-  resolved "https://registry.yarnpkg.com/@magic-ext/solana/-/solana-27.0.0-canary.915.17083196045.0.tgz#4045a9a390e5593b4501a55293bdb200b8322cab"
-  integrity sha512-hjlosQTaV9Uvd+rn8y8RISd/ofk1LJSIq2edIiRVi5JbXnS3uzrtjGOw47XVaXgLX0vYJvGbbkcNeXAvKfti5g==
+"@magic-ext/solana@27.0.0-canary.915.17279636506.0":
+  version "27.0.0-canary.915.17279636506.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/solana/-/solana-27.0.0-canary.915.17279636506.0.tgz#ec3e4493e55a08aac187ec55dfc6af4fd24268bc"
+  integrity sha512-IeP4HtuHEI/Z+HuDWELPHlfdmPrphkntuagLzba0ez74BN3u51H+/dBG1CL5pPKPbX8CAPOibCh0Rt7JWsVjLA==
   dependencies:
     "@solana/web3.js" "^1.87.2"
 
-"@magic-sdk/commons@26.0.0-canary.915.17110143296.0":
-  version "26.0.0-canary.915.17110143296.0"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/commons/-/commons-26.0.0-canary.915.17110143296.0.tgz#1844e61abadeeeca1409a75db7fa6a9743ddd929"
-  integrity sha512-bQPfCMOz+hFzcnFAXM0BDCL8FtN2J+1wdtqEuJi7+127KDq/YYzOOMMvNoZfwHnAXSfAOeWVYnPVqVG/jNGkZg==
-
-"@magic-sdk/provider@30.0.0-canary.915.17110143296.0":
-  version "30.0.0-canary.915.17110143296.0"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/provider/-/provider-30.0.0-canary.915.17110143296.0.tgz#2aeff28b9ae3a14bf0f506b22b294c9cf6a6482c"
-  integrity sha512-VM+BCMtj+5mJI8dT/p0yC82TRddfldZxa39Z7RwOfStdshUHMOvMPRtG6A/5rBuIwxDu0Ezt7KQPWV5yVm2OMg==
+"@magic-sdk/provider@30.0.0-canary.915.17279636506.0":
+  version "30.0.0-canary.915.17279636506.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/provider/-/provider-30.0.0-canary.915.17279636506.0.tgz#5f0406562fe411643d4e014e7f19ea957814fcdd"
+  integrity sha512-a40U+xvVO9zA0XOcFF7FUGD8cq12Vfwg2gBqqp5WG9Oevjj6aniDhgJuqvWTziIH9keBLILYX/g55ymVKvdVXA==
   dependencies:
-    "@magic-sdk/types" "25.0.0-canary.915.17110143296.0"
+    "@magic-sdk/types" "25.0.0-canary.915.17279636506.0"
     eventemitter3 "^4.0.4"
 
-"@magic-sdk/react-native-expo@32.0.0-canary.915.17110143296.0":
-  version "32.0.0-canary.915.17110143296.0"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-expo/-/react-native-expo-32.0.0-canary.915.17110143296.0.tgz#8c1b93bdd271de45ac2114619bb85fa898e59dc4"
-  integrity sha512-E8In9G1xvZ0NRpYunckxZ5xrAS/nmkunaZNw443D9e29GBqJuu88Vh5/GLGFRU3YvTgj1vZJyucwQaZ9vsHOCw==
+"@magic-sdk/react-native-expo@32.0.0-canary.915.17279636506.0":
+  version "32.0.0-canary.915.17279636506.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-expo/-/react-native-expo-32.0.0-canary.915.17279636506.0.tgz#580abad556a64e3e5f11698e079c357750a0cc83"
+  integrity sha512-0g3Y17gL/cwprSoJbDljLT6sudxitBADPKQ7TJHclVzI5OxkGmvTNvOIsgYLF4cN4kWvsHRDmZ3js4QQ/T5DwA==
   dependencies:
     "@aveq-research/localforage-asyncstorage-driver" "^3.0.1"
-    "@magic-sdk/commons" "26.0.0-canary.915.17110143296.0"
-    "@magic-sdk/provider" "30.0.0-canary.915.17110143296.0"
-    "@magic-sdk/types" "25.0.0-canary.915.17110143296.0"
+    "@magic-sdk/provider" "30.0.0-canary.915.17279636506.0"
+    "@magic-sdk/types" "25.0.0-canary.915.17279636506.0"
     "@react-native-async-storage/async-storage" "^1.15.5"
     "@types/lodash" "^4.14.158"
     buffer "~5.6.0"
@@ -1441,10 +1435,10 @@
     tslib "^2.0.3"
     whatwg-url "~8.1.0"
 
-"@magic-sdk/types@25.0.0-canary.915.17110143296.0":
-  version "25.0.0-canary.915.17110143296.0"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-25.0.0-canary.915.17110143296.0.tgz#9fd17ccd5a6db449457baf1bf52dadb59b216bab"
-  integrity sha512-/cKskoigGJ37MSNs/0PsPXnZp2wSLy70SdLZnfzSnXOU2mpba747blqkC76X/Fb4Y+jMr03oO77LGrhQNOGkGg==
+"@magic-sdk/types@25.0.0-canary.915.17279636506.0":
+  version "25.0.0-canary.915.17279636506.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-25.0.0-canary.915.17279636506.0.tgz#18f2e61a5b068082e0afd9864e04fb0fc8f671fd"
+  integrity sha512-0rXpeJmI4ZCZM3CyFJJ48oZo3DHdywfUAEymGrLyWUS+x4s/Syn8XzDlVTh+3y8qIh/LIUVhYqT2yBcaFa8Fdw==
 
 "@magic-sdk/types@^10.0.0":
   version "10.0.1"
