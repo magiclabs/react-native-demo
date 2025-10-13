@@ -4,19 +4,20 @@ import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler
 import { styles } from './styles';
 import { Card } from 'react-native-paper';
 import { DeepLinkPage } from '@magic-sdk/react-native-bare';
+import { MagicService } from '../hooks/magic';
 
-export default function LoginScreen(props: { magic: any; web3?: any; }) {
+export default function LoginScreen() {
   const [email, onChangeEmail] = React.useState('hiro@magic.link');
   const [chainId, onChangeChainId] = React.useState('137');
   const [recoveryEmail, onChangerecoveryEmail] = React.useState('hiro@magic.link');
   const [phoneNumber, onChangePhoneNumber] = React.useState('+18888888888');
-  const { magic } = props;
+  const magic = MagicService.magic;
 
   /**
    *Google sign in
    * */
   const magicGoogleSignIn = async () => {
-    const res = await magic.oauth.loginWithPopup({ provider: 'google', redirectURI: 'magicbarernexample://' });
+    const res = await magic.oauth2.loginWithPopup({ provider: 'google', redirectURI: 'magicbarernexample://' });
     Alert.alert(JSON.stringify(res));
   }
 
@@ -24,7 +25,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
    *Apple sign in
    * */
   const magicAppleSignIn = async () => {
-    const res = await magic.oauth.loginWithPopup({ provider: 'apple', redirectURI: 'magicbarernexample://' });
+    const res = await magic.oauth2.loginWithPopup({ provider: 'apple', redirectURI: 'magicbarernexample://' });
     Alert.alert(JSON.stringify(res));
   }
 

@@ -1,18 +1,19 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import {Button, TextInput, Text, View, Alert} from 'react-native';
 import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import { Card } from 'react-native-paper';
+import { MagicService } from '../hooks/magic';
+import { ethers } from 'ethers';
 import "../shim"; // Required for Bitcoin Blockchain interaction
 
-export default function Web3Screen(props: { web3: any; magic: any }) {
+export default function Web3Screen() {
   const [publicAddress, updatePublicAddress] = React.useState('');
   const [toAddress, onChangeToAddress] = React.useState('YOUR_PUBLIC_TO_ADDRESS');
   const [transactionHash, updateTransactionHash] = React.useState('');
-  const [ciphertexts, setCiphertexts] = React.useState('');
 
-
-  const { web3, magic } = props;
+  const magic = MagicService.magic;
+  const provider = new ethers.BrowserProvider(magic.rpcProvider);
 
   React.useEffect(() => {
   }, []);
@@ -20,8 +21,9 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
   /** GetAccount */
   const getAccount = async () => {
     try {
-      const account = await web3.eth.getAccounts();
-      updatePublicAddress(account[0]);
+      const res = await magic.user.getInfo();
+      const address = res.publicAddress || '';
+      updatePublicAddress(address);
     } catch(e) {
       console.log(e)
       updatePublicAddress('');
@@ -33,39 +35,29 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
    * */
   const personalSign = async () => {
     try {
-      const accounts = await web3.eth.getAccounts();
+      const signer = await provider.getSigner();
       const text = 'hello world';
-
-      console.log('accounts', accounts);
-
-      const payload = {
-        id: 1,
-        method: 'personal_sign',
-        params: [text, accounts[0]],
-      };
-
-      console.log(magic.rpcProvider);
-
-      magic.rpcProvider.sendAsync(payload, (err, response) => {
-        Alert.alert(response.result);
-        if (err) {
-          console.error(err);
-          return;
-        }
-      })
+      const signature = await signer.signMessage(text);
+      Alert.alert('Signature', signature);
     } catch (err) {
-      console.log(err)
+      console.error(err);
+      Alert.alert('Error', (err as Error).message);
     }
   }
 
   /** sendTransaction */
   const sendTransaction = async () => {
-    const hash = await web3.eth.sendTransaction({
-      from: publicAddress,
-      to: publicAddress,
-      value: web3.utils.toWei('0.1', 'ether')
-    });
-    updateTransactionHash(hash.transactionHash);
+    try {
+      const signer = await provider.getSigner();
+      const tx = await signer.sendTransaction({
+        to: toAddress,
+        value: ethers.parseEther('0.01'),
+      });
+      updateTransactionHash(tx.hash);
+    } catch (err) {
+      console.error(err);
+      Alert.alert('Transaction Error', (err as Error).message);
+    }
   };
 
   /** ShowWallet */
@@ -73,51 +65,24 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
     try {
       await magic.wallet.showUI();
     } catch (e) {
-      Alert.alert(e);
+      Alert.alert('Error', (e as Error).message);
     }
   };
 
   /** getWalletInfo */
   const getWalletInfo = async () => {
     try {
-      const walletInfo = await magic.wallet.getInfo();
+      const walletInfo = await magic.user.getInfo();
       Alert.alert(`WalletType: ${walletInfo.walletType}`);
     } catch (e) {
-      Alert.alert(e);
+      Alert.alert('Error', (e as Error).message);
     }
   };
 
-  /** requestUserInfo */
-  const requestUserInfo = async () => {
-    try {
-      const email = await magic.wallet.requestUserInfoWithUI();
-      Alert.alert(`email: ${email}`);
-    } catch (e) {
-      Alert.alert(e);
-    }
-  };
 
-  /** disconnect */
-  const disconnect = async () => {
-    await magic.wallet.disconnect().catch((e) => {
-      Alert.alert(`error: ${e}`);
-    });
-    Alert.alert("Magic Disconnect Successful");
-  };
 
-  /**
-   * GDKMS
-   */
-  const encrypt = async () => {
-    const ciphertexts = await magic.gdkms.encryptWithPrivateKey('asdf');
-    Alert.alert(ciphertexts);
-    setCiphertexts(ciphertexts);
-  }
 
-  const decrypt = useCallback(async () => {
-    const message = await magic.gdkms.decryptWithPrivateKey(ciphertexts);
-    Alert.alert(message);
-  }, [ciphertexts]);
+
 
   return (
       <View style={styles.container}>
@@ -167,19 +132,7 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
                   <Button onPress={() => personalSign()} title="Personal Sign" />
                 </View>
               </Card>
-              {/* GDKMS */}
-              <Card>
-                <Card.Title title="Encrypt" />
-                <View style={styles.actionContainer}>
-                  <Button onPress={() => encrypt()} title="Encrypt" />
-                </View>
-              </Card>
-              <Card>
-                <Card.Title title="Decrypt" />
-                <View style={styles.actionContainer}>
-                  <Button onPress={() => decrypt()} title="Decrypt" />
-                </View>
-              </Card>
+              
             </Card>
             <Card>
               {/* Magic Connect */}
@@ -198,20 +151,7 @@ export default function Web3Screen(props: { web3: any; magic: any }) {
                   <Button onPress={() => getWalletInfo()} title="Get Wallet Info" />
                 </View>
               </Card>
-              {/* Request User Info */}
-              <Card>
-                <Card.Title title="Request User Info" />
-                <View style={styles.actionContainer}>
-                  <Button onPress={() => requestUserInfo()} title="Request User Info" />
-                </View>
-              </Card>
-              {/* Disconnect Wallet */}
-              <Card>
-                <Card.Title title="Disconnect Wallet" />
-                <View style={styles.actionContainer}>
-                  <Button onPress={() => disconnect()} title="Disconnect Wallet" />
-                </View>
-              </Card>
+              
             </Card>
           </ScrollView>
         </GestureHandlerRootView>
