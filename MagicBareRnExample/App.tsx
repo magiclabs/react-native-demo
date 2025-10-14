@@ -1,15 +1,16 @@
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import React from 'react';
 import Navigation from './navigation';
-import { MagicService } from './hooks/magic';
+import { useMagic } from './hooks/magic';
 
 export default function App() {
-    const magic = MagicService.magic;
+
+  const { magic } = useMagic();
 
     return (
         <SafeAreaProvider>
             <Navigation />
-            <magic.Relayer />
+          <magic.Relayer />
         </SafeAreaProvider>
     );
 }

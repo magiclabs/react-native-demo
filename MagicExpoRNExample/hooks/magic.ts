@@ -3,7 +3,9 @@ import { OAuthExtension } from "@magic-ext/react-native-expo-oauth";
 import { SolanaExtension } from "@magic-ext/solana";
 import { EVMExtension } from "@magic-ext/evm";
 import { ethers } from "ethers";
-import { API_KEY } from "@/constants/env";
+
+// API Key - Replace with your actual publishable key
+const API_KEY = 'YOUR_PUBLISHABLE_KEY';
 
 const customPolygonOptions = {
   rpcUrl: "https://polygon-rpc.com/", // Polygon RPC URL
@@ -16,11 +18,11 @@ const customOptimismOptions = {
   chainId: 10,
 };
 
-export class MagicService {
-  private static _magic: Magic | null = null;
+class MagicService {
+  private static _magic: any = null;
   private static _provider: ethers.BrowserProvider | null = null;
 
-  public static get magic(): Magic {
+  public static get magic(): any {
     if (!this._magic) {
       this._magic = new Magic(API_KEY, {
         extensions: [
@@ -38,10 +40,17 @@ export class MagicService {
   public static get provider(): ethers.BrowserProvider {
     if (!this._provider) {
       this._provider = new ethers.BrowserProvider(
-        // cast as any if necessary; Magic’s rpcProvider type is slightly different
         MagicService.magic.rpcProvider as any
       );
     }
     return this._provider;
   }
+}
+
+// React hook to use Magic service
+export function useMagic() {
+  return {
+    magic: MagicService.magic,
+    provider: MagicService.provider,
+  };
 }

@@ -11,17 +11,18 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import LoginScreen from '../screens/LoginScreen';
-import Web3Screen from '../screens/Web3Screen';
+import CryptoScreen from '../screens/CryptoScreen';
 import { RootStackParamList, RootTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
 Icon.loadFont();
 
 export default function Navigation() {
+
   return (
     <NavigationContainer
       linking={LinkingConfiguration}>
-      <RootNavigator />
+      <RootNavigator/>
     </NavigationContainer>
   );
 }
@@ -36,7 +37,7 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
         <Stack.Screen name="Root" options={{ headerShown: false }} >
-            {() => <BottomTabNavigator />}
+            {() => BottomTabNavigator()}
         </Stack.Screen>
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
@@ -50,6 +51,7 @@ function RootNavigator() {
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
+
   return (
     <BottomTab.Navigator
       initialRouteName="Login">
@@ -60,17 +62,19 @@ function BottomTabNavigator() {
           title: 'Login',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         })}
-        component={TabOneNavigator}
-      />
+      >
+          {() => TabOneNavigator()}
+      </BottomTab.Screen>
       <BottomTab.Screen
         name="Web3"
         options={{
           title: 'Web3',
-          headerShown: false,
+            headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
-        component={TabTwoNavigator}
-      />
+      >
+          {() => TabTwoNavigator()}
+      </BottomTab.Screen>
     </BottomTab.Navigator>
   );
 }
@@ -90,9 +94,10 @@ function TabOneNavigator() {
         <TabOneStack.Navigator>
             <TabOneStack.Screen
                 name="LoginScreen"
-                component={LoginScreen}
-                options={{ headerShown: false }}
-            />
+                options={{ headerTitle: 'Login' }}
+            >
+                {() => <LoginScreen />}
+            </TabOneStack.Screen>
         </TabOneStack.Navigator>
     );
 }
@@ -103,10 +108,11 @@ function TabTwoNavigator() {
     return (
         <TabTwoStack.Navigator>
             <TabTwoStack.Screen
-                name="Web3Screen"
-                component={Web3Screen}
-                options={{ headerShown: false }}
-            />
+                name="CryptoScreen"
+                options={{ headerTitle: 'Crypto' }}
+            >
+                {() => <CryptoScreen />}
+            </TabTwoStack.Screen>
         </TabTwoStack.Navigator>
     );
 }

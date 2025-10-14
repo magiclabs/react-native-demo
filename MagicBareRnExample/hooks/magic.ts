@@ -1,52 +1,56 @@
 import { Magic } from '@magic-sdk/react-native-bare';
 import { OAuthExtension } from '@magic-ext/react-native-bare-oauth';
-import { SolanaExtension } from "@magic-ext/solana";
-import { EVMExtension } from "@magic-ext/evm";
-import { API_KEY } from '../config/env';
+import { SolanaExtension } from '@magic-ext/solana';
+import { EVMExtension } from '@magic-ext/evm';
+import { ethers } from 'ethers';
+
+// API Key - Replace with your actual publishable key
+const API_KEY = 'YOUR_PUBLISHABLE_KEY';
 
 const customPolygonOptions = {
-  rpcUrl: "https://polygon-rpc.com/", // Polygon RPC URL
+  rpcUrl: 'https://polygon-rpc.com/', // Polygon RPC URL
   chainId: 137, // Polygon chain id
   default: true, // Set as default network
 };
 
 const customOptimismOptions = {
-  rpcUrl: "https://mainnet.optimism.io",
+  rpcUrl: 'https://mainnet.optimism.io',
   chainId: 10,
 };
 
-/**
- * MagicService - Singleton service for managing Magic SDK instances
- * 
- * This service provides a centralized way to access Magic SDK
- * across your application with lazy initialization.
- * 
- * Usage:
- * ```
- * const magic = MagicService.magic;
- * ```
- */
-export class MagicService {
-  private static _magic: any | null = null;
+class MagicService {
+  private static _magic: any = null;
+  private static _provider: ethers.BrowserProvider | null = null;
 
-  /**
-   * Get the Magic SDK instance. Creates one if it doesn't exist.
-   */
-  public static get magic(): Magic {
+  public static get magic(): any {
     if (!this._magic) {
-      const extensions: any[] = [
-        new OAuthExtension(),
-        new SolanaExtension({
-          rpcUrl: "https://api.devnet.solana.com",
-        }),
-        new EVMExtension([customPolygonOptions, customOptimismOptions]),
-      ];
-
       this._magic = new Magic(API_KEY, {
-        extensions,
+        extensions: [
+          new OAuthExtension(),
+          new SolanaExtension({
+            rpcUrl: 'https://api.devnet.solana.com',
+          }),
+          new EVMExtension([customPolygonOptions, customOptimismOptions]),
+        ],
       });
     }
     return this._magic;
   }
+
+  public static get provider(): ethers.BrowserProvider {
+    if (!this._provider) {
+      this._provider = new ethers.BrowserProvider(
+        MagicService.magic.rpcProvider as any
+      );
+    }
+    return this._provider;
+  }
 }
 
+// React hook to use Magic service
+export function useMagic() {
+  return {
+    magic: MagicService.magic,
+    provider: MagicService.provider,
+  };
+}
