@@ -42,7 +42,7 @@ export class MagicService {
         new EVMExtension([customPolygonOptions, customOptimismOptions]),
       ];
 
-      this._magic = new Magic(API_KEY.PROD, {
+      this._magic = new Magic(API_KEY, {
         extensions,
       });
     }
