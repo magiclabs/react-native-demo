@@ -4,13 +4,13 @@ import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler
 import { styles } from './styles';
 import { Card } from 'react-native-paper';
 import { DeepLinkPage } from '@magic-sdk/react-native-bare';
+import { useMagic } from '../hooks/magic';
 
-export default function LoginScreen(props: { magic: any; web3?: any; }) {
+export default function LoginScreen() {
   const [email, onChangeEmail] = React.useState('hiro@magic.link');
-  const [chainId, onChangeChainId] = React.useState('137');
   const [recoveryEmail, onChangerecoveryEmail] = React.useState('hiro@magic.link');
   const [phoneNumber, onChangePhoneNumber] = React.useState('+18888888888');
-  const { magic } = props;
+  const { magic } = useMagic();
 
   /**
    *Google sign in
@@ -18,7 +18,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
   const magicGoogleSignIn = async () => {
     const res = await magic.oauth.loginWithPopup({ provider: 'google', redirectURI: 'magicbarernexample://' });
     Alert.alert(JSON.stringify(res));
-  }
+  };
 
   /**
    *Apple sign in
@@ -26,13 +26,13 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
   const magicAppleSignIn = async () => {
     const res = await magic.oauth.loginWithPopup({ provider: 'apple', redirectURI: 'magicbarernexample://' });
     Alert.alert(JSON.stringify(res));
-  }
+  };
 
   /**
    * email otp sign in
    * */
   const loginEmailOTP = async () => {
-    Alert.alert('clicked')
+    Alert.alert('clicked');
     try {
       await magic.auth.loginWithEmailOTP({ email: email });
       const res = await magic.user.getInfo();
@@ -49,7 +49,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
     try {
       const DID = await magic.auth.loginWithSMS({
         phoneNumber: phoneNumber,
-      })
+      });
       Alert.alert(`Your DID is: ${DID}`);
     } catch (err) {
       console.log(err);
@@ -88,40 +88,15 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
     }
   };
 
-  /** Magic Connect w/ UI  */
-  const showMCUserInterface = async () => {
-    try {
-      const account = await magic.wallet.connectWithUI();
-      Alert.alert(`Your Public address is: ${account[0]}`);
-    } catch (err) {
-      Alert.alert(err);
-    }
-  };
-
-
   /**
    * getInfo()
    * */
   const getInfo = async () => {
     const res = await magic.user.getInfo();
     Alert.alert(JSON.stringify(res));
-  }
+  };
 
-    /**
-   * switchEVMChain
-   * */
-    const switchNetwork = async (chainId: number) => {
-      const res = await magic.evm.switchEVMChain(chainId);
-      Alert.alert(JSON.stringify(res));
-    };
-  
-    /**
-     * getSolanaPublicAddress
-     * */
-    const getSolanaPublicAddress = async () => {
-      const res = await magic.solana.getPublicAddress();
-      Alert.alert(JSON.stringify(res));
-    };
+
 
   /**
    * IsLoggedIn
@@ -129,7 +104,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
   const isLoggedIn = async () => {
     const res = await magic.user.isLoggedIn();
     Alert.alert(JSON.stringify(res));
-  }
+  };
 
   const logout = async () => {
     const isLoggedOut = await magic.user.logout();
@@ -142,7 +117,7 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
           <Text style={styles.text}>{props.title}</Text>
         </Pressable>
       </View>
-  )
+  );
 
   return (
       <View style={styles.container}>
@@ -206,34 +181,6 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
                 <Card.Title title="Is Logged In" />
                 <TouchableButton handler={() => isLoggedIn()} title="isLoggedIn" />
               </Card>
-              {/* Solana Address */}
-              <Card>
-                <Card.Title title="Solana Address" />
-                <TouchableButton
-                  handler={() => getSolanaPublicAddress()}
-                  title="get Solana address"
-                />
-              </Card>
-              {/* Switch EVM Chain */}
-              <Card>
-                <Card.Title title="Switch EVM Chain" />
-                <View style={styles.loginContainer}>
-                  <View style={styles.emailContainer}>
-                    <Text>Chain ID:</Text>
-                    <TextInput
-                      style={styles.TextInputContainer}
-                      onChangeText={(chainId) => onChangeChainId(chainId)}
-                      value={chainId}
-                    />
-                  </View>
-                </View>
-                <View style={styles.margin10}>
-                  <TouchableButton
-                    handler={() => switchNetwork(Number(chainId))}
-                    title="switchEVMChain"
-                  />
-                </View>
-              </Card>
               {/* metaData */}
               <Card>
                 <Card.Title title="Metadata (getInfo)" />
@@ -263,12 +210,6 @@ export default function LoginScreen(props: { magic: any; web3?: any; }) {
                   <TouchableButton handler={() => showSettings()} title="Show Settings" />
                 </View>
               </Card>
-            </Card>
-
-            {/* Magic Connect Sign-in */}
-            <Card>
-              <Card.Title title="Magic Connect" />
-              <TouchableButton handler={() => showMCUserInterface()} title="MC Login" />
             </Card>
           </ScrollView >
         </GestureHandlerRootView>

@@ -11,19 +11,18 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import LoginScreen from '../screens/LoginScreen';
-import Web3Screen from '../screens/Web3Screen';
+import CryptoScreen from '../screens/CryptoScreen';
 import { RootStackParamList, RootTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
-import HeaderDropdown from "./HeaderDropdown";
 
 Icon.loadFont();
 
-export default function Navigation({ magicProps }: { magicProps: any  }) {
+export default function Navigation() {
 
   return (
     <NavigationContainer
       linking={LinkingConfiguration}>
-      <RootNavigator magicProps={magicProps}/>
+      <RootNavigator/>
     </NavigationContainer>
   );
 }
@@ -34,11 +33,11 @@ export default function Navigation({ magicProps }: { magicProps: any  }) {
  */
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-function RootNavigator({ magicProps }: any) {
+function RootNavigator() {
   return (
     <Stack.Navigator>
         <Stack.Screen name="Root" options={{ headerShown: false }} >
-            {() => BottomTabNavigator(magicProps)}
+            {() => BottomTabNavigator()}
         </Stack.Screen>
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
@@ -51,14 +50,7 @@ function RootNavigator({ magicProps }: any) {
  */
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
-function BottomTabNavigator(props: { navigation?: any; env?: any; setEnv?: any; magic?: any; web3?: any; }) {
-
-    const { env, setEnv, magic, web3 } = props;
-
-    const header = () => <HeaderDropdown
-        env={env}
-        setEnv={setEnv}
-    />
+function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
@@ -71,7 +63,7 @@ function BottomTabNavigator(props: { navigation?: any; env?: any; setEnv?: any; 
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         })}
       >
-          {() => TabOneNavigator(header, magic, web3)}
+          {() => TabOneNavigator()}
       </BottomTab.Screen>
       <BottomTab.Screen
         name="Web3"
@@ -81,7 +73,7 @@ function BottomTabNavigator(props: { navigation?: any; env?: any; setEnv?: any; 
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       >
-          {() => TabTwoNavigator(header, web3, magic)}
+          {() => TabTwoNavigator()}
       </BottomTab.Screen>
     </BottomTab.Navigator>
   );
@@ -97,14 +89,14 @@ function TabBarIcon(props: {
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const TabOneStack = createNativeStackNavigator<TabOneParamList>();
 
-function TabOneNavigator(header: () => JSX.Element, magic: any, web3: any) {
+function TabOneNavigator() {
     return (
         <TabOneStack.Navigator>
             <TabOneStack.Screen
                 name="LoginScreen"
-                options={{ headerTitle: header }}
+                options={{ headerTitle: 'Login' }}
             >
-                {props => <LoginScreen {...props} magic={magic} web3={web3} />}
+                {() => <LoginScreen />}
             </TabOneStack.Screen>
         </TabOneStack.Navigator>
     );
@@ -112,14 +104,14 @@ function TabOneNavigator(header: () => JSX.Element, magic: any, web3: any) {
 
 const TabTwoStack = createNativeStackNavigator<TabTwoParamList>();
 
-function TabTwoNavigator(header: () => JSX.Element, web3: any, magic: any) {
+function TabTwoNavigator() {
     return (
         <TabTwoStack.Navigator>
             <TabTwoStack.Screen
-                name="Web3Screen"
-                options={{ headerTitle: header }}
+                name="CryptoScreen"
+                options={{ headerTitle: 'Crypto' }}
             >
-                {(props: any) => <Web3Screen {...props} web3={web3} magic={magic}/>}
+                {() => <CryptoScreen />}
             </TabTwoStack.Screen>
         </TabTwoStack.Navigator>
     );
