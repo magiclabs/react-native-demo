@@ -1386,10 +1386,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@magic-ext/evm@1.0.0-canary.915.17279636506.0":
-  version "1.0.0-canary.915.17279636506.0"
-  resolved "https://registry.yarnpkg.com/@magic-ext/evm/-/evm-1.0.0-canary.915.17279636506.0.tgz#6e4bd680561f4778646bd19c439777cbede5b95c"
-  integrity sha512-mkCEhZg2ZiK3GRdeg9i2Rzrty+3RPwPsMPbgPcWxrI/U36nAf8UeMhfK4xz3xvN/yJsHyLDgRRSGfGYytP6YsQ==
+"@magic-ext/evm@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/evm/-/evm-1.0.0.tgz#796677ec80b855af4a540dd84b9c9599ec5f8e9e"
+  integrity sha512-2ObYeANcBB6UkqU3Hso3nO2GDdazB82AbkMjgpeHxIVnzBnPBiDdOF0asY5HWarARPhTE7ZJCLGtaaX3N4VAeg==
 
 "@magic-ext/react-native-expo-oauth@latest":
   version "26.0.7"
@@ -1401,29 +1401,29 @@
     expo-application "^5.0.1"
     expo-web-browser ">=12.0.0"
 
-"@magic-ext/solana@27.0.0-canary.915.17279636506.0":
-  version "27.0.0-canary.915.17279636506.0"
-  resolved "https://registry.yarnpkg.com/@magic-ext/solana/-/solana-27.0.0-canary.915.17279636506.0.tgz#ec3e4493e55a08aac187ec55dfc6af4fd24268bc"
-  integrity sha512-IeP4HtuHEI/Z+HuDWELPHlfdmPrphkntuagLzba0ez74BN3u51H+/dBG1CL5pPKPbX8CAPOibCh0Rt7JWsVjLA==
+"@magic-ext/solana@^28.2.0":
+  version "28.2.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/solana/-/solana-28.2.0.tgz#f9df752b365d4bf7a6284aedcf13610747d2c779"
+  integrity sha512-vNBhk6Z35FHepC9pQ+8pvbVG9rMX677iqKby5KH7MYI3tEe3tgHVhu7Qr18CIOssXaNh8zg34S9GMaMKCM0row==
   dependencies:
     "@solana/web3.js" "^1.87.2"
 
-"@magic-sdk/provider@30.0.0-canary.915.17279636506.0":
-  version "30.0.0-canary.915.17279636506.0"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/provider/-/provider-30.0.0-canary.915.17279636506.0.tgz#5f0406562fe411643d4e014e7f19ea957814fcdd"
-  integrity sha512-a40U+xvVO9zA0XOcFF7FUGD8cq12Vfwg2gBqqp5WG9Oevjj6aniDhgJuqvWTziIH9keBLILYX/g55ymVKvdVXA==
+"@magic-sdk/provider@^31.2.0":
+  version "31.2.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/provider/-/provider-31.2.0.tgz#634c0e38d5a4acd510f69052d898f71769ba65a0"
+  integrity sha512-BiLnTn97HFnUWDT04m38t2z0IyoaVx1b9wb96T7YeYylDrIyOab/ma7L2P2gnLwAOmQq8N8Ky+gid1cVExbKWA==
   dependencies:
-    "@magic-sdk/types" "25.0.0-canary.915.17279636506.0"
+    "@magic-sdk/types" "^25.2.0"
     eventemitter3 "^4.0.4"
 
-"@magic-sdk/react-native-expo@32.0.0-canary.915.17279636506.0":
-  version "32.0.0-canary.915.17279636506.0"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-expo/-/react-native-expo-32.0.0-canary.915.17279636506.0.tgz#580abad556a64e3e5f11698e079c357750a0cc83"
-  integrity sha512-0g3Y17gL/cwprSoJbDljLT6sudxitBADPKQ7TJHclVzI5OxkGmvTNvOIsgYLF4cN4kWvsHRDmZ3js4QQ/T5DwA==
+"@magic-sdk/react-native-expo@^32.2.0":
+  version "32.2.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/react-native-expo/-/react-native-expo-32.2.0.tgz#fdaa61d5f4c9986887596d10023ff8c5d9b0cec5"
+  integrity sha512-q1sXtpw4ShbenrmVZVaXf3zZl/mNHhGP580xlQUBbNKjeoHTw6tCkx5r4IlNJjbJoCRcAMiF5i9f4BkjwHtFEA==
   dependencies:
     "@aveq-research/localforage-asyncstorage-driver" "^3.0.1"
-    "@magic-sdk/provider" "30.0.0-canary.915.17279636506.0"
-    "@magic-sdk/types" "25.0.0-canary.915.17279636506.0"
+    "@magic-sdk/provider" "^31.2.0"
+    "@magic-sdk/types" "^25.2.0"
     "@react-native-async-storage/async-storage" "^1.15.5"
     "@types/lodash" "^4.14.158"
     buffer "~5.6.0"
@@ -1435,15 +1435,15 @@
     tslib "^2.0.3"
     whatwg-url "~8.1.0"
 
-"@magic-sdk/types@25.0.0-canary.915.17279636506.0":
-  version "25.0.0-canary.915.17279636506.0"
-  resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-25.0.0-canary.915.17279636506.0.tgz#18f2e61a5b068082e0afd9864e04fb0fc8f671fd"
-  integrity sha512-0rXpeJmI4ZCZM3CyFJJ48oZo3DHdywfUAEymGrLyWUS+x4s/Syn8XzDlVTh+3y8qIh/LIUVhYqT2yBcaFa8Fdw==
-
 "@magic-sdk/types@^10.0.0":
   version "10.0.1"
   resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-10.0.1.tgz#59b683670587634bdbc3d632fced4d5fda7c35a4"
   integrity sha512-JNB+sEKdVDZd2MDs4QaPM6vxCNfGuYhWUd14rDLixcbdut2u9g5z6yDxs1rYWYEVaUknNs+zGp2K/NDPo9UfdA==
+
+"@magic-sdk/types@^25.2.0":
+  version "25.2.0"
+  resolved "https://registry.yarnpkg.com/@magic-sdk/types/-/types-25.2.0.tgz#1f980a150fdbc439bf14d1688a942525da2fcaa7"
+  integrity sha512-/S78nj/jBND68Cp6L1JIDugpzIdAGRMsL+XsUHyVmyMhVcZvkZycEOOrmDH0SP0mjd29UvNLnPsJY1RT6A4NeA==
 
 "@noble/curves@1.2.0":
   version "1.2.0"
@@ -1872,9 +1872,9 @@
   integrity sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==
 
 "@types/lodash@^4.14.158":
-  version "4.17.17"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.17.17.tgz#fb85a04f47e9e4da888384feead0de05f7070355"
-  integrity sha512-RRVJ+J3J+WmyOTqnz3PiBLA501eKwXl2noseKOrNo/6+XEHjTAxO4xHvxQB6QuNm+s4WRbn6rSiap8+EA+ykFQ==
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.17.21.tgz#b806831543d696b14f8112db600ea9d3a1df6ea4"
+  integrity sha512-FOvQ0YPD5NOfPgMzJihoT+Za5pdkDJWcbpuj1DjaKZIr/gxodQjY/uWEFlTNqW2ugXHUiL8lRQgw63dzKHZdeQ==
 
 "@types/node@*":
   version "22.15.22"
