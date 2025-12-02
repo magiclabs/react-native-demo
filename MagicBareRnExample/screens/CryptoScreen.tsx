@@ -84,7 +84,7 @@ export default function CryptoScreen() {
   }, [ciphertexts, magic.gdkms]);
 
   /**
-   * switchEVMChain
+   * switchChain
    * */
   const switchNetwork = async (chain: number) => {
     const res = await magic.evm.switchChain(chain);
@@ -166,7 +166,7 @@ export default function CryptoScreen() {
               <View style={styles.actionContainer}>
                 <Button
                   onPress={() => switchNetwork(Number(chainId))}
-                  title="switchEVMChain"
+                  title="switchChain"
                 />
               </View>
             </Card>

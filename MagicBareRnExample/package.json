@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@magic-ext/evm": "1.0.0",
+    "@magic-ext/evm": "^1.0.0",
     "@magic-ext/gdkms": "latest",
     "@magic-ext/react-native-bare-oauth": "latest",
     "@magic-ext/solana": "^28.2.0",
