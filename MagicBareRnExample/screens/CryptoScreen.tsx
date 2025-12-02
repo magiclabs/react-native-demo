@@ -1,11 +1,11 @@
 import React, {useCallback} from 'react';
 import {Button, TextInput, Text, View, Alert} from 'react-native';
-import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
-import { styles } from './styles';
-import { Card } from 'react-native-paper';
-import { ethers } from 'ethers';
+import {GestureHandlerRootView, ScrollView} from 'react-native-gesture-handler';
+import {styles} from './styles';
+import {Card} from 'react-native-paper';
+import {ethers} from 'ethers';
 import '../shim'; // Required for Bitcoin Blockchain interaction
-import { useMagic } from '../hooks/magic';
+import {useMagic} from '../hooks/magic';
 
 // Type error: Incorrect prop types - should be more specific
 export default function CryptoScreen() {
@@ -16,10 +16,9 @@ export default function CryptoScreen() {
   const [chainId, onChangeChainId] = React.useState('137');
 
   // Type error: Destructuring with wrong types
-  const { provider, magic } = useMagic();
+  const {provider, magic} = useMagic();
 
-  React.useEffect(() => {
-  }, []);
+  React.useEffect(() => {}, []);
 
   /** GetAccount */
   const getAccount = async (): Promise<string> => {
@@ -27,8 +26,8 @@ export default function CryptoScreen() {
       const signer = await provider.getSigner();
       const account = await signer.getAddress();
       updatePublicAddress(account);
-      return account; 
-    } catch(e) {
+      return account;
+    } catch (e) {
       console.log(e);
       updatePublicAddress('');
       return '';
@@ -87,8 +86,8 @@ export default function CryptoScreen() {
   /**
    * switchEVMChain
    * */
-  const switchNetwork = async (chainId: number) => {
-    const res = await magic.evm.switchEVMChain(chainId);
+  const switchNetwork = async (chain: number) => {
+    const res = await magic.evm.switchChain(chain);
     Alert.alert(JSON.stringify(res));
   };
 
@@ -102,96 +101,103 @@ export default function CryptoScreen() {
 
   // Type error: Wrong type for style prop
   return (
-      <View style={styles.container}>
-        <GestureHandlerRootView style={{ flex: 1 }}>
-          <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+    <View style={styles.container}>
+      <GestureHandlerRootView style={{flex: 1}}>
+        <ScrollView
+          style={styles.container}
+          contentContainerStyle={styles.contentContainer}>
+          <Card>
+            {/* Magic Auth */}
+            <Card.Title title="Magic Auth" />
+            {/* Send Transaction */}
             <Card>
-              {/* Magic Auth */}
-              <Card.Title title="Magic Auth" />
-              {/* Send Transaction */}
-              <Card>
-                <Card.Title title="Send Transaction" />
-                <View style={styles.loginContainer}>
-                  <View style={styles.emailContainer}>
-                    <Text>
-                      To:
-                    </Text>
-                    <TextInput
-                        style={styles.TextInputContainer}
-                        onChangeText={text => onChangeToAddress(text)}
-                        value={toAddress}
-                    />
-                  </View>
-                  <Text style={styles.publicAddress}>
-                    Transaction Hash: {transactionHash}
-                  </Text>
+              <Card.Title title="Send Transaction" />
+              <View style={styles.loginContainer}>
+                <View style={styles.emailContainer}>
+                  <Text>To:</Text>
+                  <TextInput
+                    style={styles.TextInputContainer}
+                    onChangeText={text => onChangeToAddress(text)}
+                    value={toAddress}
+                  />
                 </View>
-                <View style={styles.actionContainer}>
-                  {/* Type error: Wrong parameter type */}
-                  <Button onPress={() => sendTransaction('wrong')} title="Send" />
-                </View>
-              </Card>
-              {/* Get Account */}
-              <Card>
-                <Card.Title title="Get Account" />
-                <View style={styles.loginContainer}>
-                  <Text style={styles.publicAddress}>
-                    Public Address: {publicAddress} {/* Type error: publicAddress is number but displayed as string */}
-                  </Text>
-                </View>
-                <View style={styles.actionContainer}>
-                  <Button onPress={() => getAccount()} title="Get Account" />
-                </View>
-              </Card>
-              {/* Personal Sign */}
-              <Card>
-                <Card.Title title="Personal Sign" />
-                <View style={styles.actionContainer}>
-                  <Button onPress={() => personalSign()} title="Personal Sign" />
-                </View>
-              </Card>
-              {/* Switch EVM Chain */}
-              <Card>
-                <Card.Title title="Switch EVM Chain" />
-                <View style={styles.loginContainer}>
-                  <View style={styles.emailContainer}>
-                    <Text>Chain ID:</Text>
-                    <TextInput
-                      style={styles.TextInputContainer}
-                      onChangeText={(chainId) => onChangeChainId(chainId)}
-                      value={chainId}
-                    />
-                  </View>
-                </View>
-                <View style={styles.actionContainer}>
-                  <Button onPress={() => switchNetwork(Number(chainId))} title="switchEVMChain" />
-                </View>
-              </Card>
-              {/* Solana Address */}
-              <Card>
-                <Card.Title title="Solana Address" />
-                <View style={styles.actionContainer}>
-                  <Button onPress={() => getSolanaPublicAddress()} title="get Solana address" />
-                </View>
-              </Card>
-              {/* GDKMS */}
-              <Card>
-                <Card.Title title="Encrypt" />
-                <View style={styles.actionContainer}>
-                  <Button onPress={() => encrypt()} title="Encrypt" />
-                </View>
-              </Card>
-              <Card>
-                <Card.Title title="Decrypt" />
-                <View style={styles.actionContainer}>
-                  {/* Type error: Wrong parameter type */}
-                  <Button onPress={() => decrypt()} title="Decrypt" />
-                </View>
-              </Card>
+                <Text style={styles.publicAddress}>
+                  Transaction Hash: {transactionHash}
+                </Text>
+              </View>
+              <View style={styles.actionContainer}>
+                {/* Type error: Wrong parameter type */}
+                <Button onPress={() => sendTransaction('wrong')} title="Send" />
+              </View>
             </Card>
-          </ScrollView>
-        </GestureHandlerRootView>
-      </View>
+            {/* Get Account */}
+            <Card>
+              <Card.Title title="Get Account" />
+              <View style={styles.loginContainer}>
+                <Text style={styles.publicAddress}>
+                  Public Address: {publicAddress}{' '}
+                  {/* Type error: publicAddress is number but displayed as string */}
+                </Text>
+              </View>
+              <View style={styles.actionContainer}>
+                <Button onPress={() => getAccount()} title="Get Account" />
+              </View>
+            </Card>
+            {/* Personal Sign */}
+            <Card>
+              <Card.Title title="Personal Sign" />
+              <View style={styles.actionContainer}>
+                <Button onPress={() => personalSign()} title="Personal Sign" />
+              </View>
+            </Card>
+            {/* Switch EVM Chain */}
+            <Card>
+              <Card.Title title="Switch EVM Chain" />
+              <View style={styles.loginContainer}>
+                <View style={styles.emailContainer}>
+                  <Text>Chain ID:</Text>
+                  <TextInput
+                    style={styles.TextInputContainer}
+                    onChangeText={chainId => onChangeChainId(chainId)}
+                    value={chainId}
+                  />
+                </View>
+              </View>
+              <View style={styles.actionContainer}>
+                <Button
+                  onPress={() => switchNetwork(Number(chainId))}
+                  title="switchEVMChain"
+                />
+              </View>
+            </Card>
+            {/* Solana Address */}
+            <Card>
+              <Card.Title title="Solana Address" />
+              <View style={styles.actionContainer}>
+                <Button
+                  onPress={() => getSolanaPublicAddress()}
+                  title="get Solana address"
+                />
+              </View>
+            </Card>
+            {/* GDKMS */}
+            <Card>
+              <Card.Title title="Encrypt" />
+              <View style={styles.actionContainer}>
+                <Button onPress={() => encrypt()} title="Encrypt" />
+              </View>
+            </Card>
+            <Card>
+              <Card.Title title="Decrypt" />
+              <View style={styles.actionContainer}>
+                {/* Type error: Wrong parameter type */}
+                <Button onPress={() => decrypt()} title="Decrypt" />
+              </View>
+            </Card>
+          </Card>
+        </ScrollView>
+      </GestureHandlerRootView>
+    </View>
   );
 }
 
@@ -199,5 +205,3 @@ export default function CryptoScreen() {
 CryptoScreen.navigationOptions = {
   header: 'wrong_type',
 };
-
-
