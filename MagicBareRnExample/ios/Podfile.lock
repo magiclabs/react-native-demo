@@ -1985,7 +1985,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-webview (13.13.0):
+  - react-native-webview (13.16.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -3074,7 +3074,7 @@ SPEC CHECKSUMS:
   react-native-device-crypto: ad7f05b0c5b6e5042da4faa628f1d896ad69fbbd
   react-native-netinfo: f0a9899081c185db1de5bb2fdc1c88c202a059ac
   react-native-safe-area-context: 8f42f887d6b7aabe67548e6f1128e194d609107e
-  react-native-webview: a76e827a7dd0096c0d9c7a1fb0d32967004c5a7c
+  react-native-webview: 8b9097e270a99ee8798449f191a7ea27c790fa1c
   React-NativeModulesApple: 7f2f2fed3f6c858889eb61d09941be965d52df58
   React-networking: 43e5e6773ac2ca2a93261a1388fed269c9fce092
   React-oscompat: 80166b66da22e7af7fad94474e9997bd52d4c8c6
