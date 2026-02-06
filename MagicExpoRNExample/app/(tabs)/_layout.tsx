@@ -1,22 +1,26 @@
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Tabs } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import {Platform, View} from 'react-native';
+import { Platform, View } from 'react-native';
+import { PaperProvider } from 'react-native-paper';
 
 import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
-import { useMagic } from "@/hooks/magic";
+import { useMagic } from '@/hooks/magic';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-
   const { magic } = useMagic();
 
   return (
-      <View style={{flex: 1}}>
-          <Tabs
+    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <PaperProvider>
+      <View style={{ flex: 1 }}>
+        <Tabs
               screenOptions={{
                   tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
                   headerShown: false,
@@ -44,8 +48,11 @@ export default function TabLayout() {
                       tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
                   }}
               />
-          </Tabs>
-          <magic.Relayer/>
+        </Tabs>
+        <magic.Relayer />
       </View>
+      <StatusBar style="auto" />
+      </PaperProvider>
+    </ThemeProvider>
   );
 }
