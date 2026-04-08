@@ -14,6 +14,8 @@ export default function CryptoScreen() {
   const [transactionHash, updateTransactionHash] = React.useState('');
   const [ciphertexts, setCiphertexts] = React.useState('');
   const [chainId, onChangeChainId] = React.useState('137');
+  const [tnxAmount, onChangeTnxAmount] = React.useState('0.00001');
+  const [tnxGasLimit, onChangeTnxGasLimit] = React.useState('21000');
 
   // Type error: Destructuring with wrong types
   const {provider, magic} = useMagic();
@@ -63,6 +65,36 @@ export default function CryptoScreen() {
       updateTransactionHash(tx.hash);
     } catch (err) {
       console.log(err);
+    }
+  };
+
+  /** sendSepoliaTransaction */
+  const sendSepoliaTransaction = async () => {
+    try {
+      await magic.evm.switchChain(11155111); // Switch to Sepolia first
+      const accounts = await provider.listAccounts();
+      const publicAddress = accounts[0].address;
+      console.log('accounts', publicAddress);
+
+      const txnParams = {
+        from: publicAddress,
+        to: publicAddress,
+        value: ethers.parseUnits(tnxAmount, 'ether'),
+        gasLimit: ethers.toNumber(tnxGasLimit),
+      };
+
+      const signer = await provider.getSigner();
+      const transactionResponse = await signer.sendTransaction(txnParams);
+      console.log('transactionResponse', transactionResponse);
+
+      const tx = await provider.getTransaction(transactionResponse.hash);
+      console.log('getTransaction', tx);
+      const receipt = await tx?.wait();
+      console.log('receipt', receipt);
+      Alert.alert('Success', `Transaction sent: ${transactionResponse.hash}`);
+    } catch (err) {
+      console.error(err);
+      Alert.alert('Error', (err as Error).message);
     }
   };
 
@@ -128,6 +160,29 @@ export default function CryptoScreen() {
               <View style={styles.actionContainer}>
                 {/* Type error: Wrong parameter type */}
                 <Button onPress={() => sendTransaction('wrong')} title="Send" />
+              </View>
+            </Card>
+            {/* Send Sepolia Transaction */}
+            <Card>
+              <Card.Title title="Send Sepolia Transaction" />
+              <View style={styles.loginContainer}>
+                <Text>Amount</Text>
+                <TextInput
+                  style={styles.TextInputContainer}
+                  onChangeText={onChangeTnxAmount}
+                  value={tnxAmount}
+                />
+
+                <Text>Gas Limit</Text>
+                <TextInput
+                  style={styles.TextInputContainer}
+                  onChangeText={onChangeTnxGasLimit}
+                  value={tnxGasLimit}
+                />
+              </View>
+
+              <View style={styles.actionContainer}>
+                <Button onPress={sendSepoliaTransaction} title="Send" />
               </View>
             </Card>
             {/* Get Account */}

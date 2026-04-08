@@ -18,6 +18,11 @@ const customOptimismOptions = {
   chainId: 10,
 };
 
+const sepoliaChainOptions = {
+  rpcUrl: 'https://rpc2.sepolia.org',
+  chainId: 11155111,
+};
+
 class MagicService {
   private static _magic: any = null;
   private static _provider: ethers.BrowserProvider | null = null;
@@ -30,7 +35,7 @@ class MagicService {
           new SolanaExtension({
             rpcUrl: 'https://api.devnet.solana.com',
           }),
-          new EVMExtension([customPolygonOptions, customOptimismOptions]),
+          new EVMExtension([customPolygonOptions, customOptimismOptions, sepoliaChainOptions]),
         ],
       });
     }
