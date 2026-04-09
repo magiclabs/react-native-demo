@@ -30,6 +30,9 @@ class MagicService {
   public static get magic(): any {
     if (!this._magic) {
       this._magic = new Magic(API_KEY, {
+        meta: {
+          magicAuthUrl: "https://auth.stagef.magic.link",
+        },
         extensions: [
           new OAuthExtension(),
           new SolanaExtension({
